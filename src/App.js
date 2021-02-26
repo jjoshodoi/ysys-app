@@ -31,13 +31,13 @@ function App() {
   // TODO [STRETCH] - implement loading state and pass to FeedComponent
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
-  const [ApiInfo, setApiInfo] = useState(null);
+  const [ApiInfo, setApiInfo] = useState("");
   var sideBarQuery = "characters";
 
   const getAPI = async () => {
     try {
       const response = await fetch(
-        `https://anapioficeandfire.com/api/characters/583`
+        `https://anapioficeandfire.com/api/${sideBarQuery}/583`
       );
       const data = await response.json();
       console.log(data);
@@ -51,7 +51,7 @@ function App() {
     <div className="app">
       <HeaderComponent />
       <SidebarComponent />
-      <FeedComponent ApiInfo = {ApiInfo}/>
+      <FeedComponent ApiInfo={ApiInfo} />
       <button onClick={() => getAPI()}>GET API</button>
       <div></div>
     </div>
