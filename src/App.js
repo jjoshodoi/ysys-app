@@ -31,7 +31,13 @@ function App() {
   // TODO [STRETCH] - implement loading state and pass to FeedComponent
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
+
+  const [radioSideBar, setRadioSideBar] = useState("houses");
+  const [selectSideBar, setSelectSideBar] = useState("ten");
+
+
   const [ApiInfo, setApiInfo] = useState("");
+
   var sideBarQuery = "characters";
 
   const getAPI = async () => {
@@ -50,7 +56,12 @@ function App() {
   return (
     <div className="app">
       <HeaderComponent />
-      <SidebarComponent />
+      <SidebarComponent
+        radioSideBar={radioSideBar}
+        setRadioSideBar={setRadioSideBar}
+        selectSideBar={selectSideBar}
+        setSelectSideBar={setSelectSideBar}
+      />
       <FeedComponent ApiInfo={ApiInfo} />
       <button onClick={() => getAPI()}>GET API</button>
       <div></div>
