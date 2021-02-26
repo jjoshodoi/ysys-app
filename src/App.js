@@ -1,8 +1,8 @@
 import "./App.css";
-import React from "react";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
+import React, { useState } from "react";
 
 function App() {
   // TODO - this is the "main" component for our app, and it will include all the global state that we care about
@@ -31,16 +31,17 @@ function App() {
   // TODO [STRETCH] - implement loading state and pass to FeedComponent
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
-
+  const [ApiInfo, setApiInfo] = useState(null);
   var sideBarQuery = "characters";
 
   const getAPI = async () => {
     try {
       const response = await fetch(
-        `https://anapioficeandfire.com/api/${sideBarQuery}/583`
+        `https://anapioficeandfire.com/api/characters/583`
       );
       const data = await response.json();
       console.log(data);
+      setApiInfo(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -50,7 +51,7 @@ function App() {
     <div className="app">
       <HeaderComponent />
       <SidebarComponent />
-      <FeedComponent />
+      <FeedComponent ApiInfo = {ApiInfo}/>
       <button onClick={() => getAPI()}>GET API</button>
       <div></div>
     </div>
