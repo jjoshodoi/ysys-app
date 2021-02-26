@@ -1,8 +1,8 @@
 import "./App.css";
-import React from "react";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
+import React, { useState } from "react";
 
 function App() {
   // TODO - this is the "main" component for our app, and it will include all the global state that we care about
@@ -32,6 +32,12 @@ function App() {
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
+  const [radioSideBar, setRadioSideBar] = useState("houses");
+  const [selectSideBar, setSelectSideBar] = useState("ten");
+
+
+  const [ApiInfo, setApiInfo] = useState("");
+
   var sideBarQuery = "characters";
 
   const getAPI = async () => {
@@ -41,6 +47,7 @@ function App() {
       );
       const data = await response.json();
       console.log(data);
+      setApiInfo(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -49,8 +56,14 @@ function App() {
   return (
     <div className="app">
       <HeaderComponent />
-      <SidebarComponent />
-      <FeedComponent />
+      <SidebarComponent
+        radioSideBar={radioSideBar}
+        setRadioSideBar={setRadioSideBar}
+        selectSideBar={selectSideBar}
+        setSelectSideBar={setSelectSideBar}
+      />
+      <FeedComponent ApiInfo={ApiInfo} />
+      <button onClick={() => getAPI()}>GET API</button>
       <div></div>
     </div>
   );
