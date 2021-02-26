@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 // TODO - make sure CharacterCard is expecting the right props!
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
-  console.log(ApiInfo);
+  // console.log(ApiInfo);
   return (
     <Card className={classes.root}>
       <CardContent>

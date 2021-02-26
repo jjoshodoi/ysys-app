@@ -73,9 +73,9 @@ export const SidebarComponent = ({
 
       <h3>How Many?</h3>
       <select defaultValue="ten" onChange={onSelectChange}>
-        <option value="ten">10</option>
-        <option value="twentyfive">25</option>
-        <option value="fifty">50</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
       </select>
       <h5>{selectSideBar}</h5>
     </div>
