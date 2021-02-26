@@ -27,6 +27,12 @@ const string = " , @";
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
   console.log(ApiInfo);
+
+  if (ApiInfo) {
+    var aliases = ApiInfo.aliases;
+    var listOfAliases = aliases.join(" ,");
+  }
+
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -34,7 +40,7 @@ export const CharacterCard = ({ character, ApiInfo }) => {
           {ApiInfo.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          <b>AKA:</b> {ApiInfo ?? ApiInfo.aliases.join(` , `)}
+          <b>AKA:</b> {listOfAliases}
         </Typography>
       </CardContent>
     </Card>
