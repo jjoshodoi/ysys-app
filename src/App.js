@@ -51,7 +51,6 @@ function App() {
       <HeaderComponent />
       <SidebarComponent />
       <FeedComponent />
-      <button onClick={() => getAPI()}>GET API</button>
       <div></div>
     </div>
   );
