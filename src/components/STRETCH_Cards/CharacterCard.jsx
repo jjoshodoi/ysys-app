@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
-
+const string = " , @";
 // TODO - create a component which displays information about Characters
 // TODO - make sure CharacterCard is expecting the right props!
 export const CharacterCard = ({ character, ApiInfo }) => {
@@ -31,10 +31,10 @@ export const CharacterCard = ({ character, ApiInfo }) => {
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          {ApiInfo === "" ? "" : ApiInfo.name}
+          {ApiInfo.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          <b>AKA:</b>
+          <b>AKA:</b> {ApiInfo ?? ApiInfo.aliases.join(` , `)}
         </Typography>
       </CardContent>
     </Card>
