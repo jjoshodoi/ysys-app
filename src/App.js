@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
@@ -32,6 +32,9 @@ function App() {
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
+  const [radioSideBar, setRadioSideBar] = useState("houses");
+  const [selectSideBar, setSelectSideBar] = useState("ten");
+
   var sideBarQuery = "characters";
 
   const getAPI = async () => {
@@ -49,7 +52,12 @@ function App() {
   return (
     <div className="app">
       <HeaderComponent />
-      <SidebarComponent />
+      <SidebarComponent
+        radioSideBar={radioSideBar}
+        setRadioSideBar={setRadioSideBar}
+        selectSideBar={selectSideBar}
+        setSelectSideBar={setSelectSideBar}
+      />
       <FeedComponent />
       <button onClick={() => getAPI()}>GET API</button>
       <div></div>
