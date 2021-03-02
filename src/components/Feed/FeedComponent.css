@@ -3,3 +3,14 @@
   margin-left: 275px;
   transition: 250ms;
 }
+
+.column2 {
+  margin: 0 20px;
+  display: flex;
+}
+
+.leftColumn {
+}
+
+.rightColumn {
+}
