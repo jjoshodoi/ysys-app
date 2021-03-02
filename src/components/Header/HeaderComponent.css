@@ -1,11 +1,12 @@
 /* TODO add some general header styles */
 
 .header {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid red;
 }
 
-#headertext{
-    font: Tahoma;
+#headertext {
+  font: Tahoma;
+}
+
+.inline {
+  display: inline-block;
 }

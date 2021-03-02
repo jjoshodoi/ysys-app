@@ -19,15 +19,15 @@ export const HeaderComponent = ({
     callAPI(radioSideBar, search);
   };
   return (
-    <header className={"header"}>
+    <header className={"content"}>
       {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
-      <button>Show Filters</button>
-      <h1 id="headertext">
+      <button className="inline">Show Filters</button>
+      <h1 id="headertext inline">
         <center>Game of Thrones App</center>
       </h1>
-      <form onSubmit={handleSubmit} id="search">
+      <form className="inline" onSubmit={handleSubmit} id="search">
         <input
           value={search}
           placeholder="Enter Here..."
