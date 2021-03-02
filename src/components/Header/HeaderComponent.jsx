@@ -29,6 +29,7 @@ export const HeaderComponent = ({
       </h1>
       <form className="inlineBlock" onSubmit={handleSubmit} id="search">
         <input
+          className="search"
           value={search}
           placeholder="Enter Here..."
           type="text"
