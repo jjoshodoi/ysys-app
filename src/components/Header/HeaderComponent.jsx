@@ -23,7 +23,7 @@ export const HeaderComponent = ({
       {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
-      <button className="inlineBlock"><img src="https://i.pinimg.com/736x/ee/c0/71/eec071442e9a1b8e017c5a7c1853b880.jpg"></img></button>
+      <button className="inlineBlock"><img src="Images/burger.png" height="30" width="30"></img></button> {/* <---- this is the burger menu symbol for the show filters button */}
       <h1 id="headertext" className="inlineBlock">
         <center>Game of Thrones App</center>
       </h1>
