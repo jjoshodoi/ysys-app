@@ -21,20 +21,51 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
-
+const string = " , @";
+var house = "";
 // TODO - create a component which displays information about Characters
 // TODO - make sure CharacterCard is expecting the right props!
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
-  // console.log(ApiInfo);
+
+  console.log(ApiInfo);
+
+  if (ApiInfo) {
+    var aliases = ApiInfo.aliases;
+    var listOfAliases = aliases.join(", ");
+  } //Comment outn image to work dynamically
+
+  if (ApiInfo.house == "Braavos") {
+    house = "/Images/Titan_of_Braavos.jpg";
+  } else if (ApiInfo.culture == "Northmen") {
+    house = "/Images/Northmen.jpg";
+  } else if (ApiInfo.culture == "Valyrian") {
+    house =  "/Images/Valyrian.jpg";
+  } else if (ApiInfo.culture == "Westeros") {
+    house = "Images/Westeros.png";
+  } else {
+    house = "";
+  }
+
+
+
   return (
     <Card className={classes.root}>
+      <Typography variant="h5" component="h2">
+          <b>{ApiInfo.culture}</b>
+        </Typography>
+      <img src= {house} className="Border" alt="Failed."/>
       <CardContent>
         <Typography variant="h5" component="h2">
-          {ApiInfo === "" ? "" : ApiInfo.name}
+          {ApiInfo.name}
+        </Typography>
+        <hr className = "Line"/>
+        <Typography variant="h6" component="h9">
+          <b>Title: </b>
+          {ApiInfo.titles}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          <b>AKA:</b>
+          <b>AKA:</b> <i>{listOfAliases}</i>
         </Typography>
       </CardContent>
     </Card>
