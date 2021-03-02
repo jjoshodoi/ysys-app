@@ -9,5 +9,17 @@
 //  customise function (or create another function) to retrieve extra data based on configuration (number of results/pages/search
 
 // see cheat sheet for fetch example.
-export const getData = () => {
+
+const getData = async (radioSideBar, query, selectSideBar) => {
+  try {
+    const response = await fetch(
+      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&pageSize=${selectSideBar}`
+    );
+    return await response.json();
+    //   console.log(data);
+  } catch (error) {
+    return console.log(error.message);
+  }
 };
+
+export default getData;

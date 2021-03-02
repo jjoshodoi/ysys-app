@@ -1,7 +1,27 @@
 /* TODO add some general header styles */
 
 .header {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid red;
+}
+
+#headertext {
+  font: Tahoma;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.search {
+  position: absolute;
+  height: 24px;
+  top: 36px;
+  right: 69px;
+  /* width: 263px;
+  height: 24px;
+  left: 1108px;
+  top: 36px; */
+
+  background: #ffffff;
+  border-radius: 10px;
+  width: 263px;
 }

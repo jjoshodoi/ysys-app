@@ -27,6 +27,7 @@ var house = "";
 // TODO - make sure CharacterCard is expecting the right props!
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
+
   console.log(ApiInfo);
 
   if (ApiInfo) {
@@ -45,6 +46,7 @@ export const CharacterCard = ({ character, ApiInfo }) => {
   } else {
     house = "";
   }
+
 
 
   return (

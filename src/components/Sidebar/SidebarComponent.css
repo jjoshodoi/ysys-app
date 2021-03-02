@@ -1,16 +1,22 @@
 /* TODO general sidebar styles */
 .sidebar {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
+  position: fixed;
+  height: 100%;
+  width: 275px;
+  left: 0;
+  z-index: 1;
+  top: 0;
+  background-color: rgba(192, 196, 237, 0.15);
+  transition: 250ms;
+  overflow-x: hidden;
 }
 
 /* TODO expanded styles */
 .app-sidebar.expanded {
-    /* width: ??? */
+  /* width: ??? */
 }
 
 /* TODO collapsed styles */
 .app-sidebar.collapsed {
-    /* width: ??? */
+  /* width: ??? */
 }
