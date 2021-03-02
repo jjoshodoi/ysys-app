@@ -10,7 +10,11 @@
 }
 
 .leftColumn {
+  width: 70%;
 }
 
 .rightColumn {
+  width: 30%;
+  max-height: 75vh;
+  overflow-y: auto;
 }

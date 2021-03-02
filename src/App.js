@@ -65,18 +65,7 @@ function App() {
         callAPI={callAPI}
         setSelectSideBar={setSelectSideBar}
       />
-      <FeedComponent ApiInfo={ApiInfo} />
-
-
-
-      
-      <ul>
-        {/* check to see if name is null */}
-        {ApiInfo.map((item) => (
-          <li>{item.name}</li>
-        ))}
-      </ul>
-      {/* <button onClick={() => callAPI(radioSideBar, query)}>GET API</button> */}
+      <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
       <div></div>
     </div>
   );
