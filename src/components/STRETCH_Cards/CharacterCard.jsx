@@ -1,9 +1,9 @@
 import React from "react";
 import "./Card.css";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+
+import CharacterInfo from "./CharacterInfo";
+// import northMen from '../../../public/Images/Northmen.jpeg'
 
 const useStyles = makeStyles({
   root: {
@@ -30,44 +30,37 @@ export const CharacterCard = ({ character, ApiInfo }) => {
 
   console.log(ApiInfo);
 
-  if (ApiInfo) {
+  if (ApiInfo.aliases) {
     var aliases = ApiInfo.aliases;
     var listOfAliases = aliases.join(", ");
   } //Comment outn image to work dynamically
 
-  if (ApiInfo.house == "Braavos") {
-    house = "/Images/Titan_of_Braavos.jpg";
-  } else if (ApiInfo.culture == "Northmen") {
-    house = "/Images/Northmen.jpg";
-  } else if (ApiInfo.culture == "Valyrian") {
-    house =  "/Images/Valyrian.jpg";
-  } else if (ApiInfo.culture == "Westeros") {
-    house = "Images/Westeros.png";
-  } else {
-    house = "";
-  }
-
-
-
   return (
-    <Card className={classes.root}>
-      <Typography variant="h5" component="h2">
-          <b>{ApiInfo.culture}</b>
-        </Typography>
-      <img src= {house} className="Border" alt="Failed."/>
-      <CardContent>
-        <Typography variant="h5" component="h2">
-          {ApiInfo.name}
-        </Typography>
-        <hr className = "Line"/>
-        <Typography variant="h6" component="h9">
-          <b>Title: </b>
-          {ApiInfo.titles}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          <b>AKA:</b> <i>{listOfAliases}</i>
-        </Typography>
-      </CardContent>
-    </Card>
+    <div>
+      <ul>
+        {ApiInfo.map((item) => (
+          <CharacterInfo item={item} />
+        ))}
+      </ul>
+    </div>
+    // <Card className={classes.root}>
+    //   <Typography variant="h5" component="h2">
+    //     <b>{ApiInfo.culture}</b>
+    //   </Typography>
+    //   <img src={house} className="Border" alt="Failed." />
+    //   <CardContent>
+    //     <Typography variant="h5" component="h2">
+    //       {ApiInfo[0].name}
+    //     </Typography>
+    //     <hr className="Line" />
+    //     <Typography variant="h6" component="h9">
+    //       <b>Title: </b>
+    //       {ApiInfo.titles}
+    //     </Typography>
+    //     <Typography className={classes.pos} color="textSecondary">
+    //       <b>AKA:</b> <i>{listOfAliases}</i>
+    //     </Typography>
+    //   </CardContent>
+    // </Card>
   );
 };
