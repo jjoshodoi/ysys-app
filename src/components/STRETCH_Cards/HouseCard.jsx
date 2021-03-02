@@ -47,7 +47,7 @@ export const HouseCard = (props) => {
             <Grid item xs={6}>
               <Paper
                 onClick={() => changeHouse(item)}
-                className={classes.paper}
+                className={`${classes.paper} box-shadow-img`}
               >
                 {item.name}
               </Paper>
