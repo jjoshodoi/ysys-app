@@ -36,12 +36,17 @@ function App() {
   const [radioSideBar, setRadioSideBar] = useState("houses");
   const [selectSideBar, setSelectSideBar] = useState("10");
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("");
-  const [ApiInfo, setApiInfo] = useState("");
+  const [query, setQuery] = useState(null);
+  const [ApiInfo, setApiInfo] = useState([]);
+
+  // useEffect(() => {
+  //    callAPI(radioSideBar, query);
+  // }, [radioSideBar, selectSideBar]);
 
   const callAPI = async (radioSideBar, query) => {
     const data = await getData(radioSideBar, query, selectSideBar);
     setApiInfo(data);
+    console.log(ApiInfo);
   };
 
   return (
@@ -57,9 +62,20 @@ function App() {
         radioSideBar={radioSideBar}
         setRadioSideBar={setRadioSideBar}
         selectSideBar={selectSideBar}
+        callAPI={callAPI}
         setSelectSideBar={setSelectSideBar}
       />
       <FeedComponent ApiInfo={ApiInfo} />
+
+
+
+      
+      <ul>
+        {/* check to see if name is null */}
+        {ApiInfo.map((item) => (
+          <li>{item.name}</li>
+        ))}
+      </ul>
       {/* <button onClick={() => callAPI(radioSideBar, query)}>GET API</button> */}
       <div></div>
     </div>

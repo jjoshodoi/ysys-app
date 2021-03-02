@@ -2,33 +2,25 @@ import React, { useState } from "react";
 import "./SidebarComponent.css";
 
 // TODO - make sure SidebarComponent is expecting the right props!
-export const SidebarComponent = ({
-  radioSideBar,
-  setRadioSideBar,
-  selectSideBar,
-  setSelectSideBar,
-}) => {
+export const SidebarComponent = (props) => {
   // TODO - reflect expanded/collapsed state in sidebar's className
   // TODO - make sure the classNames in the SidebarComponent.css match up with the classes you choose!
 
-  {
-    /* TODO - flesh out this component to include all controls for configuring your data retrieval.
-             This must include the category (books/characters/houses)
-             [STRETCH] Feel free to add anything else you want, for example:
-                * a dropdown to select number of items you want to retrieve
-                * a search bar to search for a particular item
-             You could even change what you can see in the search bar based on what you are searching for.
-             E.g add a dropdown to determine which field you're searching on ("name"/"title"/"alias")
-        */
-  }
+  //  TODO - flesh out this component to include all controls for configuring your data retrieval.
+  //              This must include the category (books/characters/houses)
+  //              [STRETCH] Feel free to add anything else you want, for example:
+  //                 * a dropdown to select number of items you want to retrieve
+  //                 * a search bar to search for a particular item
+  //              You could even change what you can see in the search bar based on what you are searching for.
+  //              E.g add a dropdown to determine which field you're searching on ("name"/"title"/"alias")
 
   const onRadioChange = (event) => {
-    setRadioSideBar(event.target.value);
+    props.setRadioSideBar(event.target.value);
     console.log(event.target.value);
   };
 
   const onSelectChange = (event) => {
-    setSelectSideBar(event.target.value);
+    props.setSelectSideBar(event.target.value);
     console.log(event.target.value);
   };
 
@@ -40,7 +32,7 @@ export const SidebarComponent = ({
             <input
               type="radio"
               value="houses"
-              checked={radioSideBar === "houses"}
+              checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
             />
             Houses
@@ -51,7 +43,7 @@ export const SidebarComponent = ({
             <input
               type="radio"
               value="characters"
-              checked={radioSideBar === "characters"}
+              checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
             />
             Characters
@@ -62,13 +54,13 @@ export const SidebarComponent = ({
             <input
               type="radio"
               value="books"
-              checked={radioSideBar === "books"}
+              checked={props.radioSideBar === "books"}
               onChange={onRadioChange}
             />
             Books
           </label>
         </div>
-        <div>Selected option is : {radioSideBar}</div>
+        <div>Selected option is : {props.radioSideBar}</div>
       </form>
 
       <h3>How Many?</h3>
@@ -77,7 +69,7 @@ export const SidebarComponent = ({
         <option value="25">25</option>
         <option value="50">50</option>
       </select>
-      <h5>{selectSideBar}</h5>
+      <h5>{props.selectSideBar}</h5>
     </div>
   );
 };
