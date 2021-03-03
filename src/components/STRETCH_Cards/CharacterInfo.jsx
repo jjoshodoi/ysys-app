@@ -3,6 +3,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
@@ -38,26 +39,28 @@ const CharacterInfo = (props) => {
 
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <Typography variant="h5" component="h2">
-        <b>{props.item.culture}</b>
-      </Typography>
-      <img src={house} className="Border cardImg" alt="Failed." />
-      <CardContent>
+    <Grid item xs={6} md={4}>
+      <Card className={classes.root}>
         <Typography variant="h5" component="h2">
-          {props.item.name}
+          <b>{props.item.culture}</b>
         </Typography>
-        <hr className="Line" />
-        <Typography variant="h6" component="h9">
-          <b>Title: </b>
-          {props.item.titles}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          <b>AKA:</b>{" "}
-          <i>{props.item.aliases.map((aliases) => `${aliases}, `)}</i>
-        </Typography>
-      </CardContent>
-    </Card>
+        <img src={house} className="Border cardImg" alt="Failed." />
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            {props.item.name}
+          </Typography>
+          <hr className="Line" />
+          <Typography variant="h6" component="h9">
+            <b>Title: </b>
+            {props.item.titles}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            <b>AKA:</b>{" "}
+            {/* <i>{props.item.aliases.map((aliases) => `${aliases}, `)}</i> */}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
   );
 };
 

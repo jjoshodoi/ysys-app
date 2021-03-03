@@ -27,7 +27,7 @@ export const SidebarComponent = (props) => {
   return (
     <div className={"sidebar"}>
       <form>
-        <div className="radio">
+        <div className="radio radiohouses">
           <label>
             <input
               type="radio"
@@ -38,7 +38,7 @@ export const SidebarComponent = (props) => {
             Houses
           </label>
         </div>
-        <div className="radio">
+        <div className="radio radiocharacters">
           <label>
             <input
               type="radio"
@@ -49,7 +49,7 @@ export const SidebarComponent = (props) => {
             Characters
           </label>
         </div>
-        <div className="radio">
+        <div className="radio radiobooks">
           <label>
             <input
               type="radio"
