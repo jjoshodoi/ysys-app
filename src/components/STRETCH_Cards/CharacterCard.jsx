@@ -1,7 +1,7 @@
 import React from "react";
 import "./Card.css";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
 // import northMen from '../../../public/Images/Northmen.jpeg'
 
@@ -28,7 +28,7 @@ var house = "";
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
 
-  console.log(ApiInfo);
+  // console.log(ApiInfo);
 
   if (ApiInfo.aliases) {
     var aliases = ApiInfo.aliases;
@@ -39,7 +39,9 @@ export const CharacterCard = ({ character, ApiInfo }) => {
     <div>
       <ul>
         {ApiInfo.map((item) => (
-          <CharacterInfo item={item} />
+          <Grid container direction={"row"}>
+            <CharacterInfo item={item} />
+          </Grid>
         ))}
       </ul>
     </div>

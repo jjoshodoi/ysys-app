@@ -1,34 +1,52 @@
 /* TODO add some general header styles */
 
-.header {
+header {
+  height: 120px;
 }
 
 #headertext {
   font: Tahoma;
+  right: 40%;
+  font-size: 2em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 .inlineBlock {
   position: relative;
-  display: inline-block;
-  top: 30px;
+  /* display: inline-block;
+  top: 30px; */
 }
 
-.search {
-  position: relative;
+.inlineTitle {
+  position: absolute;
+  display: inline-block;
+  top: 36px;
+}
+
+#search {
+  right: 280px;
+  top: 41px;
+}
+
+.searchinput {
+  position: absolute;
+  /* height: 24px;
+  right: 75px;
+  top: 0px; */
+  width: 263px;
   height: 24px;
-  left: 750px;
-  top: -100px;
-  /* width: 263px;
-  height: 24px;
-  left: 1108px;
-  top: 36px; */
+  /* top: 36px; */
 
   background: #ffffff;
   border-radius: 10px;
   width: 263px;
 }
 
-#searchbutton{
+#searchbutton {
   position: relative;
   height: 24px;
   left: 750px;
