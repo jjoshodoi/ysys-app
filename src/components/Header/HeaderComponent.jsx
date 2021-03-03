@@ -38,7 +38,7 @@ export const HeaderComponent = ({
         ></input>
 
         <button type="submit" form="search" id="searchbutton">
-          Submit
+        <img src="Images/searchicon.png" height="30" width="30"></img>
         </button>
         
       </form>
