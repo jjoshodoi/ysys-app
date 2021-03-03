@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 // TODO - create a component which displays information about Books
 
-// TODO - make sure HouseCard is expecting the right props!
+// TODO - make sure bookCard is expecting the right props!
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,53 +23,29 @@ const useStyles = makeStyles((theme) => ({
 
 export const BookCard = (props) => {
   const [currentBook, setcurrentBook] = useState(null);
-  const [characterName, setCharacterName] = useState("");
-  const [houseOverlordName, setHouseOverlordName] = useState("");
   const classes = useStyles();
 
-  const changeHouse = (item) => {
+  const changeBook = (item) => {
     setcurrentBook(item);
   };
-
-  const getCharacterName = async (url) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setCharacterName(data.name);
-    } catch (error) {
-      setCharacterName("");
-      console.log(`Error: ${error.message}`);
-    }
-  };
-
-  const getHouseOverlordName = async (url) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data.name);
-      if (data.name === "") {
-        setHouseOverlordName("");
-      } else {
-        setHouseOverlordName(data.name);
-      }
-    } catch (error) {
-      setHouseOverlordName("");
-      console.log(`Error: ${error.message}`);
-    }
-  };
-
   return (
     <div className="column2">
       <div className="left70Column">
         Name: {currentBook && currentBook.name}
         <br />
-        Region: {currentBook && currentBook.region}
+        Author: {currentBook && currentBook.authors}
         <br />
-        Coat Of Arms: {currentBook && currentBook.coatOfArms}
+        Country: {currentBook && currentBook.country}
         <br />
-        CurrentLordName: {currentBook && characterName}
+        MediaType: {currentBook && currentBook.mediaType}
         <br />
-        House OverLordName: {currentBook && houseOverlordName}
+        No Of Pages: {currentBook && currentBook.numberOfPages}
+        <br />
+        No Of Pages: {currentBook && currentBook.numberOfPages}
+        <br />
+        Released: {currentBook && currentBook.released}
+        <br />
+        Publisher: {currentBook && currentBook.publisher}
       </div>
       <div className="right30Column">
         <Grid container spacing={3}>
@@ -77,9 +53,7 @@ export const BookCard = (props) => {
             <Grid item xs={12} md={6}>
               <Paper
                 onClick={() => {
-                  changeHouse(item);
-                  getCharacterName(item.currentLord);
-                  getHouseOverlordName(item.overlord);
+                  changeBook(item);
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
