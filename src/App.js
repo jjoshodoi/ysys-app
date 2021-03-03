@@ -39,9 +39,9 @@ function App() {
   const [query, setQuery] = useState(null);
   const [ApiInfo, setApiInfo] = useState([]);
 
-  // useEffect(() => {
-  //    callAPI(radioSideBar, query);
-  // }, [radioSideBar, selectSideBar]);
+  useEffect(() => {
+    callAPI(radioSideBar, query);
+  }, [radioSideBar, selectSideBar]);
 
   const callAPI = async (radioSideBar, query) => {
     const data = await getData(radioSideBar, query, selectSideBar);
