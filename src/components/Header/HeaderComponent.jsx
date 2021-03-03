@@ -28,11 +28,9 @@ export const HeaderComponent = ({
           <img src="Images/burger.png" height="30" width="30"></img>
         </button>{" "}
         {/* <---- this is the burger menu symbol for the show filters button */}
-        {/* <center> */}
         <h1 id="headertext" className="inlineTitle">
           Game of Thrones App
         </h1>{" "}
-        {/* </center> */}
         <form className="inlineTitle" onSubmit={handleSubmit} id="search">
           <input
             className="searchinput"
@@ -42,9 +40,9 @@ export const HeaderComponent = ({
             onChange={handleSearchChange}
           ></input>
 
-          <button type="submit" form="search" id="searchbutton">
+          {/* <button type="submit" form="search" id="searchbutton">
             Submit
-          </button>
+          </button> */}
         </form>
       </div>
     </header>
