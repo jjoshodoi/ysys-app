@@ -36,15 +36,14 @@ export const CharacterCard = ({ character, ApiInfo }) => {
   } //Comment outn image to work dynamically
 
   return (
-    <div>
-      <ul>
+    <ul>
+      <Grid container spacing={3}>
         {ApiInfo.map((item) => (
-          <Grid container direction={"row"}>
-            <CharacterInfo item={item} />
-          </Grid>
+          <CharacterInfo item={item} />
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </ul>
+
     // <Card className={classes.root}>
     //   <Typography variant="h5" component="h2">
     //     <b>{ApiInfo.culture}</b>
