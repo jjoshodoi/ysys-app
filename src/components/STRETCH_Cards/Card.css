@@ -16,7 +16,7 @@
     background-color: var(--color-theme-day-background--overlay-heavy);
     color: var(--color-theme-night-text);
 }
-img {
+.cardImg {
     display: block;
     margin-right: auto;
     margin-left: auto;

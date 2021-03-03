@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
+import getData from "../../api/api";
 
 // TODO - create a component which displays information about Houses
 
@@ -23,10 +24,20 @@ const useStyles = makeStyles((theme) => ({
 
 export const HouseCard = (props) => {
   const [currentHouse, setCurrentHouse] = useState(null);
+  const [characterName, setCharacterName] = useState([]);
   const classes = useStyles();
 
   const changeHouse = (item) => {
     setCurrentHouse(item);
+  };
+
+  const getCharacterName = async (url) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+    } catch (error) {
+      return console.log(error.message);
+    }
   };
 
   return (
@@ -35,6 +46,8 @@ export const HouseCard = (props) => {
         {currentHouse && currentHouse.name}
         {currentHouse && currentHouse.region}
         {currentHouse && currentHouse.coatOfArms}
+        {/* {getCharacterName(currentHouse.currentLord)} */}
+
         {/* {currentHouse && currentHouse.name}
         {currentHouse && currentHouse.name}
         {currentHouse && currentHouse.name}

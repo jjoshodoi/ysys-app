@@ -64,7 +64,7 @@ export const SidebarComponent = (props) => {
       </form>
 
       <h3>How Many?</h3>
-      <select defaultValue="ten" onChange={onSelectChange}>
+      <select defaultValue="10" onChange={onSelectChange}>
         <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>

@@ -42,7 +42,7 @@ const CharacterInfo = (props) => {
       <Typography variant="h5" component="h2">
         <b>{props.item.culture}</b>
       </Typography>
-      <img src={house} className="Border" alt="Failed." />
+      <img src={house} className="Border cardImg" alt="Failed." />
       <CardContent>
         <Typography variant="h5" component="h2">
           {props.item.name}
