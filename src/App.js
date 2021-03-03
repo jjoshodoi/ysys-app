@@ -1,8 +1,9 @@
 import "./App.css";
-import React from "react";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
+import getData from "./api/api";
+import React, { useState, useEffect } from "react";
 
 function App() {
   // TODO - this is the "main" component for our app, and it will include all the global state that we care about
@@ -32,26 +33,39 @@ function App() {
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
-  var sideBarQuery = "characters";
+  const [radioSideBar, setRadioSideBar] = useState("houses");
+  const [selectSideBar, setSelectSideBar] = useState("10");
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState(null);
+  const [ApiInfo, setApiInfo] = useState([]);
 
-  const getAPI = async () => {
-    try {
-      const response = await fetch(
-        `https://anapioficeandfire.com/api/${sideBarQuery}/583`
-      );
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log(error.message);
-    }
+  useEffect(() => {
+    callAPI(radioSideBar, query);
+  }, [radioSideBar, selectSideBar]);
+
+  const callAPI = async (radioSideBar, query) => {
+    const data = await getData(radioSideBar, query, selectSideBar);
+    setApiInfo(data);
+    console.log(ApiInfo);
   };
 
   return (
     <div className="app">
-      <HeaderComponent />
-      <SidebarComponent />
-      <FeedComponent />
-      <button onClick={() => getAPI()}>GET API</button>
+      <HeaderComponent
+        setSearch={setSearch}
+        setQuery={setQuery}
+        search={search}
+        callAPI={callAPI}
+        radioSideBar={radioSideBar}
+      />
+      <SidebarComponent
+        radioSideBar={radioSideBar}
+        setRadioSideBar={setRadioSideBar}
+        selectSideBar={selectSideBar}
+        callAPI={callAPI}
+        setSelectSideBar={setSelectSideBar}
+      />
+      <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
       <div></div>
     </div>
   );
