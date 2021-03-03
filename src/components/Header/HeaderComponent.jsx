@@ -19,29 +19,42 @@ export const HeaderComponent = ({
     callAPI(radioSideBar, search);
   };
   return (
-    <header className={"content"}>
-      {/* TODO [STRETCH] - add in any controls that you'd like in your header
+    <header>
+      <div className={"content"}>
+        {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
-        
-      <button className="inlineBlock"><img src="Images/burger.png" height="30" width="30"></img></button> {/* <---- this is the burger menu symbol for the show filters button */}
-      <center>  <h1 id="headertext" className="inlineBlock">
-        Game of Thrones App
-      </h1> </center>
-      <form className="inlineBlock" onSubmit={handleSubmit} id="search">
-        <input
-          className="search"
-          value={search}
-          placeholder="Enter Here..."
-          type="text"
-          onChange={handleSearchChange}
-        ></input>
+        <button className="inlineTitle">
+          <img src="Images/burger.png" height="30" width="30"></img>
+        </button>{" "}
+        {/* <---- this is the burger menu symbol for the show filters button */}
+        {/* <center> */}
+        <h1 id="headertext" className="inlineTitle">
+          Game of Thrones App
+        </h1>{" "}
+        {/* </center> */}
+        <form className="inlineTitle" onSubmit={handleSubmit} id="search">
+          <input
+            className="searchinput"
+            value={search}
+            placeholder="Enter Here..."
+            type="text"
+            onChange={handleSearchChange}
+          ></input>
 
+<<<<<<< HEAD
         <button type="submit" form="search" id="searchbutton">
         <img src="Images/searchicon.png" height="30" width="30"></img>
         </button>
         
       </form>
+=======
+          <button type="submit" form="search" id="searchbutton">
+            Submit
+          </button>
+        </form>
+      </div>
+>>>>>>> 1bebc55df95de3dbe3afadea7086ed5b2c65797b
     </header>
   );
 };
