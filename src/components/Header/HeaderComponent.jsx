@@ -23,10 +23,11 @@ export const HeaderComponent = ({
       {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
+        
       <button className="inlineBlock"><img src="Images/burger.png" height="30" width="30"></img></button> {/* <---- this is the burger menu symbol for the show filters button */}
-      <h1 id="headertext" className="inlineBlock">
-        <center>Game of Thrones App</center>
-      </h1>
+      <center>  <h1 id="headertext" className="inlineBlock">
+        Game of Thrones App
+      </h1> </center>
       <form className="inlineBlock" onSubmit={handleSubmit} id="search">
         <input
           className="search"
@@ -35,9 +36,11 @@ export const HeaderComponent = ({
           type="text"
           onChange={handleSearchChange}
         ></input>
-        <button type="submit" form="search">
+
+        <button type="submit" form="search" id="searchbutton">
           Submit
         </button>
+        
       </form>
     </header>
   );
