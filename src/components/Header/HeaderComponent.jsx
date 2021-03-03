@@ -42,19 +42,11 @@ export const HeaderComponent = ({
             onChange={handleSearchChange}
           ></input>
 
-<<<<<<< HEAD
-        <button type="submit" form="search" id="searchbutton">
-        <img src="Images/searchicon.png" height="30" width="30"></img>
-        </button>
-        
-      </form>
-=======
-          <button type="submit" form="search" id="searchbutton">
-            Submit
-          </button>
+          {/* <button type="submit" form="search" id="searchbutton">
+            <img src="Images/searchicon.png" height="30" width="30"></img>
+          </button> */}
         </form>
       </div>
->>>>>>> 1bebc55df95de3dbe3afadea7086ed5b2c65797b
     </header>
   );
 };
