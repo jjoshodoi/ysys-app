@@ -8,14 +8,16 @@
 }
 
 .inlineBlock {
+  position: relative;
   display: inline-block;
+  top: 30px;
 }
 
 .search {
-  position: absolute;
+  position: relative;
   height: 24px;
-  top: 36px;
-  right: 69px;
+  left: 750px;
+  top: -100px;
   /* width: 263px;
   height: 24px;
   left: 1108px;
@@ -24,4 +26,11 @@
   background: #ffffff;
   border-radius: 10px;
   width: 263px;
+}
+
+#searchbutton{
+  position: relative;
+  height: 24px;
+  left: 750px;
+  top: -100px;
 }

@@ -9,12 +9,43 @@
   display: flex;
 }
 
-.leftColumn {
+.left70Column {
   width: 70%;
 }
 
-.rightColumn {
+.right30Column {
   width: 30%;
   max-height: 75vh;
   overflow-y: auto;
 }
+
+.card {
+}
+.Line {
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-top-width: var(--component-border-width-small);
+}
+
+.overlay{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-theme-day-background--overlay-heavy);
+    color: var(--color-theme-night-text);
+}
+.cardImg {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 200px;
+    border: 0 solid var(--color-theme-border);
+}
+
+.Border {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}   
