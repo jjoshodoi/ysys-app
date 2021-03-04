@@ -38,6 +38,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     callAPI(radioSideBar, query);
@@ -57,15 +58,24 @@ function App() {
         search={search}
         callAPI={callAPI}
         radioSideBar={radioSideBar}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
       />
       <SidebarComponent
+        sidebarOpen={sidebarOpen}
         radioSideBar={radioSideBar}
         setRadioSideBar={setRadioSideBar}
         selectSideBar={selectSideBar}
         callAPI={callAPI}
         setSelectSideBar={setSelectSideBar}
+        setSidebarOpen={setSidebarOpen}
       />
-      <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
+      <FeedComponent
+        ApiInfo={ApiInfo}
+        radioSideBar={radioSideBar}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
       <div></div>
     </div>
   );

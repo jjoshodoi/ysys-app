@@ -27,7 +27,7 @@ export const SidebarComponent = (props) => {
   };
 
   return (
-    <div className={"sidebar"}>
+    <div className={props.sidebarOpen ? "sidebar" : "sidebar-close"}>
       <form>
         <div className="button buttonhouses">
           <label>
@@ -58,7 +58,7 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
             /> */}
- <button
+            <button
               value="characters"
               className={
                 props.radioSideBar === "characters"

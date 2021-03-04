@@ -1,13 +1,26 @@
 /* TODO general sidebar styles */
 .sidebar {
-  position: fixed;
+  position: relative;
   height: 100%;
   width: 275px;
   left: 0;
   z-index: 1;
-  top: 0;
+  top: -120px;
   background-color: rgba(192, 196, 237, 0.15);
   transition: 250ms;
+  overflow-x: hidden;
+  display: inline-block;
+}
+
+.sidebar-close {
+  left: -275px;
+  transition: 250ms;
+  position: relative;
+  height: 100%;
+  width: 275px;
+  z-index: 0;
+  top: -120px;
+  background-color: rgba(192, 196, 237, 0.15);
   overflow-x: hidden;
 }
 

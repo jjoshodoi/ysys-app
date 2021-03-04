@@ -1,7 +1,8 @@
 /* TODO add feed styles */
 .feed {
-  margin-left: 275px;
+  margin-left: 280px;
   transition: 250ms;
+  display: flex;
 }
 
 .column2 {
@@ -10,10 +11,12 @@
 }
 
 .left70Column {
+  position: flex;
   width: 70%;
 }
 
 .right30Column {
+  position: flex;
   width: 30%;
   max-height: 75vh;
   overflow-y: auto;
