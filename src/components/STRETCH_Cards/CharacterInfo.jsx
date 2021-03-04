@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 
 const CharacterInfo = (props) => {
   var house = "";
+  var name= "";
 
   if (props.item.house == "Braavos") {
     house = "/Images/Titan_of_Braavos.jpg";
@@ -35,29 +36,37 @@ const CharacterInfo = (props) => {
   } else if (props.item.culture == "Westeros") {
     house = "Images/Westeros.png";
   } else {
-    house = "";
+    house = "Images/Houses/GOT CARD.png";
+  }
+
+  if (props.item.name == "") {
+    name = props.item.aliases[0];
+  } else {
+    name = props.item.name;
   }
 
   const classes = useStyles();
   return (
-    <Grid item xs={6} md={4}>
+    <Grid item xs={6} md={4}>      
       <Card className={classes.root}>
+        <div className = "CardHeader">
         <Typography variant="h5" component="h2">
-          <b>{props.item.culture}</b>
-        </Typography>
-        <img src={house} className="Border cardImg" alt="Failed." />
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            {props.item.name}
+            <b>{props.item.culture}</b>
+          </Typography>
+        </div>  
+        <img src={house} className="Border cardImg" alt="Failed."/>
+        <CardContent>          
+          <Typography variant="h5" component="h9">
+            {name}
           </Typography>
           <hr className="Line" />
-          <Typography variant="h6" component="h9">
+          <Typography variant="h5">
             <b>Title: </b>
             {props.item.titles}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
             <b>AKA:</b>{" "}
-            {/* <i>{props.item.aliases.map((aliases) => `${aliases}, `)}</i> */}
+            <i>{props.item.aliases.map((aliases) => `${aliases}, `)}</i>
           </Typography>
         </CardContent>
       </Card>
