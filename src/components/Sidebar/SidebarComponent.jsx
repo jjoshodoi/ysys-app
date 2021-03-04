@@ -37,7 +37,15 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
             /> */}
-            <button value="houses" onClick={onRadioChange}>
+            <button
+              value="houses"
+              className={
+                props.radioSideBar === "houses"
+                  ? "sidebarBtn sidebarActive"
+                  : "sidebarBtn"
+              }
+              onClick={onRadioChange}
+            >
               Houses
             </button>
           </label>
@@ -51,7 +59,11 @@ export const SidebarComponent = (props) => {
               onChange={onRadioChange}
             /> */}
 
-            <button value="characters" onClick={onRadioChange}>
+            <button
+              value="characters"
+              className="sidebarBtn"
+              onClick={onRadioChange}
+            >
               Characters
             </button>
           </label>
@@ -64,7 +76,11 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "books"}
               onChange={onRadioChange}
             />  */}
-            <button value="books" onClick={onRadioChange}>
+            <button
+              value="books"
+              className="sidebarBtn"
+              onClick={onRadioChange}
+            >
               Books
             </button>
           </label>
