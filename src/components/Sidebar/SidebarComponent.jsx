@@ -15,11 +15,13 @@ export const SidebarComponent = (props) => {
   //              E.g add a dropdown to determine which field you're searching on ("name"/"title"/"alias")
 
   const onRadioChange = (event) => {
+    event.preventDefault();
     props.setRadioSideBar(event.target.value);
     console.log(event.target.value);
   };
 
   const onSelectChange = (event) => {
+    event.preventDefault();
     props.setSelectSideBar(event.target.value);
     console.log(event.target.value);
   };
@@ -35,7 +37,9 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
             /> */}
-            <button>Houses</button>
+            <button value="houses" onClick={onRadioChange}>
+              Houses
+            </button>
           </label>
         </div>
         <div className="button buttoncharacters">
@@ -46,7 +50,10 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
             /> */}
-            <button>Characters</button>
+
+            <button value="characters" onClick={onRadioChange}>
+              Characters
+            </button>
           </label>
         </div>
         <div className="button buttonbooks">
@@ -57,7 +64,9 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "books"}
               onChange={onRadioChange}
             />  */}
-            <button>Characters</button>
+            <button value="books" onClick={onRadioChange}>
+              Books
+            </button>
           </label>
         </div>
         <div>Selected option is : {props.radioSideBar}</div>
