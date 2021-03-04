@@ -1,7 +1,7 @@
 import React from "react";
-import { CharacterCard } from "../STRETCH_Cards/CharacterCard";
-import { HouseCard } from "../STRETCH_Cards/HouseCard";
-import { BookCard } from "../STRETCH_Cards/BookCard";
+import { CharacterCard } from "../STRETCH_Cards/Characters/CharacterCard";
+import { HouseCard } from "../STRETCH_Cards/HouseCards/HouseCard";
+import { BookCard } from "../STRETCH_Cards/Books/BookCard";
 import "./FeedComponent.css";
 
 // TODO - make sure FeedComponent is expecting the right props!

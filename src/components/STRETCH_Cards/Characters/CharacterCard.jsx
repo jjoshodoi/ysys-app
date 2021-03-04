@@ -1,9 +1,8 @@
 import React from "react";
-import "./Card.css";
+import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-// import northMen from '../../../public/Images/Northmen.jpeg'
 
 const useStyles = makeStyles({
   root: {
