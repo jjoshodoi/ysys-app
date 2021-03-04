@@ -58,10 +58,13 @@ export const SidebarComponent = (props) => {
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
             /> */}
-
-            <button
+ <button
               value="characters"
-              className="sidebarBtn"
+              className={
+                props.radioSideBar === "characters"
+                  ? "sidebarBtn sidebarActive"
+                  : "sidebarBtn"
+              }
               onClick={onRadioChange}
             >
               Characters
@@ -78,7 +81,11 @@ export const SidebarComponent = (props) => {
             />  */}
             <button
               value="books"
-              className="sidebarBtn"
+              className={
+                props.radioSideBar === "books"
+                  ? "sidebarBtn sidebarActive"
+                  : "sidebarBtn"
+              }
               onClick={onRadioChange}
             >
               Books
