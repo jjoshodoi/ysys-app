@@ -36,7 +36,7 @@ function App() {
   const [radioSideBar, setRadioSideBar] = useState("houses");
   const [selectSideBar, setSelectSideBar] = useState("10");
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
 
   useEffect(() => {

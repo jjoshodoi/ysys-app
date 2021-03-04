@@ -29,10 +29,10 @@ export const CharacterCard = ({ character, ApiInfo }) => {
 
   // console.log(ApiInfo);
 
-  if (ApiInfo.aliases) {
-    var aliases = ApiInfo.aliases;
-    var listOfAliases = aliases.join(", ");
-  } //Comment outn image to work dynamically
+  // if (ApiInfo.aliases) {
+  //   var aliases = ApiInfo.aliases;
+  //   var listOfAliases = aliases.join(", ");
+  // } //Comment outn image to work dynamically
 
   return (
     <ul>
