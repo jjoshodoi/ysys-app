@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+var currentBookImage = "";
+const style = {
+    maxheight: 200,
+    maxWidth: 200,
+  }
 export default function SelectedInfo(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -39,16 +44,39 @@ export default function SelectedInfo(props) {
     setExpanded(!expanded);
   };
 
+  if (props.name == ("A Game of Thrones")) {
+    currentBookImage = "Images/Books/Book1.jpg"
+} else if (props.name == ("A Clash of Kings")) {
+    currentBookImage = "Images/Books/Book2.jpg"
+} else if (props.name == ("A Storm of Swords")) {
+    currentBookImage = "Images/Books/Book3.jpg"
+} else if (props.name == ("The Hedge Knight")) {
+    currentBookImage = "Images/Books/Book4.jpg"
+} else if (props.name == ("A Feast for Crows")) {
+    currentBookImage = "Images/Books/Book5.jpg"
+} else if (props.name == ("The Sworn Sword")) {
+    currentBookImage = "Images/Books/Book6.jpg"
+} else if (props.name == ("The Mystery Knight")) {
+    currentBookImage = "Images/Books/Book7.jpg"
+} else if (props.name == ("A Dance with Dragons")) {
+    currentBookImage = "Images/Books/Book8.jpg"
+} else if (props.name == ("The Princess and the Queen")) {
+    currentBookImage = "Images/Books/Book9.jpg"
+} else if (props.name == ("The Rogue Prince")) {
+    currentBookImage = "Images/Books/Book10.jpg"
+} else if (props.name == ("The World of Ice and Fire")) {
+    currentBookImage = "Images/Books/Book11.jpg"
+} else if (props.name == ("A Knight of the Seven Kingdoms")) {
+    currentBookImage = "Images/Books/Book12.jpg"
+} else {
+    currentBookImage = "Images/Houses/GOT CARD.png"
+}
   return (
     <Card className={classes.root}>
       <CardHeader
         title={props.name}
       />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+      <img src={currentBookImage} style={style}/>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.coatsOfArms}

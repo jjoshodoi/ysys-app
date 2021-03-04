@@ -29,11 +29,15 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
+
 }));
 
 var currentLord = "";
 var currentHouseImage = "";
-
+const style = {
+  maxheight: 200,
+  maxWidth: 200,
+}
 export default function SelectedInfo(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -116,7 +120,7 @@ if (props.name.includes("Allyrion")) {
   } else if (props.name.includes("Whent")) {
         currentHouseImage="Images/Houses/House Whent.jpg"
   } else {
-      currentHouseImage = "Images/Houses/GOT CARD.png"
+        currentHouseImage = "Images/Houses/GOT CARD.png"
   }
   return (
     <Card className={classes.root}>
@@ -124,11 +128,7 @@ if (props.name.includes("Allyrion")) {
         title={props.name}
         subheader={`Current Lord: ${currentLord}`}
       />
-      <CardMedia
-        className={classes.media}        
-        image = {currentHouseImage}
-        title="House"
-      />
+      <img src={currentHouseImage} style={style}/>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.coatsOfArms}
@@ -148,15 +148,15 @@ if (props.name.includes("Allyrion")) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{`Region: ${props.region}`}</Typography>
-          <Typography paragraph>
+          <Typography >{`Region: ${props.region}`}</Typography>
+          <Typography >
             {`Cadet Branches: ${props.cadetBranches}`}
           </Typography>
           <Typography>
             {`Ancestral Weapons: ${props.ancestralWeapons}`}
           </Typography>
           <Typography>{`Died Out: ${props.diedOut}`}</Typography>
-          <Typography>{`titles: ${props.titles}`}</Typography>
+          <Typography>{`Titles: ${props.titles}`}</Typography>
         </CardContent>
       </Collapse>
     </Card>
