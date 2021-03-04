@@ -44,11 +44,12 @@ const CharacterInfo = (props) => {
   } else {
     name = props.item.name;
   }
-  // if (props.item) {
-  //   var aliases = props.item.aliases;
-  //   var listOfAliases = aliases.join(" ,");
-  //   var listOfAliases = aliases.join(", ");
-  // }
+  if (props.item.aliases != null) {
+    var aliases = props.item.aliases;
+    var listOfAliases = aliases.join(", ");
+  } else {
+    listOfAliases = aliases;
+  }
   const classes = useStyles();
   return (
     <Grid item xs={6} md={4}>      
@@ -70,8 +71,7 @@ const CharacterInfo = (props) => {
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
             <b>AKA:</b>{" "}
-            <i>{props.item.aliases + " , "}</i>
-            {/* {listOfAliases} */}
+            <i>{listOfAliases}</i>
           </Typography>
         </CardContent>
       </Card>
