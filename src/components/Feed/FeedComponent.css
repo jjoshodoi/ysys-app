@@ -53,3 +53,15 @@
   height: 30px;
   background-color: #717388;
 }
+
+.Card {
+  height: 195px;
+}
+
+h1 {
+  font-size: 14px;
+}
+.image {
+  max-height: 30px;
+  height: 20px;
+}

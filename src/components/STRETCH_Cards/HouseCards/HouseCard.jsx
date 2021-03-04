@@ -73,7 +73,7 @@ export const HouseCard = (props) => {
   const region = currentHouse != null ? currentHouse.region : "";
   const founded = currentHouse != null ? currentHouse.founded : "";
   const coatsOfArms = currentHouse != null ? currentHouse.coatOfArms : "";
-  const currentLord = currentHouse != null ? characterName : "";
+  const currentLord = currentHouse != null ? characterName : "n/a";
   const cadetBranches = currentHouse != null ? currentHouse.cadetBranches : "";
   const ancestralWeapons =
     currentHouse != null ? currentHouse.ancestralWeapons : "";

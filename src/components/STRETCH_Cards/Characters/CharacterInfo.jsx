@@ -50,6 +50,14 @@ const CharacterInfo = (props) => {
   } else {
     listOfAliases = aliases;
   }
+
+  if (props.item.titles != null) {
+    var titles = props.item.titles;
+    var listOfTitles = titles.join(", ");
+  } else {
+    listOfTitles = titles;
+  }
+
   const classes = useStyles();
   return (
     <Grid item xs={6} md={4}>      
@@ -60,18 +68,18 @@ const CharacterInfo = (props) => {
           </Typography>
         </div>  
         <img src={house} className="Border cardImg" alt="Failed."/>
-        <CardContent>          
+        <CardContent className= "Card">          
           <Typography variant="h5" component="h9">
             {name}
           </Typography>
           <hr className="Line" />
-          <Typography variant="h5">
+          <Typography paragraph variant="h8">
             <b>Title: </b>
-            {props.item.titles}
+            {listOfTitles}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
+          <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
             <b>AKA:</b>{" "}
-            <i>{listOfAliases}</i>
+            <em>{listOfAliases}</em>
           </Typography>
         </CardContent>
       </Card>
