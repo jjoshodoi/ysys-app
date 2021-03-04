@@ -1,8 +1,11 @@
 import "../../components/Feed/FeedComponent.css";
+import "./HouseCards.css";
+import { getImageSrc, getImageAlt } from "./ChoosePic";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
+import SelectedInfo from "./SelectedInfo";
 
 // TODO - create a component which displays information about Houses
 
@@ -66,28 +69,38 @@ export const HouseCard = (props) => {
     }
   };
 
+  const name = currentHouse != null ? currentHouse.name : "";
+  const region = currentHouse != null ? currentHouse.region : "";
+  const founded = currentHouse != null ? currentHouse.founded : "";
+  const coatsOfArms = currentHouse != null ? currentHouse.coatOfArms : "";
+  const currentLord = currentHouse != null ? characterName : "";
+  const cadetBranches = currentHouse != null ? currentHouse.cadetBranches : "";
+  const ancestralWeapons =
+    currentHouse != null ? currentHouse.ancestralWeapons : "";
+  const diedOut = currentHouse != null ? currentHouse.diedOut : "";
+  const titles = currentHouse != null ? currentHouse.titles : "";
+
+  // const srcImg = getImageSrc({ name: "Baratheon Stannis" });
+  // console.log(srcImg);
+
   return (
     <div className="column2">
       <div className="left70Column">
-        Name: {currentHouse && currentHouse.name}
-        <br />
-        Region: {currentHouse && currentHouse.region}
-        <br />
-        Coat Of Arms: {currentHouse && currentHouse.coatOfArms}
-        <br />
-        CurrentLordName: {currentHouse && characterName}
-        <br />
-        Cadet Branches: {currentHouse && currentHouse.cadetBranches}
-        <br />
-        Ancestral Weapons: {currentHouse && currentHouse.ancestralWeapons}
-        <br />
-        Died Out: {currentHouse && currentHouse.diedOut}
-        <br />
-        Founded: {currentHouse && currentHouse.founded}
-        <br />
-        Titles: {currentHouse && currentHouse.titles}
-        <br />
-        House OverLordName: {currentHouse && currentHouse.cadetBranches}
+        <div className="infoBoard">
+          <center>
+            <SelectedInfo
+              name={name}
+              region={region}
+              founded={founded}
+              coatsOfArms={coatsOfArms}
+              currentLord={currentLord}
+              cadetBranches={cadetBranches}
+              ancestralWeapons={ancestralWeapons}
+              diedOut={diedOut}
+              titles={titles}
+            />
+          </center>
+        </div>
       </div>
       <div className="right30Column">
         <Grid container spacing={3}>
@@ -95,14 +108,23 @@ export const HouseCard = (props) => {
             <Grid item md={12} lg={6}>
               <Paper
                 onClick={() => {
-                  changeHouse(item);
-                  getCharacterName(item.currentLord);
-                  getHouseOverlordName(item.overlord);
+                  // Get it to Load?
+                  Promise.all([
+                    changeHouse(item),
+                    getCharacterName(item.currentLord),
+                    getHouseOverlordName(item.overlord),
+                  ]);
+                  // Stop Loading?
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
                 {item.name}
-              {(() => {
+                {/* <img
+                  className={classes.img}
+                  src={`${() => getImageSrc(item)}`}
+                  alt={`${() => getImageAlt(item)}`}
+                /> */}
+                {(() => {
                   if (item.name.includes("Allyrion")) {
                     return (
                       <img
@@ -121,12 +143,12 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Baelish")) {
                     return (
-                    <img 
-                      className={classes.img} 
-                      alt="Baelish" 
-                      src="Images\Houses\House Baelish.jpg" 
-                    />
-                  );  
+                      <img
+                        className={classes.img}
+                        alt="Baelish"
+                        src="Images\Houses\House Baelish.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Baratheon")) {
                     return (
                       <img
@@ -135,30 +157,30 @@ export const HouseCard = (props) => {
                         src="Images\Houses\House Baratheon.jpg"
                       />
                     );
-                  }  else if (item.name.includes("Blackwood")) {
+                  } else if (item.name.includes("Blackwood")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Blackwood" 
-                        src="Images\Houses\House Blackwood.jpg" 
+                      <img
+                        className={classes.img}
+                        alt="Blackwood"
+                        src="Images\Houses\House Blackwood.jpg"
                       />
                     );
                   } else if (item.name.includes("Bolton")) {
-                      return (
-                        <img 
-                          className={classes.img} 
-                          alt="Bolton" 
-                          src="Images\Houses\House Bolton.jpg" 
-                        />
-                    );  
+                    return (
+                      <img
+                        className={classes.img}
+                        alt="Bolton"
+                        src="Images\Houses\House Bolton.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Bracken")) {
-                      return (
-                        <img 
-                          className={classes.img}
-                          alt="Bracken" 
-                          src="Images\Houses\House Bracken.jpg" 
-                        />
-                    );  
+                    return (
+                      <img
+                        className={classes.img}
+                        alt="Bracken"
+                        src="Images\Houses\House Bracken.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Clegane")) {
                     return (
                       <img
@@ -169,12 +191,12 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Connington")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Connington" 
-                        src="Images\Houses\House Connington.jpg" 
-                      /> 
-                    );  
+                      <img
+                        className={classes.img}
+                        alt="Connington"
+                        src="Images\Houses\House Connington.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Crakehall")) {
                     return (
                       <img
@@ -185,10 +207,10 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Dayne")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Dayne" 
-                        src="Images\Houses\House Dayne.jpg" 
+                      <img
+                        className={classes.img}
+                        alt="Dayne"
+                        src="Images\Houses\House Dayne.jpg"
                       />
                     );
                   } else if (item.name.includes("Dondarrion")) {
@@ -200,11 +222,11 @@ export const HouseCard = (props) => {
                       />
                     );
                   } else if (item.name.includes("Florent")) {
-                    return ( 
-                      <img 
-                        className={classes.img} 
-                        alt="Florent" 
-                        src="Images\Houses\House Florent.jpg" 
+                    return (
+                      <img
+                        className={classes.img}
+                        alt="Florent"
+                        src="Images\Houses\House Florent.jpg"
                       />
                     );
                   } else if (item.name.includes("Frey")) {
@@ -217,12 +239,12 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Glover")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Glover" 
-                        src="Images\Houses\House Glover.jpg" 
+                      <img
+                        className={classes.img}
+                        alt="Glover"
+                        src="Images\Houses\House Glover.jpg"
                       />
-                    );    
+                    );
                   } else if (item.name.includes("Greyjoy")) {
                     return (
                       <img
@@ -265,12 +287,12 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Marbrand")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Marbrand" 
-                        src="Images\Houses\House Marbrand.jpg" 
+                      <img
+                        className={classes.img}
+                        alt="Marbrand"
+                        src="Images\Houses\House Marbrand.jpg"
                       />
-                    );    
+                    );
                   } else if (item.name.includes("Martell")) {
                     return (
                       <img
@@ -289,12 +311,12 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Redwyne")) {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="Redwyne" 
-                        src="Images\Houses\House Redwyne.jpg" 
-                      />  
-                    );  
+                      <img
+                        className={classes.img}
+                        alt="Redwyne"
+                        src="Images\Houses\House Redwyne.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Seaworth")) {
                     return (
                       <img
@@ -336,13 +358,13 @@ export const HouseCard = (props) => {
                       />
                     );
                   } else if (item.name.includes("Tarth")) {
-                      return (
-                        <img 
-                          className={classes.img} 
-                          alt="Tarth" 
-                          src="Images\Houses\House Tarth.jpg" 
-                        /> 
-                      );   
+                    return (
+                      <img
+                        className={classes.img}
+                        alt="Tarth"
+                        src="Images\Houses\House Tarth.jpg"
+                      />
+                    );
                   } else if (item.name.includes("Tully")) {
                     return (
                       <img
@@ -369,20 +391,20 @@ export const HouseCard = (props) => {
                     );
                   } else if (item.name.includes("Whent")) {
                     return (
-                      <img 
-                      className={classes.img} 
-                      alt="Whent" 
-                      src="Images\Houses\House Whent.jpg"
+                      <img
+                        className={classes.img}
+                        alt="Whent"
+                        src="Images\Houses\House Whent.jpg"
                       />
                     );
                   } else {
                     return (
-                      <img 
-                        className={classes.img} 
-                        alt="GOT" 
+                      <img
+                        className={classes.img}
+                        alt="GOT"
                         src="Images\Houses\GOT.png"
                       />
-                    )
+                    );
                   }
                 })()}
               </Paper>
