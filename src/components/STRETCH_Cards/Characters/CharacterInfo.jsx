@@ -27,13 +27,13 @@ const CharacterInfo = (props) => {
   var house = "";
   var name= "";
 
-  if (props.item.house == "Braavos") {
+  if (props.item.house === "Braavos") {
     house = "/Images/Titan_of_Braavos.jpg";
-  } else if (props.item.culture == "Northmen") {
+  } else if (props.item.culture === "Northmen") {
     house = "/Images/Northmen.jpg";
-  } else if (props.item.culture == "Valyrian") {
+  } else if (props.item.culture === "Valyrian") {
     house = "/Images/Valyrian.jpg";
-  } else if (props.item.culture == "Westeros") {
+  } else if (props.item.culture === "Westeros") {
     house = "Images/Westeros.png";
   } else {
     house = "Images/Houses/GOT CARD.png";

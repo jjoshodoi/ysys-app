@@ -15,11 +15,13 @@ export const SidebarComponent = (props) => {
   //              E.g add a dropdown to determine which field you're searching on ("name"/"title"/"alias")
 
   const onRadioChange = (event) => {
+    event.preventDefault();
     props.setRadioSideBar(event.target.value);
     console.log(event.target.value);
   };
 
   const onSelectChange = (event) => {
+    event.preventDefault();
     props.setSelectSideBar(event.target.value);
     console.log(event.target.value);
   };
@@ -27,37 +29,60 @@ export const SidebarComponent = (props) => {
   return (
     <div className={"sidebar"}>
       <form>
-        <div className="radio radiohouses">
+        <div className="button buttonhouses">
           <label>
-            <input
-              type="radio"
+            {/* <input
+              // type="button"
               value="houses"
               checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
-            />
-            Houses
+            /> */}
+            <button
+              value="houses"
+              className={
+                props.radioSideBar === "houses"
+                  ? "sidebarBtn sidebarActive"
+                  : "sidebarBtn"
+              }
+              onClick={onRadioChange}
+            >
+              Houses
+            </button>
           </label>
         </div>
-        <div className="radio radiocharacters">
+        <div className="button buttoncharacters">
           <label>
-            <input
-              type="radio"
+            {/* <input
+              // type="button"
               value="characters"
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
-            />
-            Characters
+            /> */}
+
+            <button
+              value="characters"
+              className="sidebarBtn"
+              onClick={onRadioChange}
+            >
+              Characters
+            </button>
           </label>
         </div>
-        <div className="radio radiobooks">
+        <div className="button buttonbooks">
           <label>
-            <input
-              type="radio"
+            {/* <input
+              // type="button"
               value="books"
               checked={props.radioSideBar === "books"}
               onChange={onRadioChange}
-            />
-            Books
+            />  */}
+            <button
+              value="books"
+              className="sidebarBtn"
+              onClick={onRadioChange}
+            >
+              Books
+            </button>
           </label>
         </div>
         <div>Selected option is : {props.radioSideBar}</div>
