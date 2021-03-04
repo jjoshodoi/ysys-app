@@ -27,10 +27,10 @@ export const SidebarComponent = (props) => {
   return (
     <div className={"sidebar"}>
       <form>
-        <div className="radio radiohouses">
+        <div className="button buttonhouses">
           <label>
             <input
-              type="radio"
+              type="button"
               value="houses"
               checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
@@ -38,10 +38,10 @@ export const SidebarComponent = (props) => {
             Houses
           </label>
         </div>
-        <div className="radio radiocharacters">
+        <div className="button buttoncharacters">
           <label>
             <input
-              type="radio"
+              type="button"
               value="characters"
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
@@ -49,10 +49,10 @@ export const SidebarComponent = (props) => {
             Characters
           </label>
         </div>
-        <div className="radio radiobooks">
+        <div className="button buttonbooks">
           <label>
             <input
-              type="radio"
+              type="button"
               value="books"
               checked={props.radioSideBar === "books"}
               onChange={onRadioChange}

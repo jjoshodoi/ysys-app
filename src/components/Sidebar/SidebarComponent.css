@@ -15,7 +15,7 @@
   display:none;
 }*/
 
-.radiohouses {
+.buttonhouses {
 position: absolute;
 width: 92px;
 height: 28px;
@@ -28,7 +28,7 @@ font-size: 24px;
 line-height: 28px;
 }
 
-.radiocharacters {
+.buttoncharacters {
 position: absolute;
 width: 151px;
 height: 28px;
@@ -42,7 +42,7 @@ line-height: 28px;
 
   }
 
-.radiobooks {
+.buttonbooks {
 position: absolute;
 width: 77px;
 height: 28px;
