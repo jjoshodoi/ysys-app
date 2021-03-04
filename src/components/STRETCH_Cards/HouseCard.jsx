@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
-import SelectedInfo from "./SelectedInfo";
+import SelectedInfo from "./SelectedHouseCard";
 
 // TODO - create a component which displays information about Houses
 
