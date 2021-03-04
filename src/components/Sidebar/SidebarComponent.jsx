@@ -29,35 +29,35 @@ export const SidebarComponent = (props) => {
       <form>
         <div className="button buttonhouses">
           <label>
-            <input
-              type="button"
+            {/* <input
+              // type="button"
               value="houses"
               checked={props.radioSideBar === "houses"}
               onChange={onRadioChange}
-            />
-            Houses
+            /> */}
+            <button>Houses</button>
           </label>
         </div>
         <div className="button buttoncharacters">
           <label>
-            <input
-              type="button"
+            {/* <input
+              // type="button"
               value="characters"
               checked={props.radioSideBar === "characters"}
               onChange={onRadioChange}
-            />
-            Characters
+            /> */}
+            <button>Characters</button>
           </label>
         </div>
         <div className="button buttonbooks">
           <label>
-            <input
-              type="button"
+            {/* <input
+              // type="button"
               value="books"
               checked={props.radioSideBar === "books"}
               onChange={onRadioChange}
-            />
-            Books
+            />  */}
+            <button>Characters</button>
           </label>
         </div>
         <div>Selected option is : {props.radioSideBar}</div>
