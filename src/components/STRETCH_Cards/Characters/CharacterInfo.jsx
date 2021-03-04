@@ -79,15 +79,7 @@ const CharacterInfo = (props) => {
           </Typography>
           <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
             <b>AKA:</b>{" "}
-<<<<<<< HEAD
             <em>{listOfAliases}</em>
-=======
-<<<<<<< HEAD
-            {/* <i>{props.item.aliases.map((aliases) => `${aliases}, `)}</i> */}
-=======
-            <i>{listOfAliases}</i>
->>>>>>> 554d5fba04af40da838abcc2519008da4588c09e
->>>>>>> 0ce54863974819a791ef9a5459a1b95996c1c0b5
           </Typography>
         </CardContent>
       </Card>
