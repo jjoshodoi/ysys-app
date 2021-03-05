@@ -21,9 +21,10 @@ export const HeaderComponent = ({
     event.preventDefault();
     setQuery(search);
     callAPI(radioSideBar, search);
+    
   };
   return (
-    <header>
+    <header className="header">
       {/* <div className={sideBarOpen ? "content" : "content sidebarCollapse"}> */}
       <div>
         {/* TODO [STRETCH] - add in any controls that you'd like in your header
@@ -37,9 +38,14 @@ export const HeaderComponent = ({
         </div>{" "}
         {/* <---- this is the burger menu symbol for the show filters button */}
         {/* <center> */}
-        <h1 id="headertext" className="inlineTitle">
+        <img
+          src="Images/Houses/GOT.png"
+          id="titleImg"
+          alt="Game of Thrones App"
+        />
+        {/* <h1 id="headertext" className="inlineTitle">
           Game of Thrones App
-        </h1>{" "}
+        </h1>{" "} */}
         {/* </center> */}
         <form className="inlineTitle" onSubmit={handleSubmit} id="search">
           <input
