@@ -69,19 +69,16 @@ export const HouseCard = (props) => {
     }
   };
 
-  const name = currentHouse != null ? currentHouse.name : "";
-  const region = currentHouse != null ? currentHouse.region : "";
-  const founded = currentHouse != null ? currentHouse.founded : "";
-  const coatsOfArms = currentHouse != null ? currentHouse.coatOfArms : "";
-  const currentLord = currentHouse != null ? characterName : "n/a";
-  const cadetBranches = currentHouse != null ? currentHouse.cadetBranches : "";
+  const name = currentHouse != null ? currentHouse.name : "N/a";
+  const region = currentHouse != null ? currentHouse.region : "N/a";
+  const founded = currentHouse != null ? currentHouse.founded : "N/a";
+  const coatsOfArms = currentHouse != null ? currentHouse.coatOfArms : "N/a";
+  const currentLord = currentHouse != null ? characterName : "N/a";
+  const cadetBranches = currentHouse != null ? currentHouse.cadetBranches : "N/a";
   const ancestralWeapons =
-    currentHouse != null ? currentHouse.ancestralWeapons : "";
-  const diedOut = currentHouse != null ? currentHouse.diedOut : "";
-  const titles = currentHouse != null ? currentHouse.titles : "";
-
-  // const srcImg = getImageSrc({ name: "Baratheon Stannis" });
-  // console.log(srcImg);
+    currentHouse != null ? currentHouse.ancestralWeapons : "N/a";
+  const diedOut = currentHouse != null ? currentHouse.diedOut : "N/a";
+  const titles = currentHouse != null ? currentHouse.titles : "N/a";
 
   return (
     <div className="column2">
