@@ -69,16 +69,66 @@ export const HouseCard = (props) => {
     }
   };
 
-  const name = currentHouse != null ? currentHouse.name : "N/a";
-  const region = currentHouse != null ? currentHouse.region : "N/a";
-  const founded = currentHouse != null ? currentHouse.founded : "N/a";
-  const coatsOfArms = currentHouse != null ? currentHouse.coatOfArms : "N/a";
-  const currentLord = currentHouse != null ? characterName : "N/a";
-  const cadetBranches = currentHouse != null ? currentHouse.cadetBranches : "N/a";
+  const name =
+    currentHouse == null
+      ? ""
+      : currentHouse.name === ""
+      ? ""
+      : currentHouse.name;
+
+  const region =
+    currentHouse == null
+      ? "N/A"
+      : currentHouse.region === ""
+      ? "N/A"
+      : currentHouse.region;
+
+  const founded =
+    currentHouse === null
+      ? "N/A"
+      : currentHouse.founded === ""
+      ? "N/A"
+      : currentHouse.founded;
+
+  const coatsOfArms =
+    currentHouse === null
+      ? ""
+      : currentHouse.coatOfArms === ""
+      ? ""
+      : currentHouse.coatOfArms;
+
+  const currentLord =
+    currentHouse === null ? "" : characterName === "" ? "" : characterName;
+
+  const cadetBranches =
+    currentHouse === null
+      ? "N/A"
+      : currentHouse.cadetBranches === ""
+      ? "N/A"
+      : currentHouse.cadetBranches;
+
   const ancestralWeapons =
-    currentHouse != null ? currentHouse.ancestralWeapons : "N/a";
-  const diedOut = currentHouse != null ? currentHouse.diedOut : "N/a";
-  const titles = currentHouse != null ? currentHouse.titles : "N/a";
+    currentHouse === null
+      ? "N/A"
+      : currentHouse.ancestralWeapons === ""
+      ? "N/A"
+      : currentHouse.ancestralWeapons;
+  const diedOut =
+    currentHouse === null
+      ? "N/A"
+      : currentHouse.diedOut === ""
+      ? "N/A"
+      : currentHouse.diedOut;
+
+  const titles =
+    currentHouse === null
+      ? "N/A"
+      : currentHouse.titles[0] === [""]
+      ? "N/A"
+      : currentHouse.titles;
+
+  // const srcImg = getImageSrc({ name: "Baratheon Stannis" });
+  // console.log(srcImg);
 
   return (
     <div className="column2">

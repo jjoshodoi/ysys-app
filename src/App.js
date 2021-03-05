@@ -38,6 +38,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
+  const [sideBarOpen, setSideBarOpen] = useState(true);
 
   useEffect(() => {
     callAPI(radioSideBar, query);
@@ -51,22 +52,31 @@ function App() {
 
   return (
     <div className="app">
-      <HeaderComponent
-        setSearch={setSearch}
-        setQuery={setQuery}
-        search={search}
-        callAPI={callAPI}
-        radioSideBar={radioSideBar}
-      />
-      <SidebarComponent
-        radioSideBar={radioSideBar}
-        setRadioSideBar={setRadioSideBar}
-        selectSideBar={selectSideBar}
-        callAPI={callAPI}
-        setSelectSideBar={setSelectSideBar}
-      />
-      <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
-      <div></div>
+      <div className="body">
+        <div className={sideBarOpen ? "sidenav" : "sidenav-inactive"}>
+          <SidebarComponent
+            radioSideBar={radioSideBar}
+            setRadioSideBar={setRadioSideBar}
+            selectSideBar={selectSideBar}
+            callAPI={callAPI}
+            setSelectSideBar={setSelectSideBar}
+            sideBarOpen={sideBarOpen}
+          />
+        </div>
+        <div className={sideBarOpen ? "content" : "content-expand"}>
+          <HeaderComponent
+            setSearch={setSearch}
+            setQuery={setQuery}
+            search={search}
+            callAPI={callAPI}
+            radioSideBar={radioSideBar}
+            setSideBarOpen={setSideBarOpen}
+            sideBarOpen={sideBarOpen}
+          />
+
+          <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
+        </div>
+      </div>
     </div>
   );
 }
