@@ -36,6 +36,7 @@ export const HouseCard = (props) => {
   const [currentHouse, setCurrentHouse] = useState(null);
   const [characterName, setCharacterName] = useState("");
   const [houseOverlordName, setHouseOverlordName] = useState("");
+  const [pressedACard, setPressedACard] = useState(false);
   const classes = useStyles();
 
   const changeHouse = (item) => {
@@ -69,31 +70,31 @@ export const HouseCard = (props) => {
     }
   };
 
-  const name = 
+  const name =
     currentHouse == null
       ? ""
-      : currentHouse.name === ""
+      : currentHouse.name == ""
       ? ""
       : currentHouse.name;
 
   const region =
     currentHouse == null
       ? "N/A"
-      : currentHouse.region === ""
+      : currentHouse.region == ""
       ? "N/A"
       : currentHouse.region;
 
   const founded =
     currentHouse === null
       ? "N/A"
-      : currentHouse.founded === ""
+      : currentHouse.founded == ""
       ? "N/A"
       : currentHouse.founded;
 
   const coatsOfArms =
     currentHouse === null
       ? ""
-      : currentHouse.coatOfArms === ""
+      : currentHouse.coatOfArms == ""
       ? ""
       : currentHouse.coatOfArms;
 
@@ -103,27 +104,27 @@ export const HouseCard = (props) => {
   const cadetBranches =
     currentHouse === null
       ? "N/A"
-      : currentHouse.cadetBranches === ""
+      : currentHouse.cadetBranches == ""
       ? "N/A"
       : currentHouse.cadetBranches;
 
   const ancestralWeapons =
     currentHouse === null
       ? "N/A"
-      : currentHouse.ancestralWeapons === ""
-      ? "N/A"
+      : currentHouse.ancestralWeapons == ""
+      ? "None"
       : currentHouse.ancestralWeapons;
   const diedOut =
     currentHouse === null
       ? "N/A"
-      : currentHouse.diedOut === ""
-      ? "N/A"
+      : currentHouse.diedOut == ""
+      ? "Alive"
       : currentHouse.diedOut;
 
   const titles =
     currentHouse === null
       ? "N/A"
-      : currentHouse.titles[0] === [""]
+      : currentHouse.titles[0] == [""]
       ? "N/A"
       : currentHouse.titles;
 
@@ -135,17 +136,21 @@ export const HouseCard = (props) => {
       <div className="left70Column">
         <div className="infoBoard">
           <center>
-            <SelectedInfo
-              name={name}
-              region={region}
-              founded={founded}
-              coatsOfArms={coatsOfArms}
-              currentLord={currentLord}
-              cadetBranches={cadetBranches}
-              ancestralWeapons={ancestralWeapons}
-              diedOut={diedOut}
-              titles={titles}
-            />
+            {pressedACard ? (
+              <SelectedInfo
+                name={name}
+                region={region}
+                founded={founded}
+                coatsOfArms={coatsOfArms}
+                currentLord={currentLord}
+                cadetBranches={cadetBranches}
+                ancestralWeapons={ancestralWeapons}
+                diedOut={diedOut}
+                titles={titles}
+              />
+            ) : (
+              <h1>Please Select A Card</h1>
+            )}
           </center>
         </div>
       </div>
@@ -160,6 +165,7 @@ export const HouseCard = (props) => {
                     changeHouse(item),
                     getCharacterName(item.currentLord),
                     getHouseOverlordName(item.overlord),
+                    setPressedACard(true),
                   ]);
                   // Stop Loading?
                 }}

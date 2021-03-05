@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const BookCard = (props) => {
   const [currentBook, setcurrentBook] = useState(null);
+  const [pressedABookCard, setPressedABookCard] = useState(false);
   const classes = useStyles();
 
   const changeBook = (item) => {
@@ -42,24 +43,27 @@ export const BookCard = (props) => {
   const publisher = currentBook != null ? currentBook.publisher : "";
   const country = currentBook != null ? currentBook.country : "";
   const mediaType = currentBook != null ? currentBook.mediaType : "";
-  const released =
-  currentBook != null ? currentBook.released : "";
-  
+  const released = currentBook != null ? currentBook.released : "";
+
   return (
     <div className="column2">
       <div className="left70Column">
         <div className="infoBoard">
-        <center>
-          <SelectedInfo
-              name={name}
-              authors={authors}
-              numberOfPages={pages}
-              publisher={publisher}
-              country={country}
-              mediaType={mediaType}
-              released={released}
+          <center>
+            {pressedABookCard ? (
+              <SelectedInfo
+                name={name}
+                authors={authors}
+                numberOfPages={pages}
+                publisher={publisher}
+                country={country}
+                mediaType={mediaType}
+                released={released}
               />
-            </center>
+            ) : (
+              <h1>Please Select a Book</h1>
+            )}
+          </center>
         </div>
       </div>
       <div className="right30Column">
@@ -68,13 +72,14 @@ export const BookCard = (props) => {
             <Grid item xs={12} md={6}>
               <Paper
                 onClick={() => {
+                  setPressedABookCard(true);
                   changeBook(item);
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
                 {item.name}
                 {(() => {
-                  if (item.name == ("A Game of Thrones")) {
+                  if (item.name == "A Game of Thrones") {
                     return (
                       <img
                         className={classes.img}
@@ -82,7 +87,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book1.jpg"
                       />
                     );
-                  } else if (item.name == ("A Clash of Kings")) {
+                  } else if (item.name == "A Clash of Kings") {
                     return (
                       <img
                         className={classes.img}
@@ -90,7 +95,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book2.jpg"
                       />
                     );
-                  } else if (item.name == ("A Storm of Swords")) {
+                  } else if (item.name == "A Storm of Swords") {
                     return (
                       <img
                         className={classes.img}
@@ -98,7 +103,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book3.jpg"
                       />
                     );
-                  } else if (item.name == ("The Hedge Knight")) {
+                  } else if (item.name == "The Hedge Knight") {
                     return (
                       <img
                         className={classes.img}
@@ -106,7 +111,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book4.jpg"
                       />
                     );
-                  } else if (item.name == ("A Feast for Crows")) {
+                  } else if (item.name == "A Feast for Crows") {
                     return (
                       <img
                         className={classes.img}
@@ -114,7 +119,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book5.jpg"
                       />
                     );
-                  } else if (item.name == ("The Sworn Sword")) {
+                  } else if (item.name == "The Sworn Sword") {
                     return (
                       <img
                         className={classes.img}
@@ -122,7 +127,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book6.jpg"
                       />
                     );
-                  } else if (item.name == ("The Mystery Knight")) {
+                  } else if (item.name == "The Mystery Knight") {
                     return (
                       <img
                         className={classes.img}
@@ -130,7 +135,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book7.jpg"
                       />
                     );
-                  } else if (item.name == ("A Dance with Dragons")) {
+                  } else if (item.name == "A Dance with Dragons") {
                     return (
                       <img
                         className={classes.img}
@@ -138,7 +143,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book8.jpg"
                       />
                     );
-                  } else if (item.name == ("The Princess and the Queen")) {
+                  } else if (item.name == "The Princess and the Queen") {
                     return (
                       <img
                         className={classes.img}
@@ -146,7 +151,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book9.jpg"
                       />
                     );
-                  } else if (item.name == ("The Rogue Prince")) {
+                  } else if (item.name == "The Rogue Prince") {
                     return (
                       <img
                         className={classes.img}
@@ -154,7 +159,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book10.jpg"
                       />
                     );
-                  } else if (item.name == ("The World of Ice and Fire")) {
+                  } else if (item.name == "The World of Ice and Fire") {
                     return (
                       <img
                         className={classes.img}
@@ -162,7 +167,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book11.jpg"
                       />
                     );
-                  } else if (item.name == ("A Knight of the Seven Kingdoms")) {
+                  } else if (item.name == "A Knight of the Seven Kingdoms") {
                     return (
                       <img
                         className={classes.img}
@@ -170,8 +175,7 @@ export const BookCard = (props) => {
                         src="Images/Books/Book12.jpg"
                       />
                     );
-                  } 
-                  
+                  }
                 })()}
               </Paper>
             </Grid>

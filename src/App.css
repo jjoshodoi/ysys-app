@@ -37,11 +37,13 @@
 .content {
   transition: 250ms;
   margin-left: 250px;
+  margin-bottom: 20px;
 }
 
 .content-expand {
   margin-left: 0px;
   transition: 250ms;
+  margin-bottom: 20px;
 }
 
 .box-shadow-img {
