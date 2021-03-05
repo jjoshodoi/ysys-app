@@ -185,7 +185,7 @@ export const HouseCard = (props) => {
               >
                 <div class="container">
                   <div class="inner">
-                      <div class="full-height"></div>
+                      <div class="full-height overlay"></div>
                         {item.name}
                   </div>
                 {(() => {
