@@ -13,21 +13,20 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    width: "118px",
-    height: "142px",
+    width: "110px",
+    height: "135px",
     flexWrap: "wrap",
+    
   },
 
   img: {
     margin: "auto",
     display: "block",
-    maxWidth: "100%",
-    maxHeight: "85%",
-    // objectFit: "cover",
-    // backgroundImage: "Images/Books/Book3.jpg",
+    width: "110px",
+    height: "135px",
+
   },
 }));
 
@@ -71,7 +70,7 @@ export const BookCard = (props) => {
       <div className="right30Column">
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5} justifyContent = "center">
               <Paper
                 onClick={() => {
                   setPressedABookCard(true);
@@ -79,7 +78,6 @@ export const BookCard = (props) => {
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
-                {item.name}
                 {(() => {
                   if (item.name == "A Game of Thrones") {
                     return (

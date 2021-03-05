@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    // padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
     width: "118px",
@@ -25,11 +25,22 @@ const useStyles = makeStyles((theme) => ({
   },
 
   img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "85%",
+    width: '118px',
+    height: "142px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  noImg: {
+    maxHeight: '142px',
+    maxWidth: '118px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: '60px',
+    paddingBottom: '40px',
+  },
+
 }));
 
 export const HouseCard = (props) => {
@@ -171,12 +182,6 @@ export const HouseCard = (props) => {
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
-                {item.name}
-                {/* <img
-                  className={classes.img}
-                  src={`${() => getImageSrc(item)}`}
-                  alt={`${() => getImageAlt(item)}`}
-                /> */}
                 {(() => {
                   if (item.name.includes("Allyrion")) {
                     return (
@@ -453,13 +458,16 @@ export const HouseCard = (props) => {
                   } else {
                     return (
                       <img
-                        className={classes.img}
+                        className={classes.noImg}
                         alt="GOT"
                         src="Images\Houses\GOT.png"
                       />
                     );
                   }
                 })()}
+                <div className="center">
+                {item.name}
+                </div>
               </Paper>
             </Grid>
           ))}

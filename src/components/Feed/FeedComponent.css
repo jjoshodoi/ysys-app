@@ -14,7 +14,7 @@
 
 .right30Column {
   margin-top: 50px;
-  width: 30%;
+  width: 28%;
   max-height: 75vh;
   overflow-y: auto;
 }
@@ -71,4 +71,11 @@ h2 {
 .image {
   max-height: 30px;
   height: 20px;
+}
+
+.center {
+  position:flex;
+  background-color: aqua;
+  display: 'flex';
+  align-items: flex-end;
 }
