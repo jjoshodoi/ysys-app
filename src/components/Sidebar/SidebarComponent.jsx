@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SidebarComponent.css";
+import { Select, MenuItem } from "@material-ui/core";
 
 // TODO - make sure SidebarComponent is expecting the right props!
 export const SidebarComponent = (props) => {
@@ -34,7 +35,7 @@ export const SidebarComponent = (props) => {
     >
       <form>
         <div className="sideBarButtons">
-          <div className="button buttonhouses">
+          <div className="sideBarBtnItem">
             <label>
               <button
                 value="houses"
@@ -49,7 +50,7 @@ export const SidebarComponent = (props) => {
               </button>
             </label>
           </div>
-          <div className="button buttoncharacters">
+          <div className="sideBarBtnItem">
             <label>
               <button
                 value="characters"
@@ -64,7 +65,7 @@ export const SidebarComponent = (props) => {
               </button>
             </label>
           </div>
-          <div className="button buttonbooks"></div>
+          <div className="sideBarBtnItem"></div>
           <label>
             <button
               value="books"
@@ -80,14 +81,14 @@ export const SidebarComponent = (props) => {
           </label>
         </div>
       </form>
-
-      <h3>How Many?</h3>
-      <select defaultValue="10" onChange={onSelectChange}>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-      </select>
-      <h5>{props.selectSideBar}</h5>
+      <div className="custom-select">
+        <h3>Filter Search Size</h3>
+        <Select defaultValue="10" onChange={onSelectChange}>
+          <MenuItem value="10">10</MenuItem>
+          <MenuItem value="20">20</MenuItem>
+          <MenuItem value="50">50</MenuItem>
+        </Select>
+      </div>
     </div>
   );
 };
