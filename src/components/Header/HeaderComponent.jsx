@@ -8,6 +8,8 @@ export const HeaderComponent = ({
   search,
   callAPI,
   radioSideBar,
+  setSideBarOpen,
+  sideBarOpen,
 }) => {
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
@@ -20,11 +22,15 @@ export const HeaderComponent = ({
   };
   return (
     <header>
-      <div className={"content"}>
+      {/* <div className={sideBarOpen ? "content" : "content sidebarCollapse"}> */}
+      <div>
         {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
-        <button className="inlineTitle">
+        <button
+          className="inlineTitle"
+          onClick={() => setSideBarOpen(!sideBarOpen)}
+        >
           <img src="Images/burger.png" height="30" width="30"></img>
         </button>{" "}
         {/* <---- this is the burger menu symbol for the show filters button */}
@@ -42,9 +48,9 @@ export const HeaderComponent = ({
             onChange={handleSearchChange}
           ></input>
 
-         <button type="submit" form="search" id="searchbutton">
+          <button type="submit" form="search" id="searchbutton">
             <img src="Images/searchicon.png" height="30" width="30"></img>
-          </button> 
+          </button>
         </form>
       </div>
     </header>

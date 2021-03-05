@@ -27,58 +27,45 @@ export const SidebarComponent = (props) => {
   };
 
   return (
-    <div className={"sidebar"}>
+    <div
+    // className={
+    //   props.sideBarOpen ? "sidebar sidebarContainer" : "sidebarCollapse"
+    // }
+    >
       <form>
-        <div className="button buttonhouses">
+        <div className="sideBarButtons">
+          <div className="button buttonhouses">
+            <label>
+              <button
+                value="houses"
+                className={
+                  props.radioSideBar === "houses"
+                    ? "sidebarBtn sidebarActive"
+                    : "sidebarBtn"
+                }
+                onClick={onRadioChange}
+              >
+                Houses
+              </button>
+            </label>
+          </div>
+          <div className="button buttoncharacters">
+            <label>
+              <button
+                value="characters"
+                className={
+                  props.radioSideBar === "characters"
+                    ? "sidebarBtn sidebarActive"
+                    : "sidebarBtn"
+                }
+                onClick={onRadioChange}
+              >
+                Characters
+              </button>
+            </label>
+          </div>
+          <div className="button buttonbooks"></div>
           <label>
-            {/* <input
-              // type="button"
-              value="houses"
-              checked={props.radioSideBar === "houses"}
-              onChange={onRadioChange}
-            /> */}
-            <button
-              value="houses"
-              className={
-                props.radioSideBar === "houses"
-                  ? "sidebarBtn sidebarActive"
-                  : "sidebarBtn"
-              }
-              onClick={onRadioChange}
-            >
-              Houses
-            </button>
-          </label>
-        </div>
-        <div className="button buttoncharacters">
-          <label>
-            {/* <input
-              // type="button"
-              value="characters"
-              checked={props.radioSideBar === "characters"}
-              onChange={onRadioChange}
-            /> */}
- <button
-              value="characters"
-              className={
-                props.radioSideBar === "characters"
-                  ? "sidebarBtn sidebarActive"
-                  : "sidebarBtn"
-              }
-              onClick={onRadioChange}
-            >
-              Characters
-            </button>
-          </label>
-        </div>
-        <div className="button buttonbooks">
-          <label>
-            {/* <input
-              // type="button"
-              value="books"
-              checked={props.radioSideBar === "books"}
-              onChange={onRadioChange}
-            />  */}
             <button
               value="books"
               className={
@@ -92,7 +79,6 @@ export const SidebarComponent = (props) => {
             </button>
           </label>
         </div>
-        <div>Selected option is : {props.radioSideBar}</div>
       </form>
 
       <h3>How Many?</h3>
