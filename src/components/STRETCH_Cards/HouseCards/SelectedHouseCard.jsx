@@ -148,6 +148,9 @@ export default function SelectedInfo(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography>{`Region: ${props.region}`}</Typography>
+          <Typography>
+            {`Founded: ${props.founded}`}
+          </Typography>
           <Typography>{`Cadet Branches: ${props.cadetBranches}`}</Typography>
           <Typography>
             {`Ancestral Weapons: ${props.ancestralWeapons}`}

@@ -74,8 +74,18 @@ h2 {
 }
 
 .center {
-  position:flex;
+  position:absolute;
   background-color: aqua;
   display: 'flex';
   align-items: flex-end;
+}
+
+.inner { position: absolute; height: auto; }
+.full-height { height: 100%; }
+
+.container {
+  position: relative;
+  width: 120px;
+  height: 142px;
+  overflow: auto;
 }

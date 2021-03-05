@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    position:'absolute',
   },
   noImg: {
     maxHeight: '142px',
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: '60px',
-    paddingBottom: '40px',
+    paddingBottom: '30px',
   },
 
 }));
@@ -182,6 +183,11 @@ export const HouseCard = (props) => {
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
+                <div class="container">
+                  <div class="inner">
+                      <div class="full-height"></div>
+                        {item.name}
+                  </div>
                 {(() => {
                   if (item.name.includes("Allyrion")) {
                     return (
@@ -465,9 +471,7 @@ export const HouseCard = (props) => {
                     );
                   }
                 })()}
-                <div className="center">
-                {item.name}
-                </div>
+              </div>
               </Paper>
             </Grid>
           ))}
