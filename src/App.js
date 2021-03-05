@@ -47,7 +47,14 @@ function App() {
   const callAPI = async (radioSideBar, query) => {
     const data = await getData(radioSideBar, query, selectSideBar);
     setApiInfo(data);
+    returnedResultsWarning(data);
     console.log(ApiInfo);
+  };
+
+  const returnedResultsWarning = (data) => {
+    if (data.length === 0) {
+      alert("No Results Found");
+    }
   };
 
   return (
