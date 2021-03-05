@@ -69,6 +69,7 @@
   border-color: none;
   border-image: none;
   font-size: 35px;
+  outline:none;
 }
 
 .sidebarActive {
