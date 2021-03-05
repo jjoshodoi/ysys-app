@@ -80,7 +80,17 @@ h2 {
   align-items: flex-end;
 }
 
-.inner { position: absolute; height: auto; }
+.inner { 
+  position: absolute; 
+  text-align: bottom;
+  height: auto; 
+  background-color: rgba(34, 34, 51, 0.6); 
+  align-Items: 'center';
+  justify-Content: 'center';
+  width: 118px;
+  color: white;
+  align-content: flex-end;
+}
 .full-height { height: 100%; }
 
 .container {

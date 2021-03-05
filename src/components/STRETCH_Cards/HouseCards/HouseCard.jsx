@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    position:'absolute',
   },
   noImg: {
     maxHeight: '142px',
