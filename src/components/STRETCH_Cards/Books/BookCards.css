@@ -1,3 +1,15 @@
 .title{
     font-size: 35px;
 }
+
+#househeading{
+    position:relative;
+    top: -80px;
+    padding: 50px;
+    right: -150px;
+  }
+  
+  #househeadingpara{
+    font-size: 30px;
+  }
+  
