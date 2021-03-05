@@ -48,7 +48,12 @@ export const HeaderComponent = ({
             onChange={handleSearchChange}
           ></input>
 
-          <button type="submit" form="search" id="searchbutton">
+          <button
+            className="sidebarBtn"
+            type="submit"
+            form="search"
+            id="searchbutton"
+          >
             <img src="Images/searchicon.png" height="30" width="30"></img>
           </button>
         </form>

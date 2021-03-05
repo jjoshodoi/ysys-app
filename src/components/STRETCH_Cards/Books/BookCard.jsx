@@ -26,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     maxWidth: "100%",
     maxHeight: "85%",
+    // objectFit: "cover",
+    // backgroundImage: "Images/Books/Book3.jpg",
   },
 }));
 
