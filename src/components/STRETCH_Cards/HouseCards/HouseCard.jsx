@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     width: '118px',
     height: "142px",
-    display: 'flex',
+    display: 'block',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -185,8 +185,10 @@ export const HouseCard = (props) => {
               >
                 <div class="container">
                   <div class="inner">
-                      <div class="full-height overlay"></div>
-                        {item.name}
+                      <div class="full-height"></div>
+                      <div class="overlay">
+                        <b>{item.name}</b>
+                        </div>
                   </div>
                 {(() => {
                   if (item.name.includes("Allyrion")) {
