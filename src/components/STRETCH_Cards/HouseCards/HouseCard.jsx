@@ -149,7 +149,7 @@ export const HouseCard = (props) => {
                 titles={titles}
               />
             ) : (
-              <h1>Please Select A Card</h1>
+              <h1 class="title">Please Select A Card</h1>
             )}
           </center>
         </div>
