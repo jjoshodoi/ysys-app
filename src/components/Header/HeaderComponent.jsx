@@ -1,5 +1,7 @@
 import React from "react";
 import "./HeaderComponent.css";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
 
 // TODO - make sure HeaderComponent is expecting the right props (if any)!
 export const HeaderComponent = ({
@@ -27,12 +29,12 @@ export const HeaderComponent = ({
         {/* TODO [STRETCH] - add in any controls that you'd like in your header
              E.g, a search bar, a toggle button for the side bar, or just a plain header!
         */}
-        <button
+        <div
           className="inlineTitle"
           onClick={() => setSideBarOpen(!sideBarOpen)}
         >
-          <img src="Images/burger.png" height="30" width="30"></img>
-        </button>{" "}
+          <MenuIcon fontSize="large" />
+        </div>{" "}
         {/* <---- this is the burger menu symbol for the show filters button */}
         {/* <center> */}
         <h1 id="headertext" className="inlineTitle">
@@ -54,7 +56,7 @@ export const HeaderComponent = ({
             form="search"
             id="searchbutton"
           >
-            <img src="Images/searchicon.png" height="30" width="30"></img>
+            <SearchIcon fontSize="medium" />
           </button>
         </form>
       </div>

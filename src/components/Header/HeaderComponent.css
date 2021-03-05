@@ -48,6 +48,8 @@ header {
 
 #searchbutton {
   position: relative;
-  height: 24px;
-  left: 280px;
+  height: 18px;
+  left: 230px;
+  top: -5px;
+  color: grey;
 }
