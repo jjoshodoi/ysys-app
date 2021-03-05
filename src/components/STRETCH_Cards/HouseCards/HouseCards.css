@@ -1,0 +1,11 @@
+.infoBoard {
+  margin-right: 20px;
+  height: 500px;
+  padding: 50px;
+  border-width: 5px;
+  border-color: White;
+}
+
+.title{
+  font-size: 35px;
+}

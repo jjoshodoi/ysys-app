@@ -6,9 +6,49 @@
   overflow-y: auto;
 }
 
-.content {
-  margin-left: 275px;
+.body {
+  display: flex;
+}
+
+.header {
+  background-color: gray;
+  width: 100vw;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(192, 196, 237, 0.15);
+  overflow-x: hidden;
   transition: 250ms;
+}
+
+.sidenav-inactive {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -200px;
+  background-color: grey;
+  overflow-x: hidden;
+  transition: 250ms;
+}
+
+.content {
+  transition: 250ms;
+  margin-left: 250px;
+  margin-bottom: 20px;
+}
+
+.content-expand {
+  margin-left: 0px;
+  transition: 250ms;
+  margin-bottom: 20px;
 }
 
 .box-shadow-img {

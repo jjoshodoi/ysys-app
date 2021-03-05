@@ -1,65 +1,67 @@
 /* TODO general sidebar styles */
-.sidebar {
-  position: fixed;
-  height: 100%;
-  width: 275px;
-  left: 0;
-  z-index: 1;
-  top: 0;
-  background-color: rgba(192, 196, 237, 0.15);
-  transition: 250ms;
-  overflow-x: hidden;
-}
 
 /*.radio {
   display:none;
 }*/
 
-.radiohouses {
-position: absolute;
-width: 92px;
-height: 28px;
-left: 70px;
-top: 167px;
-font-family: Roboto;
-font-style: normal;
-font-weight: 300;
-font-size: 24px;
-line-height: 28px;
+.sideBarButtons {
+  position: absolute;
+  top: 130px;
+  font-size: 24px;
+  text-align: right;
+  right: 0;
 }
 
-.radiocharacters {
-position: absolute;
-width: 151px;
-height: 28px;
-left: 70px;
-top: 113px;
-font-family: Roboto;
-font-style: normal;
-font-weight: 300;
-font-size: 24px;
-line-height: 28px;
-
-  }
-
-.radiobooks {
-position: absolute;
-width: 77px;
-height: 28px;
-left: 69px;
-top: 221px;
-font-family: Roboto;
-font-style: normal;
-font-weight: 300;
-font-size: 24px;
-line-height: 28px;
-    }
-/* TODO expanded styles */
-.app-sidebar.expanded {
-  /* width: ??? */
+.sideBarBtnItem {
+  margin: 5px 0;
 }
 
-/* TODO collapsed styles */
-.app-sidebar.collapsed {
-  /* width: ??? */
+.sidebarBtn {
+  color: white;
+  background-color: transparent;
+  box-sizing: border-box;
+  margin: 0em;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+  font-size: 35px;
+  outline: none;
+}
+
+.sidebarActive {
+  color: #1f6ada;
+  text-shadow: 0px 4px 4px rgba(148, 22, 207, 0.5);
+}
+
+.custom-select {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding: 0px 5px 5px 40px;
+  top: 500px;
+  align-items: flex-end;
+  height: 90vh;
+  color: white;
+}
+
+.custom-select h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 0;
+  margin-block-end: 3px;
+  font-weight: bold;
+}
+
+.custom-select .MuiSelect-icon {
+  color: white;
+}
+
+.custom-select .MuiSelect-select {
+  color: white;
+}
+
+.MuiInput-underline::after {
+  color: white;
 }

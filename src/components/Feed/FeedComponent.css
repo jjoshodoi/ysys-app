@@ -1,6 +1,5 @@
 /* TODO add feed styles */
 .feed {
-  margin-left: 275px;
   transition: 250ms;
 }
 
@@ -14,13 +13,12 @@
 }
 
 .right30Column {
-  width: 30%;
+  margin-top: 50px;
+  width: 28%;
   max-height: 75vh;
   overflow-y: auto;
 }
 
-.card {
-}
 .Line {
   border-left-width: 0;
   border-bottom-width: 0;
@@ -28,24 +26,56 @@
   border-top-width: var(--component-border-width-small);
 }
 
-.overlay {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--color-theme-day-background--overlay-heavy);
-  color: var(--color-theme-night-text);
-}
 .cardImg {
   display: block;
   margin-right: auto;
   margin-left: auto;
   height: 200px;
-  border: 0 solid var(--color-theme-border);
+  max-width: 270px;
+  margin-top: 10px;
 }
 
 .Border {
   display: block;
   margin-right: auto;
   margin-left: auto;
+  max-height: 160px;
+}
+
+.cardCaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.CardHeader {
+  height: 30px;
+  background-color: #717388;
+}
+
+.Card {
+  height: 195px;
+}
+
+h1 {
+  font-size: 14px;
+}
+
+h2 {
+  font-style: italic;
+  font-size: 25px;
+  color: #ffffff;
+  justify-items: center;
+}
+.image {
+  max-height: 30px;
+  height: 20px;
+}
+
+.center {
+  position:flex;
+  background-color: aqua;
+  display: 'flex';
+  align-items: flex-end;
 }

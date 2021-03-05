@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SidebarComponent.css";
+import { Select, MenuItem } from "@material-ui/core";
 
 // TODO - make sure SidebarComponent is expecting the right props!
 export const SidebarComponent = (props) => {
@@ -15,61 +16,79 @@ export const SidebarComponent = (props) => {
   //              E.g add a dropdown to determine which field you're searching on ("name"/"title"/"alias")
 
   const onRadioChange = (event) => {
+    event.preventDefault();
     props.setRadioSideBar(event.target.value);
     console.log(event.target.value);
   };
 
   const onSelectChange = (event) => {
+    event.preventDefault();
     props.setSelectSideBar(event.target.value);
     console.log(event.target.value);
   };
 
   return (
-    <div className={"sidebar"}>
+    <div
+    // className={
+    //   props.sideBarOpen ? "sidebar sidebarContainer" : "sidebarCollapse"
+    // }
+    >
       <form>
-        <div className="radio radiohouses">
+        <div className="sideBarButtons">
+          <div className="sideBarBtnItem">
+            <label>
+              <button
+                value="houses"
+                className={
+                  props.radioSideBar === "houses"
+                    ? "sidebarBtn sidebarActive"
+                    : "sidebarBtn"
+                }
+                onClick={onRadioChange}
+              >
+                Houses
+              </button>
+            </label>
+          </div>
+          <div className="sideBarBtnItem">
+            <label>
+              <button
+                value="characters"
+                className={
+                  props.radioSideBar === "characters"
+                    ? "sidebarBtn sidebarActive"
+                    : "sidebarBtn"
+                }
+                onClick={onRadioChange}
+              >
+                Characters
+              </button>
+            </label>
+          </div>
+          <div className="sideBarBtnItem"></div>
           <label>
-            <input
-              type="radio"
-              value="houses"
-              checked={props.radioSideBar === "houses"}
-              onChange={onRadioChange}
-            />
-            Houses
-          </label>
-        </div>
-        <div className="radio radiocharacters">
-          <label>
-            <input
-              type="radio"
-              value="characters"
-              checked={props.radioSideBar === "characters"}
-              onChange={onRadioChange}
-            />
-            Characters
-          </label>
-        </div>
-        <div className="radio radiobooks">
-          <label>
-            <input
-              type="radio"
+            <button
               value="books"
-              checked={props.radioSideBar === "books"}
-              onChange={onRadioChange}
-            />
-            Books
+              className={
+                props.radioSideBar === "books"
+                  ? "sidebarBtn sidebarActive"
+                  : "sidebarBtn"
+              }
+              onClick={onRadioChange}
+            >
+              Books
+            </button>
           </label>
         </div>
-        <div>Selected option is : {props.radioSideBar}</div>
       </form>
-
-      <h3>How Many?</h3>
-      <select defaultValue="10" onChange={onSelectChange}>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-      </select>
-      <h5>{props.selectSideBar}</h5>
+      <div className="custom-select">
+        <h3>Filter Search Size</h3>
+        <Select defaultValue="10" onChange={onSelectChange}>
+          <MenuItem value="10">10</MenuItem>
+          <MenuItem value="20">20</MenuItem>
+          <MenuItem value="50">50</MenuItem>
+        </Select>
+      </div>
     </div>
   );
 };

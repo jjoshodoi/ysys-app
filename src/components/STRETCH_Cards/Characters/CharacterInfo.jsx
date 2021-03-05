@@ -27,13 +27,13 @@ const CharacterInfo = (props) => {
   var house = "";
   var name= "";
 
-  if (props.item.house == "Braavos") {
+  if (props.item.house === "Braavos") {
     house = "/Images/Titan_of_Braavos.jpg";
-  } else if (props.item.culture == "Northmen") {
+  } else if (props.item.culture === "Northmen") {
     house = "/Images/Northmen.jpg";
-  } else if (props.item.culture == "Valyrian") {
+  } else if (props.item.culture === "Valyrian") {
     house = "/Images/Valyrian.jpg";
-  } else if (props.item.culture == "Westeros") {
+  } else if (props.item.culture === "Westeros") {
     house = "Images/Westeros.png";
   } else {
     house = "Images/Houses/GOT CARD.png";
@@ -43,6 +43,19 @@ const CharacterInfo = (props) => {
     name = props.item.aliases[0];
   } else {
     name = props.item.name;
+  }
+  if (props.item.aliases != null) {
+    var aliases = props.item.aliases;
+    var listOfAliases = aliases.join(", ");
+  } else {
+    listOfAliases = aliases;
+  }
+
+  if (props.item.titles != null) {
+    var titles = props.item.titles;
+    var listOfTitles = titles.join(", ");
+  } else {
+    listOfTitles = titles;
   }
 
   const classes = useStyles();
@@ -55,17 +68,18 @@ const CharacterInfo = (props) => {
           </Typography>
         </div>  
         <img src={house} className="Border cardImg" alt="Failed."/>
-        <CardContent>          
+        <CardContent className= "Card">          
           <Typography variant="h5" component="h9">
-            {name}
+            <b>{name}</b>
           </Typography>
           <hr className="Line" />
-          <Typography variant="h5">
+          <Typography paragraph variant="h8">
             <b>Title: </b>
-            {props.item.titles}
+            {listOfTitles}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
+          <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
             <b>AKA:</b>{" "}
+            <em>{listOfAliases}</em>
           </Typography>
         </CardContent>
       </Card>
