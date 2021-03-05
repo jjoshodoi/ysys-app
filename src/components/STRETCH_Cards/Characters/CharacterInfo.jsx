@@ -70,7 +70,7 @@ const CharacterInfo = (props) => {
         <img src={house} className="Border cardImg" alt="Failed."/>
         <CardContent className= "Card">          
           <Typography variant="h5" component="h9">
-            {name}
+            <b>{name}</b>
           </Typography>
           <hr className="Line" />
           <Typography paragraph variant="h8">
