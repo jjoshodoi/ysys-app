@@ -62,7 +62,7 @@ export const BookCard = (props) => {
                 released={released}
               />
             ) : (
-              <h1 class="title">Please Select a Book</h1>
+              <center><h1 class="title">Please Select a Book</h1></center>
             )}
           </center>
         </div>
