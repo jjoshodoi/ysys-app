@@ -69,7 +69,7 @@ export const HouseCard = (props) => {
     }
   };
 
-  const name =
+  const name = 
     currentHouse == null
       ? ""
       : currentHouse.name === ""
