@@ -102,12 +102,12 @@ export const HouseCard = (props) => {
       ? "N/A"
       : currentHouse.founded;
 
-  const coatsOfArms =
+  const words =
     currentHouse === null
       ? ""
-      : currentHouse.coatOfArms == ""
+      : currentHouse.words == ""
       ? ""
-      : currentHouse.coatOfArms;
+      : currentHouse.words;
 
   const currentLord =
     currentHouse === null ? "" : characterName === "" ? "" : characterName;
@@ -152,7 +152,7 @@ export const HouseCard = (props) => {
                 name={name}
                 region={region}
                 founded={founded}
-                coatsOfArms={coatsOfArms}
+                words={words}
                 currentLord={currentLord}
                 cadetBranches={cadetBranches}
                 ancestralWeapons={ancestralWeapons}

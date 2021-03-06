@@ -1,6 +1,6 @@
 .app {
   height: 100vh;
-  background-color: #1c1c1c;
+  background-color: black;
   color: white;
   position: relative;
   overflow-y: auto;
@@ -11,7 +11,7 @@
 }
 
 .header {
-  background-color: gray;
+  background-color: black;
   width: 100vw;
 }
 
