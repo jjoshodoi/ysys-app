@@ -62,11 +62,12 @@ export const BookCard = (props) => {
                 released={released}
               />
             ) : (
-              <h1 class="title">Please Select a Book</h1>
+              <center><h1 class="title">Please Select a Book</h1></center>
             )}
           </center>
         </div>
       </div>
+      <div id="househeading"><p id="househeadingpara"><b>Click</b></p></div>
       <div className="right30Column">
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
