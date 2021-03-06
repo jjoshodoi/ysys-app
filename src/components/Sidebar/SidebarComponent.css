@@ -36,22 +36,21 @@
 }
 
 .custom-select {
-  display: flex;
-  justify-content: space-between;
+  display: absolute;
+  justify-content: left;
   padding: 5px;
   padding: 0px 5px 5px 40px;
-  top: 500px;
+  padding-top: 400px;
   align-items: flex-end;
-  height: 90vh;
   color: white;
 }
 
 .custom-select h3 {
+  padding-top: 20px;
   display: block;
-  font-size: 1.17em;
+  font-size: 1.1em;
   margin-block-start: 0;
   margin-block-end: 3px;
-  font-weight: bold;
 }
 
 .custom-select .MuiSelect-icon {
