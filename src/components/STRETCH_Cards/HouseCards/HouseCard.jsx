@@ -161,18 +161,18 @@ export const HouseCard = (props) => {
             ) : (
               <center>
                 {" "}
-                <h1 class="title">Please Select A Card on the right of the page -></h1>{" "}
+                <h1 className="title">Please Search for an Item</h1>{" "}
               </center>
             )}
           </center>
         </div>
       </div>
       <div className="right30Column">
-      <div className="househeading">
-        <p id="househeadingpara">
-          <b>Click</b>
-        </p>
-      </div>
+        <div className="househeading">
+          <p id="househeadingpara">
+            <b>Click</b>
+          </p>
+        </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
             <Grid item md={12} lg={6}>

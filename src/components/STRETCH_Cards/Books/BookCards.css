@@ -1,5 +1,8 @@
 .title {
-  font-size: 35px;
+  font-size: 25px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.384);
+  text-align: center;
 }
 
 #househeading {
