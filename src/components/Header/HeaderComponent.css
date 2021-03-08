@@ -2,6 +2,12 @@
 
 header {
   height: 120px;
+  display: flex;
+  background-color: black;
+  padding: 0 20px;
+  /* width: 100vw; */
+
+  justify-content: space-between;
 }
 
 #headertext {
@@ -22,25 +28,14 @@ header {
 }
 
 .inlineTitle {
-  position: absolute;
+  /* position: absolute; */
   display: inline-block;
-  top: 36px;
-}
-
-#search {
-  right: 280px;
-  top: 41px;
+  padding-top: 36px;
 }
 
 .searchinput {
-  position: absolute;
-  /* height: 24px;
-  right: 75px;
-  top: 0px; */
   width: 263px;
   height: 24px;
-  /* top: 36px; */
-
   background: #ffffff;
   border-radius: 10px;
   width: 263px;
@@ -54,7 +49,10 @@ header {
   color: grey;
 }
 
+.formContainer {
+  position: relative;
+}
+
 #titleImg {
   height: 120px;
-  padding-left: 300px;
 }

@@ -6,17 +6,17 @@
   border-color: White;
 }
 
-.title{
+.title {
   font-size: 35px;
 }
 
-#househeading{
-  position:relative;
-  top: -70px;
-  padding: 50px;
-  right: -220px;
+.househeading {
+  position: absolute;
+  top: -25px;
+  padding: 0;
+  right: 47%;
 }
 
-#househeadingpara{
+#househeadingpara {
   font-size: 30px;
 }
