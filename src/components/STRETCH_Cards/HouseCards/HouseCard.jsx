@@ -161,7 +161,7 @@ export const HouseCard = (props) => {
             ) : (
               <center>
                 {" "}
-                <h1 class="title">Please Select A Card on the right of the page -></h1>{" "}
+                <h1 class="title">Please Select A Card on the right of the page ></h1>{" "}
               </center>
             )}
           </center>

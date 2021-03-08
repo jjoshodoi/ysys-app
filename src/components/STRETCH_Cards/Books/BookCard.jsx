@@ -65,7 +65,7 @@ export const BookCard = (props) => {
               />
             ) : (
               <center>
-                <h1 class="title">Please Select a Book on the right of the page -></h1>
+                <h1 class="title">Please Select a Book on the right of the page ></h1>
               </center>
             )}
           </center>
