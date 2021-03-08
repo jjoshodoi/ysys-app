@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: "110px",
     height: "135px",
     flexWrap: "wrap",
+    
   },
 
   img: {
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "110px",
     height: "135px",
+    display: "block",
+    alignItems: "center",
+    justifyContent: "center",
   },
 }));
 
@@ -61,7 +65,7 @@ export const BookCard = (props) => {
               />
             ) : (
               <center>
-                <h1 class="title">Please Select a Book</h1>
+                <h1 class="title">Please Select a Book on the right of the page -></h1>
               </center>
             )}
           </center>
