@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     width: "110px",
     height: "135px",
     flexWrap: "wrap",
-    
   },
 
   img: {
@@ -26,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "110px",
     height: "135px",
-
+    display: "block",
+    alignItems: "center",
+    justifyContent: "center",
   },
 }));
 
@@ -62,16 +63,23 @@ export const BookCard = (props) => {
                 released={released}
               />
             ) : (
-              <center><h1 class="title">Please Select a Book</h1></center>
+              <center>
+                <h1 class="title">{"Please Search for an Item"}</h1>
+              </center>
             )}
           </center>
         </div>
       </div>
-      <div id="househeading"><p id="househeadingpara"><b>Click</b></p></div>
+
       <div className="right30Column">
+        <div className="househeading">
+          <p id="househeadingpara">
+            <b>Click</b>
+          </p>
+        </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item xs={12} md={5} justifyContent = "center">
+            <Grid item xs={12} md={6} justifyContent="center">
               <Paper
                 onClick={() => {
                   setPressedABookCard(true);

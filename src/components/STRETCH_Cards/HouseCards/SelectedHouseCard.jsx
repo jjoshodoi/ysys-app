@@ -29,13 +29,26 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
+  img: {
+    margin: "auto",
+    display: "block",
+    width: '200px',
+    height: "250px",
+  },
+  img2: {
+    margin: "auto",
+    display: "block",
+    width: '400px',
+    height: "250px",
+    aspectRatio: 1.5, 
+  },
 }));
 
 var currentLord = "";
 var currentHouseImage = "";
 const style = {
-  maxheight: 200,
-  maxWidth: 200,
+  maxheight: 300,
+  maxWidth: 500,
 };
 export default function SelectedInfo(props) {
   const classes = useStyles();
@@ -133,7 +146,23 @@ export default function SelectedInfo(props) {
         title={props.name}
         subheader={`Current Lord: ${currentLord}`}
       />
-      <img src={currentHouseImage} style={style} />
+      {(() => {
+        if (currentHouseImage == "Images/Houses/GOT CARD.png") {
+          return (
+            <img className={classes.img2}
+              src={currentHouseImage} 
+              style={style} 
+              size={5}/>
+          )
+        } else {
+          return (
+            <img className={classes.img}
+              src={currentHouseImage} 
+              style={style} 
+              size={5}/>
+          )
+        }
+      })()}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           Motto:  {motto}

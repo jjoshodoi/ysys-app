@@ -13,9 +13,11 @@
 }
 
 .right30Column {
-  margin-top: 50px;
-  width: 28%;
-  max-height: 75vh;
+  overflow-x: hidden;
+  position: relative;
+  padding-top: 50px;
+  max-width: 25%;
+  max-height: 70vh;
   overflow-y: auto;
 }
 
@@ -51,7 +53,7 @@
 
 .CardHeader {
   height: 30px;
-  background-color: #000000;
+  background-color: rgba(87, 125, 148, 0.7);
 }
 
 .Card {
@@ -74,37 +76,39 @@ h2 {
 }
 
 .center {
-  position:absolute;
+  position: absolute;
   background-color: aqua;
-  display: 'flex';
+  display: "flex";
   align-items: flex-end;
 }
 
-.inner { 
-  height: auto; 
-  align-Items: 'center';
-  justify-Content: 'center';
+.inner {
+  height: auto;
+  align-items: "center";
+  justify-content: "center";
   width: 118px;
 }
-.full-height { height: 100%; }
+.full-height {
+  height: 100%;
+}
 
-.container  {
+.container {
   position: relative;
   width: 120px;
   height: 142px;
   overflow: auto;
 }
 
-.container:hover .overlay  {
+.container:hover .overlay {
   opacity: 15;
 }
 .overlay {
-  position: absolute; 
+  position: absolute;
   background: rgb(87, 53, 53, 0.5);
-  background: rgba(49, 15, 88, 0.7); /* Black see-through */
+  background: rgba(87, 125, 148, 0.7); /* Black see-through */
   width: 118px;
-  transition: .5s ease;
-  opacity:0.3;
+  transition: 0.5s ease;
+  opacity: 0.3;
   color: white;
   text-align: center;
   bottom: 0;
