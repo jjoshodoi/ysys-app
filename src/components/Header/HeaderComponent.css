@@ -41,11 +41,11 @@ header {
   width: 263px;
 }
 
-#searchbutton {
-  position: relative;
-  height: 18px;
-  left: 230px;
-  top: -5px;
+.searchButton {
+  all: unset;
+  position: absolute;
+  right: 6px;
+  padding-top: 3px;
   color: grey;
 }
 

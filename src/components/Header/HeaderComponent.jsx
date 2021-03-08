@@ -37,17 +37,22 @@ export const HeaderComponent = ({
         id="titleImg"
         alt="Game of Thrones App"
       />
-      <form className="inlineTitle formContainer" onSubmit={handleSubmit}>
+      <form
+        id="search"
+        className="inlineTitle formContainer"
+        onSubmit={handleSubmit}
+      >
         <input
           className="searchinput"
           value={search}
           placeholder="Enter Here..."
           type="text"
           onChange={handleSearchChange}
-        >
+        ></input>
 
-        </input>
-
+        <button className="searchButton" type="submit" form="search">
+          <SearchIcon fontSize="medium" />
+        </button>
         {/* <button
           className="sidebarBtn"
           type="submit"
