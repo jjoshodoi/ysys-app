@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: "110px",
     height: "135px",
     flexWrap: "wrap",
+    
   },
 
   img: {
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "110px",
     height: "135px",
+    display: "block",
+    alignItems: "center",
+    justifyContent: "center",
   },
 }));
 
@@ -76,7 +80,7 @@ export const BookCard = (props) => {
         </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item xs={12} md={5} justifyContent="center">
+            <Grid item xs={12} md={6} justifyContent="right">
               <Paper
                 onClick={() => {
                   setPressedABookCard(true);
