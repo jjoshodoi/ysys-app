@@ -47,7 +47,7 @@ function App() {
   const callAPI = async (radioSideBar, query) => {
     const data = await getData(radioSideBar, query, selectSideBar);
     setApiInfo(data);
-    returnedResultsWarning(data);
+    // returnedResultsWarning(data);
     console.log(ApiInfo);
   };
 
