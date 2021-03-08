@@ -37,6 +37,7 @@
 .content {
   transition: 250ms;
   margin-left: 250px;
+  min-width: calc(100vw - 250px);
 }
 
 .content-expand {
