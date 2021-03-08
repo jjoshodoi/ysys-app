@@ -80,7 +80,7 @@ export const BookCard = (props) => {
         </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item xs={12} md={6} justifyContent="right">
+            <Grid item xs={12} md={6} justifyContent="center">
               <Paper
                 onClick={() => {
                   setPressedABookCard(true);
