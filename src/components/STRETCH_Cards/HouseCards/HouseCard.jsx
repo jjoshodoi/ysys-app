@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     width: '118px',
     height: "142px",
-    display: 'flex',
+    display: 'block',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -102,12 +102,12 @@ export const HouseCard = (props) => {
       ? "N/A"
       : currentHouse.founded;
 
-  const coatsOfArms =
+  const words =
     currentHouse === null
       ? ""
-      : currentHouse.coatOfArms == ""
+      : currentHouse.words == ""
       ? ""
-      : currentHouse.coatOfArms;
+      : currentHouse.words;
 
   const currentLord =
     currentHouse === null ? "" : characterName === "" ? "" : characterName;
@@ -152,7 +152,7 @@ export const HouseCard = (props) => {
                 name={name}
                 region={region}
                 founded={founded}
-                coatsOfArms={coatsOfArms}
+                words={words}
                 currentLord={currentLord}
                 cadetBranches={cadetBranches}
                 ancestralWeapons={ancestralWeapons}
@@ -165,7 +165,7 @@ export const HouseCard = (props) => {
           </center>
         </div>
       </div>
-      <div id="househeading"><p id="househeadingpara"><b>Houses</b></p></div>
+      <div id="househeading"><p id="househeadingpara"><b>Click</b></p></div>
       <div className="right30Column">
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
@@ -186,7 +186,9 @@ export const HouseCard = (props) => {
                 <div class="container">
                   <div class="inner">
                       <div class="full-height"></div>
-                        {item.name}
+                      <div class="overlay">
+                        <b>{item.name}</b>
+                        </div>
                   </div>
                 {(() => {
                   if (item.name.includes("Allyrion")) {

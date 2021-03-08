@@ -39,7 +39,7 @@ export const HeaderComponent = ({
         {/* <---- this is the burger menu symbol for the show filters button */}
         {/* <center> */}
         <img
-          src="Images/Houses/GOT.png"
+          src="Images/Houses/GOT HEADER.png"
           id="titleImg"
           alt="Game of Thrones App"
         />

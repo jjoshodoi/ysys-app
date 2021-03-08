@@ -121,6 +121,12 @@ export default function SelectedInfo(props) {
   } else {
     currentHouseImage = "Images/Houses/GOT CARD.png";
   }
+
+  if (props.words == "") {
+    var motto = "N/a";
+  } else {
+    motto = props.words;
+  }
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -130,7 +136,7 @@ export default function SelectedInfo(props) {
       <img src={currentHouseImage} style={style} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {props.coatsOfArms}
+          Motto:  {motto}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
