@@ -82,12 +82,13 @@ export const SidebarComponent = (props) => {
         </div>
       </form>
       <div className="custom-select">
-        <h3>Filter Search Size:    
-        <Select defaultValue="10" onChange={onSelectChange}>
-          <MenuItem value="10">10</MenuItem>
-          <MenuItem value="20">20</MenuItem>
-          <MenuItem value="50">50</MenuItem>
-        </Select>
+        <h3>
+          Filter Search Size:{" "}
+          <Select defaultValue="10" onChange={onSelectChange}>
+            <MenuItem value="10">10</MenuItem>
+            <MenuItem value="20">20</MenuItem>
+            <MenuItem value="50">50</MenuItem>
+          </Select>
         </h3>
       </div>
     </div>

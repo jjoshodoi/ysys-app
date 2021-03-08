@@ -36,11 +36,9 @@
 }
 
 .custom-select {
-  display: absolute;
+  display: flex;
   justify-content: left;
-  padding: 5px;
-  padding: 0px 5px 5px 40px;
-  padding-top: 400px;
+  padding: 400px 0 0 60px;
   align-items: flex-end;
   color: white;
 }
