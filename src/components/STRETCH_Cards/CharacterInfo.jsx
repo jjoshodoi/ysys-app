@@ -30,9 +30,9 @@ const CharacterInfo = (props) => {
   if (props.item.culture == "Braavosi") {
     house = "Images/Braavosi.jpg";
   } else if (props.item.culture == "Northmen") {
-    house = "/Images/Northmen.jpg";
+    house = "Images/Northmen.jpg";
   } else if (props.item.culture == "Valyrian") {
-    house = "/Images/Valyrian.jpg";
+    house = "Images/Valyrian.jpg";
   } else if (props.item.culture == "Westeros") {
     house = "Images/Westeros.png";
   } else {
