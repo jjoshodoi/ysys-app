@@ -27,8 +27,8 @@ const CharacterInfo = (props) => {
   var house = "";
   var name= "";
 
-  if (props.item.house == "Braavos") {
-    house = "/Images/Titan_of_Braavos.jpg";
+  if (props.item.culture == "Braavosi") {
+    house = "Images/Braavosi.jpg";
   } else if (props.item.culture == "Northmen") {
     house = "/Images/Northmen.jpg";
   } else if (props.item.culture == "Valyrian") {
