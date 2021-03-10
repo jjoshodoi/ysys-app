@@ -13,7 +13,7 @@
 const getData = async (radioSideBar, query, selectSideBar) => {
   try {
     const response = await fetch(
-      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&pageSize=${selectSideBar}`
+      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=1&pageSize=${selectSideBar}`
     );
     return await response.json();
     //   console.log(data);
