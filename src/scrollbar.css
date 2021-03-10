@@ -11,7 +11,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgba(192, 196, 237, 0.342);
   border-radius: 10px;
 }
 

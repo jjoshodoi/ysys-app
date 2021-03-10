@@ -21,18 +21,19 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+
 });
 
 const CharacterInfo = (props) => {
   var house = "";
   var name= "";
 
-  if (props.item.house === "Braavos") {
-    house = "/Images/Titan_of_Braavos.jpg";
+  if (props.item.culture === "Braavosi") {
+    house = "Images/Braavosi.jpg";
   } else if (props.item.culture === "Northmen") {
-    house = "/Images/Northmen.jpg";
+    house = "Images/Northmen.jpg";
   } else if (props.item.culture === "Valyrian") {
-    house = "/Images/Valyrian.jpg";
+    house = "Images/Valyrian.jpg";
   } else if (props.item.culture === "Westeros") {
     house = "Images/Westeros.png";
   } else {
@@ -67,7 +68,11 @@ const CharacterInfo = (props) => {
             <b>{props.item.culture}</b>
           </Typography>
         </div>  
-        <img src={house} className="Border cardImg" alt="Failed."/>
+        <img
+        src={house} 
+        className="Border cardImg" 
+        alt="Failed."/>
+
         <CardContent className= "Card">          
           <Typography variant="h5" component="h9">
             <b>{name}</b>
