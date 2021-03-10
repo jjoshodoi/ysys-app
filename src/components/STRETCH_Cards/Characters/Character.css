@@ -1,0 +1,11 @@
+.status {
+    background-color: greenyellow;
+    min-width: 120px;
+    max-width: 120px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}

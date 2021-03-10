@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -21,7 +22,14 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-
+  status: {
+    background: '#47d147',
+    color: 'white',
+    borderRadius: '10px',
+    minwidth: '50px',
+    padding: '5px 5px',
+    marginTop: '10px',
+},
 });
 
 const CharacterInfo = (props) => {
@@ -59,6 +67,11 @@ const CharacterInfo = (props) => {
     listOfTitles = titles;
   }
 
+  if(props.item.died == "") {
+    var status = "true";
+  } else {
+    status = "false";
+  }
   const classes = useStyles();
   return (
     <Grid item xs={6} md={4}>      
@@ -86,6 +99,17 @@ const CharacterInfo = (props) => {
             <b>AKA:</b>{" "}
             <em>{listOfAliases}</em>
           </Typography>
+          <div>
+            {(() => {
+              if (status == "true") {
+                return (
+                  <span className={classes.status}> 
+                  Alive
+                  </span>                 
+              )
+            }
+          })()}
+          </div>
         </CardContent>
       </Card>
     </Grid>
