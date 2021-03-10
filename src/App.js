@@ -5,6 +5,7 @@ import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
 import getData from "./api/api";
 import React, { useState, useEffect } from "react";
+import { Snackbar } from "@material-ui/core";
 
 function App() {
   // TODO - this is the "main" component for our app, and it will include all the global state that we care about
@@ -23,16 +24,7 @@ function App() {
   //  * E.g. maybe you can expand/collapse the sidebar from the header and the feed, as well as the sidebar itself
   //  This means that the state will need to be accessed/updated from all of these components!
 
-  // To get started:
-  // TODO - add in an expanded state/setState
-  // TODO - add in a feedResults state/setState
-  // (See cheat sheet for useState example)
-
-  // TODO - import getData() from api (you will need to write this function)
-  //         and call it here (setting the results to the feedResults)
   // TODO [STRETCH] - implement loading state and pass to FeedComponent
-
-  // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
   const [radioSideBar, setRadioSideBar] = useState("houses");
   const [selectSideBar, setSelectSideBar] = useState("10");
@@ -40,6 +32,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
   const [sideBarOpen, setSideBarOpen] = useState(true);
+  const [showSnackBar, setShowSnackBar] = useState(false);
 
   useEffect(() => {
     callAPI(radioSideBar, query);
@@ -54,7 +47,10 @@ function App() {
 
   const returnedResultsWarning = (data) => {
     if (data.length === 0) {
-      alert("No Results Found");
+      setShowSnackBar(true);
+      setTimeout(() => {
+        setShowSnackBar(false);
+      }, 3000);
     }
   };
 
@@ -83,6 +79,9 @@ function App() {
           />
 
           <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
+          <div className={showSnackBar ? "snackbar snackbar-show" : "snackbar"}>
+            No Results Found...
+          </div>
         </div>
       </div>
     </div>
