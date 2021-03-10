@@ -73,11 +73,6 @@ export const BookCard = (props) => {
       </div>
 
       <div className="right30Column">
-        <div className="househeading">
-          <p id="househeadingpara">
-            <b>Click</b>
-          </p>
-        </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
             <Grid item xs={12} md={6} justifyContent="center">
