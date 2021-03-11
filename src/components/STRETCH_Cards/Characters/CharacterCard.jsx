@@ -1,9 +1,11 @@
-import React from "react";
+import React,{ useState } from "react";
 import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Select, MenuItem } from "@material-ui/core";
+import { Select } from "@material-ui/core";
+import { Menu, MenuItem, MenuButton} from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
 
 const useStyles = makeStyles({
   root: {
@@ -21,33 +23,34 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   customselect:  {
-    display: 'block',
+    display: 'flex',
     fontsize: '1.1em',
+    color: 'white',
+    minHeight: '35px',
+    minwidth: '60px',
+    paddingBottom: '50px',
   },
 });
 const string = " , @";
-var house = "";
-// TODO - create a component which displays information about Characters
-// TODO - make sure CharacterCard is expecting the right props!
+//const [status, setStatus] = useState('');
+
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
 
-  const onSelectChange = (event) => {
-    event.preventDefault();
-    ApiInfo.setSelectSideBar(event.target.value);
-    console.log(event.target.value);
-  };
+  const setStatus = e => {
+    //setText(t => t + `[MenuItem] ${e.value} clicked\n\n`);
+    return false; //Return all cards with "alive" status
+};
   return (
     <ul>
-      <div className={classes.customselect}>
-        <h3>
-            Filter Characters:{""}
-            <Select defaultValue="Alive" onChange={onSelectChange}>
-            <MenuItem value="Alive">Alive</MenuItem>
-            <MenuItem value="Dead">Dead</MenuItem>
-            </Select>
-        </h3>
-        </div>
+      <div className= {classes.customselect}>
+        <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
+          <MenuItem value="Alive" onClick={setStatus}>Alive</MenuItem>
+          <MenuItem value="Dead"  onClick={setStatus}>Dead</MenuItem>
+          setRadioSideBar={setRadioSideBar}
+        </Menu>
+        
+      </div>
       <Grid container spacing={3}>
         {ApiInfo.map((item) => (
           <CharacterInfo item={item} />

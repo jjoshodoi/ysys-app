@@ -25,10 +25,18 @@ const useStyles = makeStyles({
   status: {
     background: '#47d147',
     color: 'white',
-    borderRadius: '10px',
+    borderRadius: '8px',
     minwidth: '50px',
-    padding: '5px 5px',
+    padding: '2px 2px',
     marginTop: '10px',
+},
+status2: {
+  background: '#ff4d4d',
+  color: 'white',
+  borderRadius: '8px',
+  minwidth: '50px',
+  padding: '2px 2px',
+  marginTop: '10px',
 },
 });
 
@@ -104,11 +112,17 @@ const CharacterInfo = (props) => {
               if (status == "true") {
                 return (
                   <span className={classes.status}> 
-                  Alive
+                    Alive
                   </span>                 
-              )
-            }
-          })()}
+                ) 
+              } else {
+                  return (
+                    <span className={classes.status2}> 
+                      {props.item.died}
+                    </span>  
+                )
+              }
+            })()}
           </div>
         </CardContent>
       </Card>
