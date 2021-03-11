@@ -5,7 +5,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -81,8 +80,10 @@ const CharacterInfo = (props) => {
     status = "false";
   }
   const classes = useStyles();
-  return (
-    <Grid item xs={6} md={4}>      
+
+  if ((props.alive == "Alive") && (props.item.died == "")) {
+    return (
+      <Grid item xs={6} md={4}>      
       <Card className={classes.root}>
         <div className = "CardHeader">
         <Typography variant="h5" component="h2">
@@ -123,11 +124,111 @@ const CharacterInfo = (props) => {
                 )
               }
             })()}
+          Alive
           </div>
         </CardContent>
       </Card>
     </Grid>
-  );
+    );
+  } else if ((props.alive == "Dead") && (props.item.died != "")) {
+      return (
+        <Grid item xs={6} md={4}>      
+          <Card className={classes.root}>
+            <div className = "CardHeader">
+            <Typography variant="h5" component="h2">
+                <b>{props.item.culture}</b>
+              </Typography>
+            </div>  
+            <img
+            src={house} 
+            className="Border cardImg" 
+            alt="Failed."/>
+
+            <CardContent className= "Card">          
+              <Typography variant="h5" component="h9">
+                <b>{name}</b>
+              </Typography>
+              <hr className="Line" />
+              <Typography paragraph variant="h8">
+                <b>Title: </b>
+                {listOfTitles}
+              </Typography>
+              <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+                <b>AKA:</b>{" "}
+                <em>{listOfAliases}</em>
+              </Typography>
+              <div>
+                {(() => {
+                  if (status == "true") {
+                    return (
+                      <span className={classes.status}> 
+                        Alive
+                      </span>                 
+                    ) 
+                  } else {
+                      return (
+                        <span className={classes.status2}> 
+                          {props.item.died}
+                        </span>  
+                    )
+                  }
+                })()}
+                DeaD
+              </div>
+            </CardContent>
+          </Card>
+        </Grid>
+      ); 
+      } else { 
+        return (
+          <Grid item xs={6} md={4}>      
+            <Card className={classes.root}>
+              <div className = "CardHeader">
+              <Typography variant="h5" component="h2">
+                  <b>{props.item.culture}</b>
+                </Typography>
+              </div>  
+              <img
+              src={house} 
+              className="Border cardImg" 
+              alt="Failed."/>
+  
+              <CardContent className= "Card">          
+                <Typography variant="h5" component="h9">
+                  <b>{name}</b>
+                </Typography>
+                <hr className="Line" />
+                <Typography paragraph variant="h8">
+                  <b>Title: </b>
+                  {listOfTitles}
+                </Typography>
+                <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+                  <b>AKA:</b>{" "}
+                  <em>{listOfAliases}</em>
+                </Typography>
+                <div>
+                  {(() => {
+                    if (status == "true") {
+                      return (
+                        <span className={classes.status}> 
+                          Alive
+                        </span>                 
+                      ) 
+                    } else {
+                        return (
+                          <span className={classes.status2}> 
+                            {props.item.died}
+                          </span>  
+                      )
+                    }
+                  })()}
+                  bOTH
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
+        );
+      }
 };
 
 export default CharacterInfo;
