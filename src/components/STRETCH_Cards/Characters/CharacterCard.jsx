@@ -3,6 +3,7 @@ import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
+import { Select, MenuItem } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  customselect:  {
+    display: 'block',
+    fontsize: '1.1em',
+  },
 });
 const string = " , @";
 var house = "";
@@ -27,15 +32,22 @@ var house = "";
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
 
-  // console.log(ApiInfo);
-
-  // if (ApiInfo.aliases) {
-  //   var aliases = ApiInfo.aliases;
-  //   var listOfAliases = aliases.join(", ");
-  // } //Comment outn image to work dynamically
-
+  const onSelectChange = (event) => {
+    event.preventDefault();
+    ApiInfo.setSelectSideBar(event.target.value);
+    console.log(event.target.value);
+  };
   return (
     <ul>
+      <div className={classes.customselect}>
+        <h3>
+            Filter Characters:{""}
+            <Select defaultValue="Alive" onChange={onSelectChange}>
+            <MenuItem value="Alive">Alive</MenuItem>
+            <MenuItem value="Dead">Dead</MenuItem>
+            </Select>
+        </h3>
+        </div>
       <Grid container spacing={3}>
         {ApiInfo.map((item) => (
           <CharacterInfo item={item} />
@@ -43,24 +55,5 @@ export const CharacterCard = ({ character, ApiInfo }) => {
       </Grid>
     </ul>
 
-    // <Card className={classes.root}>
-    //   <Typography variant="h5" component="h2">
-    //     <b>{ApiInfo.culture}</b>
-    //   </Typography>
-    //   <img src={house} className="Border" alt="Failed." />
-    //   <CardContent>
-    //     <Typography variant="h5" component="h2">
-    //       {ApiInfo[0].name}
-    //     </Typography>
-    //     <hr className="Line" />
-    //     <Typography variant="h6" component="h9">
-    //       <b>Title: </b>
-    //       {ApiInfo.titles}
-    //     </Typography>
-    //     <Typography className={classes.pos} color="textSecondary">
-    //       <b>AKA:</b> <i>{listOfAliases}</i>
-    //     </Typography>
-    //   </CardContent>
-    // </Card>
   );
 };
