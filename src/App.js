@@ -67,9 +67,6 @@ function App() {
           <FeedComponent
             ApiInfo={ApiInfo}
             radioSideBar={radioSideBar}
-            // prevPage={prevPage}
-            // nextPage={nextPage}
-            // changePage={changePage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />

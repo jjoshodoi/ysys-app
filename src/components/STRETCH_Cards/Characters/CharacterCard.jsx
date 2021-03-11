@@ -31,23 +31,11 @@ const useStyles = makeStyles({
     paddingBottom: "50px",
   },
 });
-// const string = " , @";
-// var selectStatus: "";
-//const [status, setStatus] = useState('');
 
 export const CharacterCard = ({ character, ApiInfo }) => {
   const [alive, setAlive] = useState("Alive");
 
   const classes = useStyles();
-
-  //   const setStatusAlive = e => {
-  //     selectStatus = "Alive";
-  //     return false; //Return all cards with "alive" status
-  // };
-  // const setStatusDead = e => {
-  //    selectStatus = "Dead";
-  //   return false; //Return all cards with "alive" status
-  // };
 
   return (
     <ul>
