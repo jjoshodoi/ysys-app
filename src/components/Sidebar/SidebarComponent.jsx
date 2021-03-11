@@ -28,11 +28,7 @@ export const SidebarComponent = (props) => {
   };
 
   return (
-    <div
-    // className={
-    //   props.sideBarOpen ? "sidebar sidebarContainer" : "sidebarCollapse"
-    // }
-    >
+    <div>
       <form>
         <div className="sideBarButtons">
           <div className="sideBarBtnItem">

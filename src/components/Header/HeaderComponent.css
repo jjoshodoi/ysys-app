@@ -23,12 +23,9 @@ header {
 
 .inlineBlock {
   position: relative;
-  /* display: inline-block;
-  top: 30px; */
 }
 
 .inlineTitle {
-  /* position: absolute; */
   display: inline-block;
   padding-top: 36px;
 }
@@ -53,6 +50,31 @@ header {
   position: relative;
 }
 
-#titleImg {
-  height: 120px;
+.titleImg {
+  max-height: 120px;
+}
+
+.mobileSearchInput {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    height: 50px;
+    padding: 0 20px;
+
+    justify-content: space-between;
+  }
+
+  header .hamburger-title {
+    display: none;
+  }
+
+  .header img {
+    /* float: none;
+    display: block;
+    text-align: left; */
+    width: 200px;
+    height: 50px;
+  }
 }

@@ -123,3 +123,8 @@ ul {
     opacity: 0;
   }
 }
+
+.pageButtons {
+  align-items: center;
+  display: inline-block;
+}
