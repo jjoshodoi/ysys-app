@@ -16,6 +16,15 @@ const Pagination = (props) => {
       props.setCurrentPage(props.currentPage - 1);
     }
   };
+
+  const totalItems = {
+    characters: 2138,
+    books: 12,
+    houses: 444,
+  };
+
+  
+
   return (
     <div className="pageButtons">
       <button onClick={prevPage}>{"<"}</button>

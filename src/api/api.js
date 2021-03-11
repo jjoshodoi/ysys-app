@@ -15,8 +15,9 @@ const getData = async (radioSideBar, query, selectSideBar, pageSelector) => {
     const response = await fetch(
       `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`
     );
-    return await response.json();
-    //   console.log(data);
+    const links = response.headers.get("link").split(",");
+    return response;
+    // [response.json(), links];
   } catch (error) {
     return console.log(error.message);
   }

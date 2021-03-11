@@ -29,10 +29,20 @@ function App() {
   }, [radioSideBar, selectSideBar, query, currentPage]);
 
   const callAPI = async (radioSideBar, query) => {
-    const data = await getData(radioSideBar, query, selectSideBar, currentPage);
+    // const [data, links] = await getData(
+    const response = await getData(
+      radioSideBar,
+      query,
+      selectSideBar,
+      currentPage
+    );
+    const data = await response.json();
+    const links = response.headers.get("link").split(",");
+
     setApiInfo(data);
+    console.log(data);
+    console.log(links);
     returnedResultsWarning(data);
-    console.log(ApiInfo);
   };
 
   const returnedResultsWarning = (data) => {
@@ -67,11 +77,9 @@ function App() {
           <FeedComponent
             ApiInfo={ApiInfo}
             radioSideBar={radioSideBar}
-            // prevPage={prevPage}
-            // nextPage={nextPage}
-            // changePage={changePage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            selectSideBar={selectSideBar}
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />
