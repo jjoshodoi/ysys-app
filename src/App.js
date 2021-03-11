@@ -5,7 +5,7 @@ import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
 import getData from "./api/api";
 import React, { useState, useEffect } from "react";
-import { Snackbar } from "@material-ui/core";
+import Snackbar from "./components/Shared/Snackbar/snackbar";
 
 function App() {
   //  * whether the app is fetching data (loading)
@@ -22,13 +22,14 @@ function App() {
   const [ApiInfo, setApiInfo] = useState([]);
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     callAPI(radioSideBar, query);
-  }, [radioSideBar, selectSideBar]);
+  }, [radioSideBar, selectSideBar, query, currentPage]);
 
   const callAPI = async (radioSideBar, query) => {
-    const data = await getData(radioSideBar, query, selectSideBar);
+    const data = await getData(radioSideBar, query, selectSideBar, currentPage);
     setApiInfo(data);
     returnedResultsWarning(data);
     console.log(ApiInfo);
@@ -51,9 +52,7 @@ function App() {
             radioSideBar={radioSideBar}
             setRadioSideBar={setRadioSideBar}
             selectSideBar={selectSideBar}
-            callAPI={callAPI}
             setSelectSideBar={setSelectSideBar}
-            sideBarOpen={sideBarOpen}
           />
         </div>
         <div className={sideBarOpen ? "content" : "content-expand"}>
@@ -61,17 +60,21 @@ function App() {
             setSearch={setSearch}
             setQuery={setQuery}
             search={search}
-            callAPI={callAPI}
-            radioSideBar={radioSideBar}
             setSideBarOpen={setSideBarOpen}
             sideBarOpen={sideBarOpen}
           />
 
-          <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
-          <div className={showSnackBar ? "snackbar snackbar-show" : "snackbar"}>
-            No Results Found...
-          </div>
+          <FeedComponent
+            ApiInfo={ApiInfo}
+            radioSideBar={radioSideBar}
+            // prevPage={prevPage}
+            // nextPage={nextPage}
+            // changePage={changePage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
+        <Snackbar showSnackBar={showSnackBar} />
       </div>
     </div>
   );

@@ -10,10 +10,10 @@
 
 // see cheat sheet for fetch example.
 
-const getData = async (radioSideBar, query, selectSideBar) => {
+const getData = async (radioSideBar, query, selectSideBar, pageSelector) => {
   try {
     const response = await fetch(
-      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=1&pageSize=${selectSideBar}`
+      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`
     );
     return await response.json();
     //   console.log(data);
