@@ -20,7 +20,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
-  const [sideBarOpen, setSideBarOpen] = useState(false);
+  const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
