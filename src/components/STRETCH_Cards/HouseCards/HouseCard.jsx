@@ -163,6 +163,7 @@ export const HouseCard = (props) => {
                 {" "}
                 <h1 className="title">Please Search for an Item</h1>{" "}
                <div id="arrowdiv"><img src="Images\Orange_animated_right_arrow.gif" height="200" width="200"></img></div>
+               <h1 className="title">Use the buttons in the bottom left to cycle through the House collection on the right</h1>
               </center>
             )}
           </center>
@@ -191,10 +192,10 @@ export const HouseCard = (props) => {
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
-                <div class="container">
-                  <div class="inner">
-                    <div class="full-height"></div>
-                    <div class="overlay">
+                <div className="container">
+                  <div className="inner">
+                    <div className="full-height"></div>
+                    <div className="overlay">
                       <b>{item.name}</b>
                     </div>
                   </div>
