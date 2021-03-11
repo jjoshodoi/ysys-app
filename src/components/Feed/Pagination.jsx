@@ -1,7 +1,7 @@
 import React from "react";
 
 const Pagination = (props) => {
-  const nextPage = (props) => {
+  const nextPage = () => {
     props.setCurrentPage(props.currentPage + 1);
   };
 
@@ -27,14 +27,14 @@ const Pagination = (props) => {
       ) : (
         ""
       )}
-      <button onClick={props.prevPage}>{props.currentPage - 1}</button>
+      <button onClick={prevPage}>{props.currentPage - 1}</button>
       <button>{props.currentPage}</button>
-      <button onClick={props.nextPage}>{props.currentPage + 1}</button>
+      <button onClick={nextPage}>{props.currentPage + 1}</button>
       {/* <button onClick={() => props.changePage(+1)}>
           {props.currentPage + 2}
         </button>
         <button onClick={props.changePage(+2)}>{props.currentPage + 3}</button> */}
-      <button onClick={props.nextPage}>{">"}</button>
+      <button onClick={nextPage}>{">"}</button>
     </div>
   );
 };
