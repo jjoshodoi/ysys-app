@@ -162,11 +162,13 @@ export const HouseCard = (props) => {
               <center>
                 {" "}
                 <h1 className="title">Please Search for an Item</h1>{" "}
+               <div id="arrowdiv"><img src="Images\Orange_animated_right_arrow.gif" height="200" width="200"></img></div>
               </center>
             )}
           </center>
         </div>
       </div>
+      
       <div className="right30Column">
 {/* <div className="househeading">
           <p id="househeadingpara">
