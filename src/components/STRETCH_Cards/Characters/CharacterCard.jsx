@@ -32,24 +32,27 @@ const useStyles = makeStyles({
   },
 });
 const string = " , @";
+var selectStatus: "";
 //const [status, setStatus] = useState('');
 
 export const CharacterCard = ({ character, ApiInfo }) => {
   const classes = useStyles();
 
-  const setStatus = e => {
-    //setText(t => t + `[MenuItem] ${e.value} clicked\n\n`);
+  const setStatusAlive = e => {
+    selectStatus = "Alive";
     return false; //Return all cards with "alive" status
+};
+const setStatusDead = e => {
+   selectStatus = "Dead";
+  return false; //Return all cards with "alive" status
 };
   return (
     <ul>
       <div className= {classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
-          <MenuItem value="Alive" onClick={setStatus}>Alive</MenuItem>
-          <MenuItem value="Dead"  onClick={setStatus}>Dead</MenuItem>
-          setRadioSideBar={setRadioSideBar}
-        </Menu>
-        
+          <MenuItem value="Alive" onClick={setStatusAlive}>Alive</MenuItem>
+          <MenuItem value="Dead"  onClick={setStatusDead}>Dead</MenuItem>
+        </Menu>     
       </div>
       <Grid container spacing={3}>
         {ApiInfo.map((item) => (
