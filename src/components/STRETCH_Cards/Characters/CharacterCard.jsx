@@ -31,32 +31,39 @@ const useStyles = makeStyles({
     paddingBottom: "50px",
   },
 });
-const string = " , @";
-var selectStatus: "";
+// const string = " , @";
+// var selectStatus: "";
 //const [status, setStatus] = useState('');
 
 export const CharacterCard = ({ character, ApiInfo }) => {
+  const [alive, setAlive] = useState("Alive");
+
   const classes = useStyles();
 
-  const setStatusAlive = e => {
-    selectStatus = "Alive";
-    return false; //Return all cards with "alive" status
-};
-const setStatusDead = e => {
-   selectStatus = "Dead";
-  return false; //Return all cards with "alive" status
-};
+  //   const setStatusAlive = e => {
+  //     selectStatus = "Alive";
+  //     return false; //Return all cards with "alive" status
+  // };
+  // const setStatusDead = e => {
+  //    selectStatus = "Dead";
+  //   return false; //Return all cards with "alive" status
+  // };
+
   return (
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
-          <MenuItem value="Alive" onClick={setStatusAlive}>Alive</MenuItem>
-          <MenuItem value="Dead"  onClick={setStatusDead}>Dead</MenuItem>
-        </Menu>     
+          <MenuItem value="Alive" onClick={() => setAlive("Alive")}>
+            Alive
+          </MenuItem>
+          <MenuItem value="Dead" onClick={() => setAlive("Dead")}>
+            Dead
+          </MenuItem>
+        </Menu>
       </div>
       <Grid container spacing={3}>
         {ApiInfo.map((item) => (
-          <CharacterInfo item={item} />
+          <CharacterInfo item={item} alive={alive} />
         ))}
       </Grid>
     </ul>
