@@ -17,10 +17,23 @@ const getData = async (
   pageSelector,
   alive
 ) => {
-  var URL = `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}&isAlive=${alive}`;
-  console.log(alive);
+  const URL = `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`;
+
+  const selectURL = () => {
+    switch (radioSideBar) {
+      case "characters":
+        return URL.concat(`&isAlive=${alive}`);
+      case "houses":
+        return URL;
+      case "books":
+        return URL;
+      default:
+        return URL;
+    }
+  };
   try {
-    const response = await fetch(URL);
+    const fetchURL = selectURL();
+    const response = await fetch(fetchURL);
     return await response.json();
     //   console.log(data);
   } catch (error) {
