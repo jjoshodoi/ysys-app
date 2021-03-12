@@ -177,8 +177,8 @@ export const HouseCard = (props) => {
 
       <div className="right30Column">
         <Grid container spacing={3}>
-          {props.ApiInfo.map((item) => (
-            <Grid item md={6} lg={6}>
+          {props.ApiInfo.map((item, index) => (
+            <Grid item md={6} lg={6} key={index}>
               <Paper
                 onClick={() => {
                   // Get it to Load?

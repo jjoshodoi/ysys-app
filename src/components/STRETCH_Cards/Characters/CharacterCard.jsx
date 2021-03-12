@@ -2,7 +2,13 @@ import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Menu, MenuItem, MenuButton, SubMenu, MenuRadioGroup } from "@szhsin/react-menu";
+import {
+  Menu,
+  MenuItem,
+  MenuButton,
+  SubMenu,
+  MenuRadioGroup,
+} from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
@@ -90,7 +96,7 @@ export const CharacterCard = (props) => {
               <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
                 Dead
               </MenuItem>
-              </MenuRadioGroup>
+            </MenuRadioGroup>
           </SubMenu>
           <SubMenu label="Gender">
             <MenuRadioGroup value={filterGender} onChange={e => setFilterGender(e.value)}>
@@ -136,8 +142,9 @@ export const CharacterCard = (props) => {
         </div>
       </div>
       <Grid container spacing={3}>
-        {props.ApiInfo.map((item) => (
+        {props.ApiInfo.map((item, index) => (
           <CharacterInfo
+            key={index}
             item={item}
             alive={props.alive}
             gender={props.gender}

@@ -30,10 +30,17 @@ function App() {
   const [alive, setAlive] = useState("");
   const [gender, setGender] = useState("");
   const [culture, setCulture] = useState("");
+  const [lastPage, setLastPage] = useState(null);
 
   useEffect(() => {
     callAPI();
   }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
+
+  const getPage = (link) => {
+    var pageIndexStart = link.indexOf("page=") + 5;
+    var pageIndexEnd = link.indexOf("&", pageIndexStart);
+    return link.slice(pageIndexStart, pageIndexEnd);
+  };
 
   const callAPI = async () => {
     const response = await getData(
@@ -46,24 +53,26 @@ function App() {
       culture
     );
     const data = await response.json();
-    setLinks(
-      response.headers
-        .get("link")
-        .split(",")
-        .reduce((acc, link) => {
-          const props = /^\<(.+)\>; rel="(.+)"$/.exec(link.trim());
-          if (!props) {
-            console.warn("no match");
-            return acc;
-          }
-          acc[props[2]] = props[1];
+    const tempLinks = response.headers
+      .get("link")
+      .split(",")
+      .reduce((acc, link) => {
+        const props = /^\<(.+)\>; rel="(.+)"$/.exec(link.trim());
+        if (!props) {
+          console.warn("no match");
           return acc;
-        }, {})
-    );
+        }
+        acc[props[2]] = props[1];
+        return acc;
+      }, {});
+    setLinks(tempLinks);
 
     setApiInfo(data);
     setLinks(links);
     returnedResultsWarning(data);
+    // console.log(tempLinks);
+    // console.log(getPage(tempLinks.last));
+    setLastPage(getPage(tempLinks.last));
   };
 
   const returnedResultsWarning = (data) => {
@@ -75,7 +84,6 @@ function App() {
     }
   };
 
-  console.log(search);
   return (
     <div className="app">
       <div className="web">
@@ -98,6 +106,7 @@ function App() {
 
           <FeedComponent
             ApiInfo={ApiInfo}
+            lastPage={lastPage}
             radioSideBar={radioSideBar}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
