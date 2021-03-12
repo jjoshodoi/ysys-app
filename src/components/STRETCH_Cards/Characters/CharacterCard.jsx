@@ -3,7 +3,6 @@ import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Select } from "@material-ui/core";
 import { Menu, MenuItem, MenuButton, SubMenu } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 
@@ -41,33 +40,37 @@ export const CharacterCard = (props) => {
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
-        <SubMenu label="Status">
-          <MenuItem value="Alive" onClick={() => props.setAlive("")}>
-            None
-          </MenuItem>
-          <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
-            Alive
-          </MenuItem>
-          <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
-            Dead
-          </MenuItem>
+          <SubMenu label="Status">
+            <MenuItem value="Alive" onClick={() => props.setAlive("")}>
+              None
+            </MenuItem>
+            <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
+              Alive
+            </MenuItem>
+            <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
+              Dead
+            </MenuItem>
           </SubMenu>
           <SubMenu label="Gender">
-          <MenuItem value="Female" onClick={() => props.setGender("")}>
-            None
-          </MenuItem>
-          <MenuItem value="Female" onClick={() => props.setGender("Female")}>
-            Female
-          </MenuItem>
-          <MenuItem value="Male" onClick={() => props.setGender("Male")}>
-            Male
-          </MenuItem>
+            <MenuItem value="Female" onClick={() => props.setGender("")}>
+              None
+            </MenuItem>
+            <MenuItem value="Female" onClick={() => props.setGender("Female")}>
+              Female
+            </MenuItem>
+            <MenuItem value="Male" onClick={() => props.setGender("Male")}>
+              Male
+            </MenuItem>
           </SubMenu>
         </Menu>
       </div>
       <Grid container spacing={3}>
         {props.ApiInfo.map((item) => (
-          <CharacterInfo item={item} alive={props.alive} gender={props.gender} />
+          <CharacterInfo
+            item={item}
+            alive={props.alive}
+            gender={props.gender}
+          />
         ))}
       </Grid>
     </ul>

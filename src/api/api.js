@@ -35,9 +35,7 @@ const getData = async (
   try {
     const fetchURL = selectURL();
     const response = await fetch(fetchURL);
-    const links = response.headers.get("link").split(",");
     return response;
-
   } catch (error) {
     return console.log(error.message);
   }

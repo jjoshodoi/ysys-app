@@ -4,7 +4,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { isWidthUp } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -241,14 +240,12 @@ const CharacterInfo = (props) => {
             color="textSecondary"
             variant="h8"
           >
-          <b>AKA:</b> <em>{listOfAliases}</em>
+            <b>AKA:</b> <em>{listOfAliases}</em>
           </Typography>
           <div>
             {(() => {
               if (status == "true") {
-                return (
-                  <span className={classes.status}>Alive</span>
-                );
+                return <span className={classes.status}>Alive</span>;
               } else {
                 return (
                   <span className={classes.status2}>{props.item.died}</span>
