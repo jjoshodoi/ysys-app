@@ -23,7 +23,7 @@ const getData = async (
   const selectURL = () => {
     switch (radioSideBar) {
       case "characters":
-        return URL.concat(`&isAlive=${alive}`), URL.concat(`&gender=${gender}`);
+        return URL.concat(`&isAlive=${alive}&gender=${gender}`);
       case "houses":
         return URL;
       case "books":
