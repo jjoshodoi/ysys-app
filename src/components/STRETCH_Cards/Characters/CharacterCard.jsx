@@ -54,17 +54,9 @@ export const CharacterCard = (props) => {
         </Menu>
       </div>
       <Grid container spacing={3}>
-        {props.ApiInfo.map((item) =>
-          props.alive == "" ? (
-            <CharacterInfo item={item} alive={props.alive} />
-          ) : props.alive == "Alive" && item.died == "" ? (
-            <CharacterInfo item={item} alive={props.alive} />
-          ) : props.alive == "Dead" && item.died != "" ? (
-            <CharacterInfo item={item} alive={props.alive} />
-          ) : (
-            ""
-          )
-        )}
+        {props.ApiInfo.map((item) => (
+          <CharacterInfo item={item} alive={props.alive} />
+        ))}
       </Grid>
     </ul>
   );
