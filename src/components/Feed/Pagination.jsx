@@ -17,33 +17,65 @@ const Pagination = (props) => {
     }
   };
 
+  console.log(props.links);
+
+  
+  
+
   const totalItems = {
     characters: 2138,
     books: 12,
     houses: 444,
   };
 
-  
+  if (props.radioSideBar === "characters") {
+    const totalPages = Math.ceil(totalItems.characters / props.selectSideBar);
+  }
+
+  if (props.radioSideBar === "houses") {
+    const totalPages = Math.ceil(totalItems.houses / props.selectSideBar);
+  }
+
+  if (props.radioSideBar === "books") {
+    const totalPages = Math.ceil(totalItems.books / props.selectSideBar);
+  }
+
+  // switch (props.radioSideBar) {
+  //   case "characters":
+  //     totalPages = Math.ceil(totalItems.characters / props.selectSideBar);
+  //     return totalPages;
+  //   case "books":
+  //     totalPages = Math.ceil(totalItems.books / props.selectSideBar);
+  //     return totalPages;
+  //   case "houses":
+  //     totalPages = Math.ceil(totalItems.houses / props.selectSideBar);
+  //     return totalPages;
+  //   default:
+  //     return "";
+  // }
+
+  // console.log();
 
   return (
     <div className="pageButtons">
-      <button onClick={prevPage}>{"<"}</button>
-      {/* <button onClick={() => props.changePage(-3)}>
-          {props.currentPage - 3}
-        </button> */}
+      {props.currentPage === 1 ? (
+        ""
+      ) : (
+        <button onClick={prevPage}>{"Prev"}</button>
+      )}
       {props.currentPage - 2 > 0 ? (
         <button onClick={() => changePage(-2)}> {props.currentPage - 2}</button>
       ) : (
         ""
       )}
-      <button onClick={prevPage}>{props.currentPage - 1}</button>
+      {props.currentPage - 2 > 0 ? (
+        <button onClick={prevPage}>{props.currentPage - 1}</button>
+      ) : (
+        ""
+      )}
       <button>{props.currentPage}</button>
       <button onClick={nextPage}>{props.currentPage + 1}</button>
-      {/* <button onClick={() => props.changePage(+1)}>
-          {props.currentPage + 2}
-        </button>
-        <button onClick={props.changePage(+2)}>{props.currentPage + 3}</button> */}
-      <button onClick={nextPage}>{">"}</button>
+      <button onClick={nextPage}>{"Next"}</button>
     </div>
   );
 };

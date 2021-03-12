@@ -1,4 +1,5 @@
 import "./App.css";
+import "./AppMobile.css";
 import "./scrollbar.css";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
@@ -6,6 +7,8 @@ import { FeedComponent } from "./components/Feed/FeedComponent";
 import getData from "./api/api";
 import React, { useState, useEffect } from "react";
 import Snackbar from "./components/Shared/Snackbar/snackbar";
+
+import MobileComponent from "./MobileComponent";
 
 function App() {
   //  * whether the app is fetching data (loading)
@@ -23,6 +26,7 @@ function App() {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
     callAPI(radioSideBar, query);
@@ -37,11 +41,23 @@ function App() {
       currentPage
     );
     const data = await response.json();
-    const links = response.headers.get("link").split(",");
+    setLinks(
+      response.headers
+        .get("link")
+        .split(",")
+        .reduce((acc, link) => {
+          const props = /^\<(.+)\>; rel="(.+)"$/.exec(link.trim());
+          if (!props) {
+            console.warn("no match");
+            return acc;
+          }
+          acc[props[2]] = props[1];
+          return acc;
+        }, {})
+    );
 
     setApiInfo(data);
-    console.log(data);
-    console.log(links);
+    setLinks(links);
     returnedResultsWarning(data);
   };
 
@@ -56,7 +72,7 @@ function App() {
 
   return (
     <div className="app">
-      <div className="body">
+      <div className="web">
         <div className={sideBarOpen ? "sidenav" : "sidenav-inactive"}>
           <SidebarComponent
             radioSideBar={radioSideBar}
@@ -80,9 +96,16 @@ function App() {
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             selectSideBar={selectSideBar}
+            links={links}
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />
+      </div>
+      <div className="mobile">
+        <MobileComponent
+          setRadioSideBar={setRadioSideBar}
+          radioSideBar={radioSideBar}
+        />
       </div>
     </div>
   );
