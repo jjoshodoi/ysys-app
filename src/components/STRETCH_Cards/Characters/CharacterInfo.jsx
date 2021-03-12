@@ -51,6 +51,10 @@ const CharacterInfo = (props) => {
     house = "Images/Valyrian.jpg";
   } else if (props.item.culture === "Westeros") {
     house = "Images/Westeros.png";
+  } else if (props.item.culture === "Dothraki") {
+    house = "Images/Dothraki.jpg";
+  } else if (props.item.culture === "Ironborn") {
+    house = "Images/Ironborn.jpg";
   } else {
     house = "Images/Houses/GOT CARD.png";
   }
@@ -123,6 +127,5 @@ const CharacterInfo = (props) => {
     </Grid>
   );
 };
-// };
 
 export default CharacterInfo;

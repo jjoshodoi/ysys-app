@@ -1,10 +1,11 @@
-import React from "react";
 import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Menu, MenuItem, MenuButton, SubMenu } from "@szhsin/react-menu";
+import { Menu, MenuItem, MenuButton, SubMenu, MenuRadioGroup } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
+import React, { useState } from 'react';
+
 
 const useStyles = makeStyles({
   root: {
@@ -35,61 +36,65 @@ export const CharacterCard = (props) => {
   console.log(props.setAlive);
   console.log(props.setGender);
   const classes = useStyles();
+  const [status, setStatus] = useState('None');
+  const [filterGender, setFilterGender] = useState('None');
+  const [filterCulture, setFilterCulture] = useState('None');
+
 
   return (
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
           <SubMenu label="Status">
-            <MenuItem value="Alive" onClick={() => props.setAlive("")}>
-              None
-            </MenuItem>
-            <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
-              Alive
-            </MenuItem>
-            <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
-              Dead
-            </MenuItem>
+            <MenuRadioGroup value={status} onChange={e => setStatus(e.value)}>
+              <MenuItem value="None" onClick={() => props.setAlive("")}>
+                None
+              </MenuItem>
+              <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
+                Alive
+              </MenuItem>
+              <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
+                Dead
+              </MenuItem>
+              </MenuRadioGroup>
           </SubMenu>
           <SubMenu label="Gender">
-            <MenuItem value="Female" onClick={() => props.setGender("")}>
-              None
-            </MenuItem>
-            <MenuItem value="Female" onClick={() => props.setGender("Female")}>
-              Female
-            </MenuItem>
-            <MenuItem value="Male" onClick={() => props.setGender("Male")}>
-              Male
-            </MenuItem>
+            <MenuRadioGroup value={filterGender} onChange={e => setFilterGender(e.value)}>
+              <MenuItem value="None" onClick={() => props.setGender("")}>
+                None
+              </MenuItem>
+              <MenuItem value="Female" onClick={() => props.setGender("Female")}>
+                Female
+              </MenuItem>
+              <MenuItem value="Male" onClick={() => props.setGender("Male")}>
+                Male
+              </MenuItem>
+            </MenuRadioGroup>
           </SubMenu>
           <SubMenu label="Culture">
-            <MenuItem value="None" onClick={() => props.setCulture("")}>
-              None
-            </MenuItem>
-            <MenuItem
-              value="Braavosi"
-              onClick={() => props.setCulture("Braavosi")}
-            >
-              Braavosi
-            </MenuItem>
-            <MenuItem
-              value="Northmen"
-              onClick={() => props.setCulture("Northmen")}
-            >
-              Northmen
-            </MenuItem>
-            <MenuItem
-              value="Valyrian"
-              onClick={() => props.setCulture("Valyrian")}
-            >
-              Valyrian
-            </MenuItem>
-            <MenuItem
-              value="Westeros"
-              onClick={() => props.setCulture("Westeros")}
-            >
-              Westeros
-            </MenuItem>
+            <MenuRadioGroup value={filterCulture} onChange={e => setFilterCulture(e.value)}>
+              <MenuItem value="None" onClick={() => props.setCulture("")}>
+                None
+              </MenuItem>
+              <MenuItem value="Braavosi" onClick={() => props.setCulture("Braavosi")}>
+                Braavosi
+              </MenuItem>
+              <MenuItem value="Northmen"onClick={() => props.setCulture("Northmen")}>
+                Northmen
+              </MenuItem>
+              <MenuItem value="Valyrian" onClick={() => props.setCulture("Valyrian")}>
+                Valyrian
+              </MenuItem>
+              <MenuItem value="Westeros"onClick={() => props.setCulture("Westeros")}>
+                Westeros
+              </MenuItem>
+              <MenuItem value="Dothraki"onClick={() => props.setCulture("Dothraki")}>
+                Dothraki
+              </MenuItem>
+              <MenuItem value="Ironborn"onClick={() => props.setCulture("Ironborn")}>
+                Ironborn
+              </MenuItem>
+            </MenuRadioGroup>  
           </SubMenu>
         </Menu>
       </div>
