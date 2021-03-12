@@ -33,7 +33,8 @@ const useStyles = makeStyles({
 });
 
 export const CharacterCard = ({ character, ApiInfo }) => {
-  const [alive, setAlive] = useState("Alive");
+  const [alive, setAlive] = useState("");
+  console.log(setAlive);
 
   const classes = useStyles();
 
@@ -51,8 +52,8 @@ export const CharacterCard = ({ character, ApiInfo }) => {
       </div>
       <Grid container spacing={3}>
         {ApiInfo.map((item) => (
-          <CharacterInfo item={item} alive={alive} />
-        ))}
+          alive == "" ? <CharacterInfo item={item} alive={alive}/> : ((alive == "Alive") && (item.died == "")) ? <CharacterInfo item={item} alive={alive}/> : ((alive == "Dead") && (item.died != "")) ? <CharacterInfo item={item} alive={alive}/> : "")
+        )}
       </Grid>
     </ul>
   );

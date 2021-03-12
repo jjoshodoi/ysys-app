@@ -4,6 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import { isWidthUp } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -81,7 +82,7 @@ const CharacterInfo = (props) => {
   }
   const classes = useStyles();
 
-  if ((props.alive == "Alive") && (props.item.died == "")) {
+  if ((props.alive === "Alive") && (props.item.died == "")) {
     return (
       <Grid item xs={6} md={4}>      
       <Card className={classes.root}>
@@ -116,12 +117,6 @@ const CharacterInfo = (props) => {
                     Alive
                   </span>                 
                 ) 
-              } else {
-                  return (
-                    <span className={classes.status2}> 
-                      {props.item.died}
-                    </span>  
-                )
               }
             })()}
           Alive
@@ -130,7 +125,7 @@ const CharacterInfo = (props) => {
       </Card>
     </Grid>
     );
-  } else if ((props.alive == "Dead") && (props.item.died != "")) {
+  } else if ((props.alive === "Dead") && (props.item.died != "")) {
       return (
         <Grid item xs={6} md={4}>      
           <Card className={classes.root}>
@@ -158,28 +153,20 @@ const CharacterInfo = (props) => {
                 <em>{listOfAliases}</em>
               </Typography>
               <div>
-                {(() => {
-                  if (status == "true") {
-                    return (
-                      <span className={classes.status}> 
-                        Alive
-                      </span>                 
-                    ) 
-                  } else {
+                {(() => {                 
                       return (
                         <span className={classes.status2}> 
                           {props.item.died}
                         </span>  
                     )
-                  }
                 })()}
-                DeaD
+                Dead
               </div>
             </CardContent>
           </Card>
         </Grid>
       ); 
-      } else { 
+      } else if (props.alive === "Empty") { 
         return (
           <Grid item xs={6} md={4}>      
             <Card className={classes.root}>
@@ -219,15 +206,64 @@ const CharacterInfo = (props) => {
                           <span className={classes.status2}> 
                             {props.item.died}
                           </span>  
-                      )
+                        )
                     }
                   })()}
-                  bOTH
+                  Both
                 </div>
               </CardContent>
             </Card>
           </Grid>
         );
+      } else {
+        return (
+          <Grid item xs={6} md={4}>      
+            <Card className={classes.root}>
+              <div className = "CardHeader">
+              <Typography variant="h5" component="h2">
+                  <b>{props.item.culture}</b>
+                </Typography>
+              </div>  
+              <img
+              src={house} 
+              className="Border cardImg" 
+              alt="Failed."/>
+  
+              <CardContent className= "Card">          
+                <Typography variant="h5" component="h9">
+                  <b>{name}</b>
+                </Typography>
+                <hr className="Line" />
+                <Typography paragraph variant="h8">
+                  <b>Title: </b>
+                  {listOfTitles}
+                </Typography>
+                <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+                  <b>AKA:</b>{" "}
+                  <em>{listOfAliases}</em>
+                </Typography>
+                <div>
+                  {(() => {
+                    if (status == "true") {
+                      return (
+                        <span className={classes.status}> 
+                          Alive
+                        </span>                 
+                      ) 
+                    } else {
+                        return (
+                          <span className={classes.status2}> 
+                            {props.item.died}
+                          </span>  
+                        )
+                    }
+                  })()}
+                  Both
+                </div>
+              </CardContent>
+            </Card>
+          </Grid>
+        )
       }
 };
 
