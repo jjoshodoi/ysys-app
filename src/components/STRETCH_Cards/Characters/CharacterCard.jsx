@@ -93,19 +93,19 @@ export const CharacterCard = (props) => {
           </SubMenu>
         </Menu>
         <div>
-          {props.alive === true || props.alive === false ? (
+          {props.alive === "" ? (
+            ""
+          ) : (
             <button onClick={() => props.setAlive("")}>
               {props.alive === true ? "Alive" : "Dead"} X
             </button>
-          ) : (
-            ""
           )}
-          {props.gender === "Female" || props.gender === "Male" ? (
+          {props.gender === "" ? (
+            ""
+          ) : (
             <button onClick={() => props.setGender("")}>
               {props.gender === "Male" ? "Male" : "Female"} X
             </button>
-          ) : (
-            ""
           )}
           {props.culture === "" ? (
             ""
