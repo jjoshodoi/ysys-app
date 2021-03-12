@@ -23,6 +23,8 @@ export const FeedComponent = (props) => {
                 ApiInfo={props.ApiInfo}
                 alive={props.alive}
                 setAlive={props.setAlive}
+                gender={props.gender}
+                setGender={props.setGender}
               />
             );
           default:
