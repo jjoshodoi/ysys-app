@@ -70,6 +70,7 @@ function App() {
     }
   };
 
+  console.log(search);
   return (
     <div className="app">
       <div className="web">
@@ -105,6 +106,11 @@ function App() {
         <MobileComponent
           setRadioSideBar={setRadioSideBar}
           radioSideBar={radioSideBar}
+          setSearch={setSearch}
+          setQuery={setQuery}
+          search={search}
+          selectSideBar={selectSideBar}
+          setSelectSideBar={setSelectSideBar}
         />
       </div>
     </div>

@@ -106,3 +106,16 @@
 .row div {
   display: inline-block;
 }
+
+.pop-up-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+
+.pop-up-search-closed {
+  display: none;
+}
