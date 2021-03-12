@@ -1,0 +1,122 @@
+.positioned {
+  position: relative;
+}
+
+.mobileSideButtons button {
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.position-houses {
+  position: absolute;
+  width: 50px;
+  height: 130px;
+  left: 0px;
+  top: 20px;
+}
+
+.position-characters {
+  position: absolute;
+  width: 50px;
+  height: 130px;
+  left: 0px;
+  top: 150px;
+}
+
+.position-books {
+  position: absolute;
+  width: 50px;
+  height: 130px;
+  left: 0px;
+  top: 280px;
+}
+
+.mobileSideButtons {
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.mobileSideButtons h3 {
+  font-size: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  position: absolute;
+
+  left: 18px;
+  top: 25px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  color: #000000;
+
+  transform: rotate(90deg);
+  transform-origin: bottom left;
+}
+
+.mobileSideButtonActive {
+  color: white;
+  background: transparent;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.mobileSideButtonActive h3 {
+  color: white;
+}
+
+.mobileFilters {
+  position: absolute;
+  right: 10px;
+}
+
+.custom-select-mobile .MuiSelect-icon {
+  color: white;
+}
+
+.custom-select-mobile .MuiSelect-select {
+  color: white;
+  font-size: 0.83em;
+}
+
+.MuiInput-underline::after {
+  color: white;
+}
+
+.mobileContents {
+  margin: 70px 30px 0px 80px;
+  padding: 10px 10px;
+}
+
+#title {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.row div {
+  display: inline-block;
+}
+
+.pop-up-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+
+.pop-up-search-closed {
+  display: none;
+}

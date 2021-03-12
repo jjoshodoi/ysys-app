@@ -64,7 +64,18 @@ export const BookCard = (props) => {
               />
             ) : (
               <center>
-                <h1 class="title">{"Please Search for an Item"}</h1>
+                <h1 className="title">{"Please Search for an Item"}</h1>
+                <div id="arrowdiv">
+                  <img
+                    src="Images\Orange_animated_right_arrow.gif"
+                    height="200"
+                    width="200"
+                  ></img>
+                </div>
+                <h1 className="title">
+                  Use the buttons in the bottom left to cycle through the Book
+                  collection on the right
+                </h1>
               </center>
             )}
           </center>
@@ -72,14 +83,9 @@ export const BookCard = (props) => {
       </div>
 
       <div className="right30Column">
-        <div className="househeading">
-          <p id="househeadingpara">
-            <b>Click</b>
-          </p>
-        </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item xs={12} md={6} justifyContent="center">
+            <Grid item xs={6} justifyContent="center">
               <Paper
                 onClick={() => {
                   setPressedABookCard(true);

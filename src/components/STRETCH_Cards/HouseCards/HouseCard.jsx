@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    // padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
     width: "118px",
@@ -138,9 +137,6 @@ export const HouseCard = (props) => {
       ? "N/A"
       : currentHouse.titles;
 
-  // const srcImg = getImageSrc({ name: "Baratheon Stannis" });
-  // console.log(srcImg);
-
   return (
     <div className="column2">
       <div className="left70Column">
@@ -162,20 +158,27 @@ export const HouseCard = (props) => {
               <center>
                 {" "}
                 <h1 className="title">Please Search for an Item</h1>{" "}
+                <div id="arrowdiv">
+                  <img
+                    src="Images\Orange_animated_right_arrow.gif"
+                    height="200"
+                    width="200"
+                  ></img>
+                </div>
+                <h1 className="title">
+                  Use the buttons in the bottom left to cycle through the House
+                  collection on the right
+                </h1>
               </center>
             )}
           </center>
         </div>
       </div>
+
       <div className="right30Column">
-        <div className="househeading">
-          <p id="househeadingpara">
-            <b>Click</b>
-          </p>
-        </div>
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item md={12} lg={6}>
+            <Grid item md={6} lg={6}>
               <Paper
                 onClick={() => {
                   // Get it to Load?
@@ -189,10 +192,10 @@ export const HouseCard = (props) => {
                 }}
                 className={`${classes.paper} box-shadow-img`}
               >
-                <div class="container">
-                  <div class="inner">
-                    <div class="full-height"></div>
-                    <div class="overlay">
+                <div className="container">
+                  <div className="inner">
+                    <div className="full-height"></div>
+                    <div className="overlay">
                       <b>{item.name}</b>
                     </div>
                   </div>

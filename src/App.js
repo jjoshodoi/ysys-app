@@ -1,38 +1,22 @@
 import "./App.css";
+import "./AppMobile.css";
 import "./scrollbar.css";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
 import getData from "./api/api";
 import React, { useState, useEffect } from "react";
+import Snackbar from "./components/Shared/Snackbar/snackbar";
+
+import MobileComponent from "./MobileComponent";
 
 function App() {
-  // TODO - this is the "main" component for our app, and it will include all the global state that we care about
-  //  This should include things like:
-  //  * the sidebar expanded state
-  //  * the selected category (books/characters/houses)
-  //  * the feed results
-
-  // TODO [STRETCH] - This could also include
-  //  * the search term (if there is one)
   //  * whether the app is fetching data (loading)
   //  * any additional filters (number of results/filter terms in query string)
 
-  //  Each part of the state will need to be passed down to its respective component(s) in order for it
-  //  to be displayed/updated in the correct part of the UI
-  //  * E.g. maybe you can expand/collapse the sidebar from the header and the feed, as well as the sidebar itself
   //  This means that the state will need to be accessed/updated from all of these components!
 
-  // To get started:
-  // TODO - add in an expanded state/setState
-  // TODO - add in a feedResults state/setState
-  // (See cheat sheet for useState example)
-
-  // TODO - import getData() from api (you will need to write this function)
-  //         and call it here (setting the results to the feedResults)
   // TODO [STRETCH] - implement loading state and pass to FeedComponent
-
-  // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
   const [radioSideBar, setRadioSideBar] = useState("houses");
   const [selectSideBar, setSelectSideBar] = useState("10");
@@ -40,35 +24,67 @@ function App() {
   const [query, setQuery] = useState("");
   const [ApiInfo, setApiInfo] = useState([]);
   const [sideBarOpen, setSideBarOpen] = useState(true);
+  const [showSnackBar, setShowSnackBar] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [links, setLinks] = useState([]);
+  const [alive, setAlive] = useState("");
+  const [gender, setGender] = useState("");
+  const [culture, setCulture] = useState("");
 
   useEffect(() => {
-    callAPI(radioSideBar, query);
-  }, [radioSideBar, selectSideBar]);
+    callAPI();
+  }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
 
-  const callAPI = async (radioSideBar, query) => {
-    const data = await getData(radioSideBar, query, selectSideBar);
+  const callAPI = async () => {
+    const response = await getData(
+      radioSideBar,
+      query,
+      selectSideBar,
+      currentPage,
+      alive,
+      gender,
+      culture
+    );
+    const data = await response.json();
+    setLinks(
+      response.headers
+        .get("link")
+        .split(",")
+        .reduce((acc, link) => {
+          const props = /^\<(.+)\>; rel="(.+)"$/.exec(link.trim());
+          if (!props) {
+            console.warn("no match");
+            return acc;
+          }
+          acc[props[2]] = props[1];
+          return acc;
+        }, {})
+    );
+
     setApiInfo(data);
+    setLinks(links);
     returnedResultsWarning(data);
-    console.log(ApiInfo);
   };
 
   const returnedResultsWarning = (data) => {
     if (data.length === 0) {
-      alert("No Results Found");
+      setShowSnackBar(true);
+      setTimeout(() => {
+        setShowSnackBar(false);
+      }, 3000);
     }
   };
 
+  console.log(search);
   return (
     <div className="app">
-      <div className="body">
+      <div className="web">
         <div className={sideBarOpen ? "sidenav" : "sidenav-inactive"}>
           <SidebarComponent
             radioSideBar={radioSideBar}
             setRadioSideBar={setRadioSideBar}
             selectSideBar={selectSideBar}
-            callAPI={callAPI}
             setSelectSideBar={setSelectSideBar}
-            sideBarOpen={sideBarOpen}
           />
         </div>
         <div className={sideBarOpen ? "content" : "content-expand"}>
@@ -76,14 +92,43 @@ function App() {
             setSearch={setSearch}
             setQuery={setQuery}
             search={search}
-            callAPI={callAPI}
-            radioSideBar={radioSideBar}
             setSideBarOpen={setSideBarOpen}
             sideBarOpen={sideBarOpen}
           />
 
-          <FeedComponent ApiInfo={ApiInfo} radioSideBar={radioSideBar} />
+          <FeedComponent
+            ApiInfo={ApiInfo}
+            radioSideBar={radioSideBar}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            selectSideBar={selectSideBar}
+            links={links}
+            alive={alive}
+            setAlive={setAlive}
+            gender={gender}
+            setGender={setGender}
+            culture={culture}
+            setCulture={setCulture}
+          />
         </div>
+        <Snackbar showSnackBar={showSnackBar} />
+      </div>
+      <div className="mobile">
+        <MobileComponent
+          setRadioSideBar={setRadioSideBar}
+          radioSideBar={radioSideBar}
+          setSearch={setSearch}
+          setQuery={setQuery}
+          search={search}
+          selectSideBar={selectSideBar}
+          setSelectSideBar={setSelectSideBar}
+          ApiInfo={ApiInfo}
+          links={links}
+          alive={alive}
+          setAlive={setAlive}
+          gender={gender}
+          setGender={setGender}
+        />
       </div>
     </div>
   );

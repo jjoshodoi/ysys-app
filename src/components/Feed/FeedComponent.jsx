@@ -3,6 +3,7 @@ import { CharacterCard } from "../STRETCH_Cards/Characters/CharacterCard";
 import { HouseCard } from "../STRETCH_Cards/HouseCards/HouseCard";
 import { BookCard } from "../STRETCH_Cards/Books/BookCard";
 import "./FeedComponent.css";
+import Pagination from "./Pagination";
 
 // TODO - make sure FeedComponent is expecting the right props!
 export const FeedComponent = (props) => {
@@ -16,11 +17,30 @@ export const FeedComponent = (props) => {
           case "houses":
             return <HouseCard ApiInfo={props.ApiInfo} />;
           case "characters":
-            return <CharacterCard ApiInfo={props.ApiInfo} />;
+
+            return (
+              <CharacterCard
+                ApiInfo={props.ApiInfo}
+                alive={props.alive}
+                setAlive={props.setAlive}
+                gender={props.gender}
+                setGender={props.setGender}
+                culture={props.culture}
+                setCulture={props.setCulture}
+              />
+            );
           default:
             return <BookCard ApiInfo={props.ApiInfo} />;
         }
       })()}
+      <Pagination
+        setCurrentPage={props.setCurrentPage}
+        currentPage={props.currentPage}
+        links={props.links}
+        radioSideBar={props.radioSideBar}
+        selectSideBar={props.selectSideBar}
+
+      />
     </div>
   );
 };
