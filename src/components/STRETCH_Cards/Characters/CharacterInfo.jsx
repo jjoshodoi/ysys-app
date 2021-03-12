@@ -44,17 +44,43 @@ const CharacterInfo = (props) => {
   var name = "";
 
   if (props.item.culture === "Braavosi") {
-    house = "Images/Braavosi.jpg";
+    house = "Images/Cultures/Braavosi.jpg";
   } else if (props.item.culture === "Northmen") {
-    house = "Images/Northmen.jpg";
+    house = "Images/Cultures/Northmen.jpg";
   } else if (props.item.culture === "Valyrian") {
-    house = "Images/Valyrian.jpg";
+    house = "Images/Cultures/Valyrian.jpg";
   } else if (props.item.culture === "Westeros") {
-    house = "Images/Westeros.png";
+    house = "Images/Cultures/Westeros.png";
   } else if (props.item.culture === "Dothraki") {
-    house = "Images/Dothraki.jpg";
+    house = "Images/Cultures/Dothraki.jpg";
   } else if (props.item.culture === "Ironborn") {
-    house = "Images/Ironborn.jpg";
+    house = "Images/Cultures/Ironborn.jpg";
+  } else if (props.item.culture === "Stormlands") {
+    house = "Images/Cultures/Stormlands.png";
+  } else if (props.item.culture === "Reach") {
+    house = "Images/Cultures/Reach.png";
+  } else if (props.item.culture === "Andal") {
+    house = "Images/Cultures/Andal.jpg";
+  } else if (props.item.culture === "Dornish") {
+    house = "Images/Cultures/Dornish.jpg";
+  } else if (props.item.culture === "Valemen") {
+    house = "Images/Cultures/Valemen.png";
+  } else if (props.item.culture === "Northern mountain clans") {
+    house = "Images/Cultures/Northern Mountain Clan.png";
+  } else if (props.item.culture === "Rivermen") {
+    house = "Images/Cultures/Rivermen.jpg";
+  } else if ((props.item.culture === "Westerman") || (props.item.culture === "Westerlands")) {
+    house = "Images/Cultures/Westermen.png";
+  } else if (props.item.culture === "First Men") {
+    house = "Images/Cultures/Firstmen.png";
+  } else if (props.item.culture === "Crannogmen") {
+    house = "Images/Cultures/Crannogmen.jpg";
+  } else if (props.item.culture === "Asshai") {
+    house = "Images/Cultures/Asshai.png";
+  } else if (props.item.culture === "Sistermen") {
+    house = "Images/Cultures/Sistermen.jpg";
+  } else if (props.item.culture === "Ghiscari") {
+    house = "Images/Cultures/Ghiscari.png";
   } else {
     house = "Images/Houses/GOT CARD.png";
   }

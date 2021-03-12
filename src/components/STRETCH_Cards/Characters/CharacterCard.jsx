@@ -94,6 +94,45 @@ export const CharacterCard = (props) => {
               <MenuItem value="Ironborn"onClick={() => props.setCulture("Ironborn")}>
                 Ironborn
               </MenuItem>
+              <MenuItem value="Stormlands"onClick={() => props.setCulture("Stormlands")}>
+                Stormlands
+              </MenuItem>
+              <MenuItem value="Reach"onClick={() => props.setCulture("Reach")}>
+                Reach
+              </MenuItem>
+              <MenuItem value="Andal"onClick={() => props.setCulture("Andal")}>
+                Andal
+              </MenuItem>
+              <MenuItem value="Dornish"onClick={() => props.setCulture("Dornish")}>
+                Dornish
+              </MenuItem>
+              <MenuItem value="Valemen"onClick={() => props.setCulture("Valemen")}>
+                Valemen
+              </MenuItem>
+              <MenuItem value="Northen Mountain Clan"onClick={() => props.setCulture("Northern mountain clans")}>
+                Northen Mountain Clan
+              </MenuItem>
+              <MenuItem value="Rivermen"onClick={() => props.setCulture("Rivermen")}>
+                Rivermen
+              </MenuItem>
+              <MenuItem value="Westerman"onClick={() => props.setCulture("Westerman")}>
+                Westerman
+              </MenuItem>
+              <MenuItem value="Firstmen"onClick={() => props.setCulture("Firstmen")}>
+                Firstmen
+              </MenuItem>
+              <MenuItem value="Crannogmen"onClick={() => props.setCulture("Crannogmen")}>
+                Crannogmen
+              </MenuItem>
+              <MenuItem value="Asshai"onClick={() => props.setCulture("Asshai")}>
+                Asshai
+              </MenuItem>
+              <MenuItem value="Sistermen"onClick={() => props.setCulture("Sistermen")}>
+                Sistermen
+              </MenuItem>
+              <MenuItem value="Ghiscari"onClick={() => props.setCulture("Ghiscari")}>
+                Ghiscari
+              </MenuItem>
             </MenuRadioGroup>  
           </SubMenu>
         </Menu>
