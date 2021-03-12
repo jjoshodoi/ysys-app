@@ -107,6 +107,13 @@ export const CharacterCard = (props) => {
           ) : (
             ""
           )}
+          {props.culture === "" ? (
+            ""
+          ) : (
+            <button onClick={() => props.setCulture("")}>
+              {`${props.culture} X`}
+            </button>
+          )}
         </div>
       </div>
       <Grid container spacing={3}>
