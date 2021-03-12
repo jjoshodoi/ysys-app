@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
 import { Select } from "@material-ui/core";
-import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
+import { Menu, MenuItem, MenuButton, SubMenu } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 
 const useStyles = makeStyles({
@@ -33,15 +33,15 @@ const useStyles = makeStyles({
 });
 
 export const CharacterCard = (props) => {
-  // const [alive, setAlive] = useState("");
   console.log(props.setAlive);
-
+  console.log(props.setGender);
   const classes = useStyles();
 
   return (
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
+        <SubMenu label="Status">
           <MenuItem value="Alive" onClick={() => props.setAlive("")}>
             None
           </MenuItem>
@@ -51,11 +51,23 @@ export const CharacterCard = (props) => {
           <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
             Dead
           </MenuItem>
+          </SubMenu>
+          <SubMenu label="Gender">
+          <MenuItem value="Female" onClick={() => props.setGender("")}>
+            None
+          </MenuItem>
+          <MenuItem value="Female" onClick={() => props.setGender("Female")}>
+            Female
+          </MenuItem>
+          <MenuItem value="Male" onClick={() => props.setGender("Male")}>
+            Male
+          </MenuItem>
+          </SubMenu>
         </Menu>
       </div>
       <Grid container spacing={3}>
         {props.ApiInfo.map((item) => (
-          <CharacterInfo item={item} alive={props.alive} />
+          <CharacterInfo item={item} alive={props.alive} gender={props.gender} />
         ))}
       </Grid>
     </ul>
