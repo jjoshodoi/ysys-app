@@ -62,6 +62,35 @@ export const CharacterCard = (props) => {
               Male
             </MenuItem>
           </SubMenu>
+          <SubMenu label="Culture">
+            <MenuItem value="None" onClick={() => props.setCulture("")}>
+              None
+            </MenuItem>
+            <MenuItem
+              value="Braavosi"
+              onClick={() => props.setCulture("Braavosi")}
+            >
+              Braavosi
+            </MenuItem>
+            <MenuItem
+              value="Northmen"
+              onClick={() => props.setCulture("Northmen")}
+            >
+              Northmen
+            </MenuItem>
+            <MenuItem
+              value="Valyrian"
+              onClick={() => props.setCulture("Valyrian")}
+            >
+              Valyrian
+            </MenuItem>
+            <MenuItem
+              value="Westeros"
+              onClick={() => props.setCulture("Westeros")}
+            >
+              Westeros
+            </MenuItem>
+          </SubMenu>
         </Menu>
       </div>
       <Grid container spacing={3}>
@@ -70,6 +99,7 @@ export const CharacterCard = (props) => {
             item={item}
             alive={props.alive}
             gender={props.gender}
+            culture={props.culture}
           />
         ))}
       </Grid>
