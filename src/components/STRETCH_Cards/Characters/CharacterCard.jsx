@@ -97,6 +97,29 @@ export const CharacterCard = (props) => {
             </MenuRadioGroup>  
           </SubMenu>
         </Menu>
+        <div>
+          {props.alive === "" ? (
+            ""
+          ) : (
+            <button onClick={() => props.setAlive("")}>
+              {props.alive === true ? "Alive" : "Dead"} X
+            </button>
+          )}
+          {props.gender === "" ? (
+            ""
+          ) : (
+            <button onClick={() => props.setGender("")}>
+              {props.gender === "Male" ? "Male" : "Female"} X
+            </button>
+          )}
+          {props.culture === "" ? (
+            ""
+          ) : (
+            <button onClick={() => props.setCulture("")}>
+              {`${props.culture} X`}
+            </button>
+          )}
+        </div>
       </div>
       <Grid container spacing={3}>
         {props.ApiInfo.map((item) => (

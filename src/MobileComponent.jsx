@@ -76,7 +76,7 @@ const MobileComponent = (props) => {
       </div>
       <div className="mobileContents">
         <div className="row">
-          <div id="title">{props.radioSideBar}</div>
+          <div id="title"><b>Currently Viewing: {props.radioSideBar}</b></div>
           <div id="search">
             <button className="searchButton" type="submit" form="search">
               <SearchIcon
