@@ -1,4 +1,5 @@
 import "./App.css";
+import "./AppMobile.css";
 import "./scrollbar.css";
 import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
@@ -6,6 +7,8 @@ import { FeedComponent } from "./components/Feed/FeedComponent";
 import getData from "./api/api";
 import React, { useState, useEffect } from "react";
 import Snackbar from "./components/Shared/Snackbar/snackbar";
+
+import MobileComponent from "./MobileComponent";
 
 function App() {
   //  * whether the app is fetching data (loading)
@@ -23,15 +26,20 @@ function App() {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [links, setLinks] = useState([]);
+
   const [alive, setAlive] = useState("");
   const [gender, setGender] = useState("")
+
 
   useEffect(() => {
     callAPI(radioSideBar, query);
   }, [radioSideBar, selectSideBar, query, currentPage, alive, gender]);
 
   const callAPI = async (radioSideBar, query) => {
-    const data = await getData(
+    // const [data, links] = await getData(
+    const response = await getData(
       radioSideBar,
       query,
       selectSideBar,
@@ -39,9 +47,26 @@ function App() {
       alive,
       gender
     );
+    const data = await response.json();
+    setLinks(
+      response.headers
+        .get("link")
+        .split(",")
+        .reduce((acc, link) => {
+          const props = /^\<(.+)\>; rel="(.+)"$/.exec(link.trim());
+          if (!props) {
+            console.warn("no match");
+            return acc;
+          }
+          acc[props[2]] = props[1];
+          return acc;
+        }, {})
+    );
+
+
     setApiInfo(data);
+    setLinks(links);
     returnedResultsWarning(data);
-    console.log(ApiInfo);
   };
 
   const returnedResultsWarning = (data) => {
@@ -53,9 +78,10 @@ function App() {
     }
   };
 
+  console.log(search);
   return (
     <div className="app">
-      <div className="body">
+      <div className="web">
         <div className={sideBarOpen ? "sidenav" : "sidenav-inactive"}>
           <SidebarComponent
             radioSideBar={radioSideBar}
@@ -78,6 +104,8 @@ function App() {
             radioSideBar={radioSideBar}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+            selectSideBar={selectSideBar}
+            links={links}
             alive={alive}
             setAlive={setAlive}
             gender = {gender}
@@ -85,6 +113,17 @@ function App() {
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />
+      </div>
+      <div className="mobile">
+        <MobileComponent
+          setRadioSideBar={setRadioSideBar}
+          radioSideBar={radioSideBar}
+          setSearch={setSearch}
+          setQuery={setQuery}
+          search={search}
+          selectSideBar={selectSideBar}
+          setSelectSideBar={setSelectSideBar}
+        />
       </div>
     </div>
   );

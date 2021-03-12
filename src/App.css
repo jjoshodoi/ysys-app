@@ -6,8 +6,12 @@
   overflow-y: auto;
 }
 
-.body {
+.web {
   display: flex;
+}
+
+.mobile {
+  display: none;
 }
 
 .sidenav {
@@ -127,4 +131,14 @@ ul {
 .pageButtons {
   align-items: center;
   display: inline-block;
+}
+
+@media screen and (max-width: 700px) {
+  .web {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
 }
