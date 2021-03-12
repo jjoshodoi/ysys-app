@@ -16,14 +16,15 @@ const getData = async (
   selectSideBar,
   pageSelector,
   alive,
-  gender
+  gender,
+  culture
 ) => {
   const URL = `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`;
 
   const selectURL = () => {
     switch (radioSideBar) {
       case "characters":
-        return URL.concat(`&isAlive=${alive}&gender=${gender}`);
+        return URL.concat(`&isAlive=${alive}&gender=${gender}&culture=${culture}`);
       case "houses":
         return URL;
       case "books":
