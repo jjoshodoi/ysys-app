@@ -26,9 +26,7 @@ function App() {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-
   const [links, setLinks] = useState([]);
-
   const [alive, setAlive] = useState("");
 
 

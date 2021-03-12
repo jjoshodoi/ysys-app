@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Select } from "@material-ui/core";
 import { Menu, MenuItem, MenuButton } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 
@@ -33,7 +32,6 @@ const useStyles = makeStyles({
 });
 
 export const CharacterCard = (props) => {
-  // const [alive, setAlive] = useState("");
   console.log(props.setAlive);
 
   const classes = useStyles();
