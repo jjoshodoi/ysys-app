@@ -28,12 +28,11 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [links, setLinks] = useState([]);
   const [alive, setAlive] = useState("");
-  const [gender, setGender] = useState("")
-  const [culture, setCulture] = useState("")
-
+  const [gender, setGender] = useState("");
+  const [culture, setCulture] = useState("");
 
   useEffect(() => {
-    callAPI(radioSideBar, query);
+    callAPI();
   }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
 
   const callAPI = async () => {
