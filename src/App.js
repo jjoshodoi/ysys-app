@@ -36,8 +36,7 @@ function App() {
     callAPI(radioSideBar, query);
   }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
 
-  const callAPI = async (radioSideBar, query) => {
-    // const [data, links] = await getData(
+  const callAPI = async () => {
     const response = await getData(
       radioSideBar,
       query,
@@ -62,7 +61,6 @@ function App() {
           return acc;
         }, {})
     );
-
 
     setApiInfo(data);
     setLinks(links);
@@ -108,7 +106,7 @@ function App() {
             links={links}
             alive={alive}
             setAlive={setAlive}
-            gender = {gender}
+            gender={gender}
             setGender={setGender}
             culture={culture}
             setCulture={setCulture}
