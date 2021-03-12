@@ -58,17 +58,20 @@ const Pagination = (props) => {
 
   return (
     <div className="pageButtons">
+
       {props.currentPage === 1 ? (
         ""
       ) : (
         <button onClick={prevPage}>{"Prev"}</button>
       )}
+
       {props.currentPage - 2 > 0 ? (
         <button onClick={() => changePage(-2)}> {props.currentPage - 2}</button>
       ) : (
         ""
       )}
       {props.currentPage - 2 > 0 ? (
+
         <button onClick={prevPage}>{props.currentPage - 1}</button>
       ) : (
         ""

@@ -48,7 +48,7 @@ export const HeaderComponent = (props) => {
             ></input> */}
 
             <button className="searchButton" type="submit" form="search">
-              <SearchIcon fontSize="medium" />
+              <SearchIcon fontSize="default" />
             </button>
           </form>
         </header>

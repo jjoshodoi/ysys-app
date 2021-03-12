@@ -17,7 +17,14 @@ export const FeedComponent = (props) => {
           case "houses":
             return <HouseCard ApiInfo={props.ApiInfo} />;
           case "characters":
-            return <CharacterCard ApiInfo={props.ApiInfo} />;
+
+            return (
+              <CharacterCard
+                ApiInfo={props.ApiInfo}
+                alive={props.alive}
+                setAlive={props.setAlive}
+              />
+            );
           default:
             return <BookCard ApiInfo={props.ApiInfo} />;
         }
@@ -28,6 +35,7 @@ export const FeedComponent = (props) => {
         links={props.links}
         radioSideBar={props.radioSideBar}
         selectSideBar={props.selectSideBar}
+
       />
     </div>
   );

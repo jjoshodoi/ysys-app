@@ -15,15 +15,30 @@ const getData = async (
   query,
   selectSideBar,
   pageSelector,
-  alive = ""
+  alive
+
+ 
 ) => {
+  const URL = `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`;
+
+  const selectURL = () => {
+    switch (radioSideBar) {
+      case "characters":
+        return URL.concat(`&isAlive=${alive}`);
+      case "houses":
+        return URL;
+      case "books":
+        return URL;
+      default:
+        return URL;
+    }
+  };
   try {
-    const response = await fetch(
-      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`
-    );
+    const fetchURL = selectURL();
+    const response = await fetch(fetchURL);
     const links = response.headers.get("link").split(",");
     return response;
-    // [response.json(), links];
+
   } catch (error) {
     return console.log(error.message);
   }

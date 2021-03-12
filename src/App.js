@@ -26,11 +26,15 @@ function App() {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [showSnackBar, setShowSnackBar] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+
   const [links, setLinks] = useState([]);
+
+  const [alive, setAlive] = useState("");
+
 
   useEffect(() => {
     callAPI(radioSideBar, query);
-  }, [radioSideBar, selectSideBar, query, currentPage]);
+  }, [radioSideBar, selectSideBar, query, currentPage, alive]);
 
   const callAPI = async (radioSideBar, query) => {
     // const [data, links] = await getData(
@@ -38,7 +42,8 @@ function App() {
       radioSideBar,
       query,
       selectSideBar,
-      currentPage
+      currentPage,
+      alive
     );
     const data = await response.json();
     setLinks(
@@ -55,6 +60,7 @@ function App() {
           return acc;
         }, {})
     );
+
 
     setApiInfo(data);
     setLinks(links);
@@ -98,6 +104,8 @@ function App() {
             setCurrentPage={setCurrentPage}
             selectSideBar={selectSideBar}
             links={links}
+            alive={alive}
+            setAlive={setAlive}
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />

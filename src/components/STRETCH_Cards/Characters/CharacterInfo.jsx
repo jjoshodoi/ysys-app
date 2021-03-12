@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
+import { isWidthUp } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -23,18 +23,26 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   status: {
-    background: '#47d147',
-    color: 'white',
-    borderRadius: '10px',
-    minwidth: '50px',
-    padding: '5px 5px',
-    marginTop: '10px',
-},
+    background: "#47d147",
+    color: "white",
+    borderRadius: "8px",
+    minwidth: "50px",
+    padding: "2px 2px",
+    marginTop: "10px",
+  },
+  status2: {
+    background: "#ff4d4d",
+    color: "white",
+    borderRadius: "8px",
+    minwidth: "50px",
+    padding: "2px 2px",
+    marginTop: "10px",
+  },
 });
 
 const CharacterInfo = (props) => {
   var house = "";
-  var name= "";
+  var name = "";
 
   if (props.item.culture === "Braavosi") {
     house = "Images/Braavosi.jpg";
@@ -67,26 +75,158 @@ const CharacterInfo = (props) => {
     listOfTitles = titles;
   }
 
-  if(props.item.died == "") {
+  if (props.item.died == "") {
     var status = "true";
   } else {
     status = "false";
   }
   const classes = useStyles();
+
+  // if ((props.alive === "Alive") && (props.item.died == "")) {
+  //   return (
+  //     <Grid item xs={6} md={4}>
+  //     <Card className={classes.root}>
+  //       <div className = "CardHeader">
+  //       <Typography variant="h5" component="h2">
+  //           <b>{props.item.culture}</b>
+  //         </Typography>
+  //       </div>
+  //       <img
+  //       src={house}
+  //       className="Border cardImg"
+  //       alt="Failed."/>
+
+  //       <CardContent className= "Card">
+  //         <Typography variant="h5" component="h9">
+  //           <b>{name}</b>
+  //         </Typography>
+  //         <hr className="Line" />
+  //         <Typography paragraph variant="h8">
+  //           <b>Title: </b>
+  //           {listOfTitles}
+  //         </Typography>
+  //         <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+  //           <b>AKA:</b>{" "}
+  //           <em>{listOfAliases}</em>
+  //         </Typography>
+  //         <div>
+  //           {(() => {
+  //             if (status == "true") {
+  //               return (
+  //                 <span className={classes.status}>
+  //                   Alive
+  //                 </span>
+  //               )
+  //             }
+  //           })()}
+  //         Alive
+  //         </div>
+  //       </CardContent>
+  //     </Card>
+  //   </Grid>
+  //   );
+  // } else if ((props.alive === "Dead") && (props.item.died != "")) {
+  //     return (
+  //       <Grid item xs={6} md={4}>
+  //         <Card className={classes.root}>
+  //           <div className = "CardHeader">
+  //           <Typography variant="h5" component="h2">
+  //               <b>{props.item.culture}</b>
+  //             </Typography>
+  //           </div>
+  //           <img
+  //           src={house}
+  //           className="Border cardImg"
+  //           alt="Failed."/>
+
+  //           <CardContent className= "Card">
+  //             <Typography variant="h5" component="h9">
+  //               <b>{name}</b>
+  //             </Typography>
+  //             <hr className="Line" />
+  //             <Typography paragraph variant="h8">
+  //               <b>Title: </b>
+  //               {listOfTitles}
+  //             </Typography>
+  //             <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+  //               <b>AKA:</b>{" "}
+  //               <em>{listOfAliases}</em>
+  //             </Typography>
+  //             <div>
+  //               {(() => {
+  //                     return (
+  //                       <span className={classes.status2}>
+  //                         {props.item.died}
+  //                       </span>
+  //                   )
+  //               })()}
+  //               Dead
+  //             </div>
+  //           </CardContent>
+  //         </Card>
+  //       </Grid>
+  //     );
+  //     } else if (props.alive === "Empty") {
+  //       return (
+  //         <Grid item xs={6} md={4}>
+  //           <Card className={classes.root}>
+  //             <div className = "CardHeader">
+  //             <Typography variant="h5" component="h2">
+  //                 <b>{props.item.culture}</b>
+  //               </Typography>
+  //             </div>
+  //             <img
+  //             src={house}
+  //             className="Border cardImg"
+  //             alt="Failed."/>
+
+  //             <CardContent className= "Card">
+  //               <Typography variant="h5" component="h9">
+  //                 <b>{name}</b>
+  //               </Typography>
+  //               <hr className="Line" />
+  //               <Typography paragraph variant="h8">
+  //                 <b>Title: </b>
+  //                 {listOfTitles}
+  //               </Typography>
+  //               <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
+  //                 <b>AKA:</b>{" "}
+  //                 <em>{listOfAliases}</em>
+  //               </Typography>
+  //               <div>
+  //                 {(() => {
+  //                   if (status == "true") {
+  //                     return (
+  //                       <span className={classes.status}>
+  //                         Alive
+  //                       </span>
+  //                     )
+  //                   } else {
+  //                       return (
+  //                         <span className={classes.status2}>
+  //                           {props.item.died}
+  //                         </span>
+  //                       )
+  //                   }
+  //                 })()}
+  //                 Both
+  //               </div>
+  //             </CardContent>
+  //           </Card>
+  //         </Grid>
+  //       );
+  //     } else {
   return (
-    <Grid item xs={6} md={4}>      
+    <Grid item xs={6} md={4}>
       <Card className={classes.root}>
-        <div className = "CardHeader">
-        <Typography variant="h5" component="h2">
+        <div className="CardHeader">
+          <Typography variant="h5" component="h2">
             <b>{props.item.culture}</b>
           </Typography>
-        </div>  
-        <img
-        src={house} 
-        className="Border cardImg" 
-        alt="Failed."/>
+        </div>
+        <img src={house} className="Border cardImg" alt="Failed." />
 
-        <CardContent className= "Card">          
+        <CardContent className="Card">
           <Typography variant="h5" component="h9">
             <b>{name}</b>
           </Typography>
@@ -95,25 +235,31 @@ const CharacterInfo = (props) => {
             <b>Title: </b>
             {listOfTitles}
           </Typography>
-          <Typography paragraph className={classes.pos} color="textSecondary" variant="h8">
-            <b>AKA:</b>{" "}
-            <em>{listOfAliases}</em>
+          <Typography
+            paragraph
+            className={classes.pos}
+            color="textSecondary"
+            variant="h8"
+          >
+            <b>AKA:</b> <em>{listOfAliases}</em>
           </Typography>
           <div>
             {(() => {
               if (status == "true") {
+                return <span className={classes.status}>Alive</span>;
+              } else {
                 return (
-                  <span className={classes.status}> 
-                  Alive
-                  </span>                 
-              )
-            }
-          })()}
+                  <span className={classes.status2}>{props.item.died}</span>
+                );
+              }
+            })()}
+            Both
           </div>
         </CardContent>
       </Card>
     </Grid>
   );
 };
+// };
 
 export default CharacterInfo;
