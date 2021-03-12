@@ -17,7 +17,6 @@ export const FeedComponent = (props) => {
           case "houses":
             return <HouseCard ApiInfo={props.ApiInfo} />;
           case "characters":
-
             return (
               <CharacterCard
                 ApiInfo={props.ApiInfo}
@@ -39,7 +38,7 @@ export const FeedComponent = (props) => {
         links={props.links}
         radioSideBar={props.radioSideBar}
         selectSideBar={props.selectSideBar}
-
+        lastPage={props.lastPage}
       />
     </div>
   );

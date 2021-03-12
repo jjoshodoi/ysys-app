@@ -2,10 +2,15 @@ import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CharacterInfo from "./CharacterInfo";
-import { Menu, MenuItem, MenuButton, SubMenu, MenuRadioGroup } from "@szhsin/react-menu";
+import {
+  Menu,
+  MenuItem,
+  MenuButton,
+  SubMenu,
+  MenuRadioGroup,
+} from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 
 const useStyles = makeStyles({
   root: {
@@ -36,17 +41,16 @@ export const CharacterCard = (props) => {
   console.log(props.setAlive);
   console.log(props.setGender);
   const classes = useStyles();
-  const [status, setStatus] = useState('None');
-  const [filterGender, setFilterGender] = useState('None');
-  const [filterCulture, setFilterCulture] = useState('None');
-
+  const [status, setStatus] = useState("None");
+  const [filterGender, setFilterGender] = useState("None");
+  const [filterCulture, setFilterCulture] = useState("None");
 
   return (
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
           <SubMenu label="Status">
-            <MenuRadioGroup value={status} onChange={e => setStatus(e.value)}>
+            <MenuRadioGroup value={status} onChange={(e) => setStatus(e.value)}>
               <MenuItem value="None" onClick={() => props.setAlive("")}>
                 None
               </MenuItem>
@@ -56,14 +60,20 @@ export const CharacterCard = (props) => {
               <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
                 Dead
               </MenuItem>
-              </MenuRadioGroup>
+            </MenuRadioGroup>
           </SubMenu>
           <SubMenu label="Gender">
-            <MenuRadioGroup value={filterGender} onChange={e => setFilterGender(e.value)}>
+            <MenuRadioGroup
+              value={filterGender}
+              onChange={(e) => setFilterGender(e.value)}
+            >
               <MenuItem value="None" onClick={() => props.setGender("")}>
                 None
               </MenuItem>
-              <MenuItem value="Female" onClick={() => props.setGender("Female")}>
+              <MenuItem
+                value="Female"
+                onClick={() => props.setGender("Female")}
+              >
                 Female
               </MenuItem>
               <MenuItem value="Male" onClick={() => props.setGender("Male")}>
@@ -72,68 +82,122 @@ export const CharacterCard = (props) => {
             </MenuRadioGroup>
           </SubMenu>
           <SubMenu label="Culture">
-            <MenuRadioGroup value={filterCulture} onChange={e => setFilterCulture(e.value)}>
+            <MenuRadioGroup
+              value={filterCulture}
+              onChange={(e) => setFilterCulture(e.value)}
+            >
               <MenuItem value="None" onClick={() => props.setCulture("")}>
                 None
               </MenuItem>
-              <MenuItem value="Braavosi" onClick={() => props.setCulture("Braavosi")}>
+              <MenuItem
+                value="Braavosi"
+                onClick={() => props.setCulture("Braavosi")}
+              >
                 Braavosi
               </MenuItem>
-              <MenuItem value="Northmen"onClick={() => props.setCulture("Northmen")}>
+              <MenuItem
+                value="Northmen"
+                onClick={() => props.setCulture("Northmen")}
+              >
                 Northmen
               </MenuItem>
-              <MenuItem value="Valyrian" onClick={() => props.setCulture("Valyrian")}>
+              <MenuItem
+                value="Valyrian"
+                onClick={() => props.setCulture("Valyrian")}
+              >
                 Valyrian
               </MenuItem>
-              <MenuItem value="Westeros"onClick={() => props.setCulture("Westeros")}>
+              <MenuItem
+                value="Westeros"
+                onClick={() => props.setCulture("Westeros")}
+              >
                 Westeros
               </MenuItem>
-              <MenuItem value="Dothraki"onClick={() => props.setCulture("Dothraki")}>
+              <MenuItem
+                value="Dothraki"
+                onClick={() => props.setCulture("Dothraki")}
+              >
                 Dothraki
               </MenuItem>
-              <MenuItem value="Ironborn"onClick={() => props.setCulture("Ironborn")}>
+              <MenuItem
+                value="Ironborn"
+                onClick={() => props.setCulture("Ironborn")}
+              >
                 Ironborn
               </MenuItem>
-              <MenuItem value="Stormlands"onClick={() => props.setCulture("Stormlands")}>
+              <MenuItem
+                value="Stormlands"
+                onClick={() => props.setCulture("Stormlands")}
+              >
                 Stormlands
               </MenuItem>
-              <MenuItem value="Reach"onClick={() => props.setCulture("Reach")}>
+              <MenuItem value="Reach" onClick={() => props.setCulture("Reach")}>
                 Reach
               </MenuItem>
-              <MenuItem value="Andal"onClick={() => props.setCulture("Andal")}>
+              <MenuItem value="Andal" onClick={() => props.setCulture("Andal")}>
                 Andal
               </MenuItem>
-              <MenuItem value="Dornish"onClick={() => props.setCulture("Dornish")}>
+              <MenuItem
+                value="Dornish"
+                onClick={() => props.setCulture("Dornish")}
+              >
                 Dornish
               </MenuItem>
-              <MenuItem value="Valemen"onClick={() => props.setCulture("Valemen")}>
+              <MenuItem
+                value="Valemen"
+                onClick={() => props.setCulture("Valemen")}
+              >
                 Valemen
               </MenuItem>
-              <MenuItem value="Northen Mountain Clan"onClick={() => props.setCulture("Northern mountain clans")}>
+              <MenuItem
+                value="Northen Mountain Clan"
+                onClick={() => props.setCulture("Northern mountain clans")}
+              >
                 Northen Mountain Clan
               </MenuItem>
-              <MenuItem value="Rivermen"onClick={() => props.setCulture("Rivermen")}>
+              <MenuItem
+                value="Rivermen"
+                onClick={() => props.setCulture("Rivermen")}
+              >
                 Rivermen
               </MenuItem>
-              <MenuItem value="Westerman"onClick={() => props.setCulture("Westerman")}>
+              <MenuItem
+                value="Westerman"
+                onClick={() => props.setCulture("Westerman")}
+              >
                 Westerman
               </MenuItem>
-              <MenuItem value="Firstmen"onClick={() => props.setCulture("Firstmen")}>
+              <MenuItem
+                value="Firstmen"
+                onClick={() => props.setCulture("Firstmen")}
+              >
                 Firstmen
               </MenuItem>
-              <MenuItem value="Crannogmen"onClick={() => props.setCulture("Crannogmen")}>
+              <MenuItem
+                value="Crannogmen"
+                onClick={() => props.setCulture("Crannogmen")}
+              >
                 Crannogmen
               </MenuItem>
-              <MenuItem value="Asshai"onClick={() => props.setCulture("Asshai")}>
+              <MenuItem
+                value="Asshai"
+                onClick={() => props.setCulture("Asshai")}
+              >
                 Asshai
               </MenuItem>
-              <MenuItem value="Sistermen"onClick={() => props.setCulture("Sistermen")}>
+              <MenuItem
+                value="Sistermen"
+                onClick={() => props.setCulture("Sistermen")}
+              >
                 Sistermen
               </MenuItem>
-              <MenuItem value="Ghiscari"onClick={() => props.setCulture("Ghiscari")}>
+              <MenuItem
+                value="Ghiscari"
+                onClick={() => props.setCulture("Ghiscari")}
+              >
                 Ghiscari
               </MenuItem>
-            </MenuRadioGroup>  
+            </MenuRadioGroup>
           </SubMenu>
         </Menu>
         <div>
@@ -161,8 +225,9 @@ export const CharacterCard = (props) => {
         </div>
       </div>
       <Grid container spacing={3}>
-        {props.ApiInfo.map((item) => (
+        {props.ApiInfo.map((item, index) => (
           <CharacterInfo
+            key={index}
             item={item}
             alive={props.alive}
             gender={props.gender}

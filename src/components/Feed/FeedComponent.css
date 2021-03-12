@@ -114,6 +114,10 @@ h2 {
   bottom: 0;
 }
 
+.selectedPage {
+  background-color: rgb(87, 53, 53, 0.5);
+}
+
 @media screen and (max-width: 700px) {
   .left70Column {
     display: none;
