@@ -10,7 +10,9 @@ import {
   MenuRadioGroup,
 } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles({
   root: {
@@ -30,10 +32,21 @@ const useStyles = makeStyles({
   customselect: {
     display: "flex",
     fontsize: "1.1em",
-    color: "white",
+    color: "black",
     minHeight: "35px",
+    maxHeight: '25px',
     minwidth: "60px",
-    paddingBottom: "50px",
+    paddingBottom: "20px",
+  },
+  customselect2: {
+    display: "flex",
+    fontsize: "1.1em",
+    color: 'black',
+    minHeight: "35px",
+    maxHeight: '25px',
+    minwidth: "60px",
+    paddingBottom: "20px",
+    
   },
 });
 
@@ -109,27 +122,27 @@ export const CharacterCard = (props) => {
             </MenuRadioGroup>  
           </SubMenu>
         </Menu>
-        <div>
+        <div className={classes.customselect2}>
           {props.alive === "" ? (
             ""
           ) : (
-            <button onClick={() => props.setAlive("")}>
+            <Button variant="contained" color="primary"  onClick={() => props.setAlive("")}>
               {props.alive === true ? "Alive" : "Dead"} X
-            </button>
+            </Button>
           )}
           {props.gender === "" ? (
             ""
           ) : (
-            <button onClick={() => props.setGender("")}>
+            <Button variant="contained" color="primary"onClick={() => props.setGender("")}>
               {props.gender === "Male" ? "Male" : "Female"} X
-            </button>
+            </Button>
           )}
           {props.culture === "" ? (
             ""
           ) : (
-            <button onClick={() => props.setCulture("")}>
+            <Button variant="contained" color="primary" onClick={() => props.setCulture("")}>
               {`${props.culture} X`}
-            </button>
+            </Button>
           )}
         </div>
       </div>
