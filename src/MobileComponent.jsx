@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Select, MenuItem } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+import { FeedComponent } from "./components/Feed/FeedComponent";
 
 const MobileComponent = (props) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -101,6 +102,18 @@ const MobileComponent = (props) => {
             ></input>
           </form>
         </div>
+        <FeedComponent
+          ApiInfo={props.ApiInfo}
+          radioSideBar={props.radioSideBar}
+          currentPage={props.currentPage}
+          setCurrentPage={props.setCurrentPage}
+          selectSideBar={props.selectSideBar}
+          links={props.links}
+          alive={props.alive}
+          setAlive={props.setAlive}
+          gender={props.gender}
+          setGender={props.setGender}
+        />
       </div>
     </div>
   );

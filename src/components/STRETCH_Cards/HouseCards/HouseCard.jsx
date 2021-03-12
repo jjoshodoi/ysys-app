@@ -162,23 +162,32 @@ export const HouseCard = (props) => {
               <center>
                 {" "}
                 <h1 className="title">Please Search for an Item</h1>{" "}
-               <div id="arrowdiv"><img src="Images\Orange_animated_right_arrow.gif" height="200" width="200"></img></div>
-               <h1 className="title">Use the buttons in the bottom left to cycle through the House collection on the right</h1>
+                <div id="arrowdiv">
+                  <img
+                    src="Images\Orange_animated_right_arrow.gif"
+                    height="200"
+                    width="200"
+                  ></img>
+                </div>
+                <h1 className="title">
+                  Use the buttons in the bottom left to cycle through the House
+                  collection on the right
+                </h1>
               </center>
             )}
           </center>
         </div>
       </div>
-      
+
       <div className="right30Column">
-{/* <div className="househeading">
+        {/* <div className="househeading">
           <p id="househeadingpara">
             <b>Click</b>
           </p>
         </div> */}
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
-            <Grid item md={12} lg={6}>
+            <Grid item md={6} lg={6}>
               <Paper
                 onClick={() => {
                   // Get it to Load?

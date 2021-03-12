@@ -118,6 +118,12 @@ function App() {
           search={search}
           selectSideBar={selectSideBar}
           setSelectSideBar={setSelectSideBar}
+          ApiInfo={ApiInfo}
+          links={links}
+          alive={alive}
+          setAlive={setAlive}
+          gender={gender}
+          setGender={setGender}
         />
       </div>
     </div>
