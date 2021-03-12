@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Card.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -32,9 +32,9 @@ const useStyles = makeStyles({
   },
 });
 
-export const CharacterCard = ({ character, ApiInfo }) => {
-  const [alive, setAlive] = useState("");
-  console.log(setAlive);
+export const CharacterCard = (props) => {
+  // const [alive, setAlive] = useState("");
+  console.log(props.setAlive);
 
   const classes = useStyles();
 
@@ -42,17 +42,28 @@ export const CharacterCard = ({ character, ApiInfo }) => {
     <ul>
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
-          <MenuItem value="Alive" onClick={() => setAlive("Alive")}>
+          <MenuItem value="Alive" onClick={() => props.setAlive("")}>
+            None
+          </MenuItem>
+          <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
             Alive
           </MenuItem>
-          <MenuItem value="Dead" onClick={() => setAlive("Dead")}>
+          <MenuItem value="Dead" onClick={() => props.setAlive(false)}>
             Dead
           </MenuItem>
         </Menu>
       </div>
       <Grid container spacing={3}>
-        {ApiInfo.map((item) => (
-          alive == "" ? <CharacterInfo item={item} alive={alive}/> : ((alive == "Alive") && (item.died == "")) ? <CharacterInfo item={item} alive={alive}/> : ((alive == "Dead") && (item.died != "")) ? <CharacterInfo item={item} alive={alive}/> : "")
+        {props.ApiInfo.map((item) =>
+          props.alive == "" ? (
+            <CharacterInfo item={item} alive={props.alive} />
+          ) : props.alive == "Alive" && item.died == "" ? (
+            <CharacterInfo item={item} alive={props.alive} />
+          ) : props.alive == "Dead" && item.died != "" ? (
+            <CharacterInfo item={item} alive={props.alive} />
+          ) : (
+            ""
+          )
         )}
       </Grid>
     </ul>

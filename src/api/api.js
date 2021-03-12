@@ -10,11 +10,17 @@
 
 // see cheat sheet for fetch example.
 
-const getData = async (radioSideBar, query, selectSideBar, pageSelector) => {
+const getData = async (
+  radioSideBar,
+  query,
+  selectSideBar,
+  pageSelector,
+  alive
+) => {
+  var URL = `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}&isAlive=${alive}`;
+  console.log(alive);
   try {
-    const response = await fetch(
-      `https://anapioficeandfire.com/api/${radioSideBar}?name=${query}&page=${pageSelector}&pageSize=${selectSideBar}`
-    );
+    const response = await fetch(URL);
     return await response.json();
     //   console.log(data);
   } catch (error) {

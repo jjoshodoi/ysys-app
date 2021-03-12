@@ -8,24 +8,30 @@ import Pagination from "./Pagination";
 // TODO - make sure FeedComponent is expecting the right props!
 export const FeedComponent = (props) => {
   return (
-        <div className={"feed"}>
-          {/* TODO - add a placeholder for an empty feed */}
-          {/* TODO - build up a list of results */}
-          {/* TODO [STRETCH] - update this list to be a list/grid of STRETCH_Cards */}
-          {(() => {
-            switch (props.radioSideBar) {
-              case "houses":
-                return <HouseCard ApiInfo={props.ApiInfo} />;
-              case "characters":
-                return <CharacterCard ApiInfo={props.ApiInfo} />;
-              default:
-                return <BookCard ApiInfo={props.ApiInfo} />;
-            }
-          })()}
-          <Pagination
-            setCurrentPage={props.setCurrentPage}
-            currentPage={props.currentPage}
-          />
+    <div className={"feed"}>
+      {/* TODO - add a placeholder for an empty feed */}
+      {/* TODO - build up a list of results */}
+      {/* TODO [STRETCH] - update this list to be a list/grid of STRETCH_Cards */}
+      {(() => {
+        switch (props.radioSideBar) {
+          case "houses":
+            return <HouseCard ApiInfo={props.ApiInfo} />;
+          case "characters":
+            return (
+              <CharacterCard
+                ApiInfo={props.ApiInfo}
+                alive={props.alive}
+                setAlive={props.setAlive}
+              />
+            );
+          default:
+            return <BookCard ApiInfo={props.ApiInfo} />;
+        }
+      })()}
+      <Pagination
+        setCurrentPage={props.setCurrentPage}
+        currentPage={props.currentPage}
+      />
     </div>
   );
 };
