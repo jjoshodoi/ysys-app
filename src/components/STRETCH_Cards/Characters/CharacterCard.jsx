@@ -39,12 +39,39 @@ export const CharacterCard = (props) => {
   const [status, setStatus] = useState('None');
   const [filterGender, setFilterGender] = useState('None');
   const [filterCulture, setFilterCulture] = useState('None');
-
+  const genderOptions = [
+    'None',
+    'Female',
+    'Male'
+  ];
+  const cultureOptions = [
+    'None',
+    'Andal',
+    'Asshai',
+    'Braavosi',
+    'Crannogmen',
+    'Dornish',
+    'Dothraki',
+    'First Men',
+    'Ghiscari',
+    'Ironborn',
+    'Northern mountain clans',
+    'Northmen',
+    'Reach',
+    'Rivermen',
+    'Sistermen',
+    'Stormlands',
+    'Valemen',
+    'Valyrian',
+    'Westeros',
+    'Westerman'
+  ];
+ 
 
   return (
     <ul>
       <div className={classes.customselect}>
-        <Menu menuButton={<MenuButton>Filter By:</MenuButton>}>
+        <Menu menuButton={<MenuButton>Filter By:</MenuButton>} >
           <SubMenu label="Status">
             <MenuRadioGroup value={status} onChange={e => setStatus(e.value)}>
               <MenuItem value="None" onClick={() => props.setAlive("")}>
@@ -60,79 +87,20 @@ export const CharacterCard = (props) => {
           </SubMenu>
           <SubMenu label="Gender">
             <MenuRadioGroup value={filterGender} onChange={e => setFilterGender(e.value)}>
-              <MenuItem value="None" onClick={() => props.setGender("")}>
-                None
-              </MenuItem>
-              <MenuItem value="Female" onClick={() => props.setGender("Female")}>
-                Female
-              </MenuItem>
-              <MenuItem value="Male" onClick={() => props.setGender("Male")}>
-                Male
-              </MenuItem>
-            </MenuRadioGroup>
+              {genderOptions.map((genderOptions) => (
+            <MenuItem key={genderOptions} value={genderOptions} onClick={() => props.setGender(genderOptions)}>
+              {genderOptions}
+          </MenuItem>
+          ))}
+            </MenuRadioGroup>  
           </SubMenu>
           <SubMenu label="Culture">
             <MenuRadioGroup value={filterCulture} onChange={e => setFilterCulture(e.value)}>
-              <MenuItem value="None" onClick={() => props.setCulture("")}>
-                None
-              </MenuItem>
-              <MenuItem value="Braavosi" onClick={() => props.setCulture("Braavosi")}>
-                Braavosi
-              </MenuItem>
-              <MenuItem value="Northmen"onClick={() => props.setCulture("Northmen")}>
-                Northmen
-              </MenuItem>
-              <MenuItem value="Valyrian" onClick={() => props.setCulture("Valyrian")}>
-                Valyrian
-              </MenuItem>
-              <MenuItem value="Westeros"onClick={() => props.setCulture("Westeros")}>
-                Westeros
-              </MenuItem>
-              <MenuItem value="Dothraki"onClick={() => props.setCulture("Dothraki")}>
-                Dothraki
-              </MenuItem>
-              <MenuItem value="Ironborn"onClick={() => props.setCulture("Ironborn")}>
-                Ironborn
-              </MenuItem>
-              <MenuItem value="Stormlands"onClick={() => props.setCulture("Stormlands")}>
-                Stormlands
-              </MenuItem>
-              <MenuItem value="Reach"onClick={() => props.setCulture("Reach")}>
-                Reach
-              </MenuItem>
-              <MenuItem value="Andal"onClick={() => props.setCulture("Andal")}>
-                Andal
-              </MenuItem>
-              <MenuItem value="Dornish"onClick={() => props.setCulture("Dornish")}>
-                Dornish
-              </MenuItem>
-              <MenuItem value="Valemen"onClick={() => props.setCulture("Valemen")}>
-                Valemen
-              </MenuItem>
-              <MenuItem value="Northen Mountain Clan"onClick={() => props.setCulture("Northern mountain clans")}>
-                Northen Mountain Clan
-              </MenuItem>
-              <MenuItem value="Rivermen"onClick={() => props.setCulture("Rivermen")}>
-                Rivermen
-              </MenuItem>
-              <MenuItem value="Westerman"onClick={() => props.setCulture("Westerman")}>
-                Westerman
-              </MenuItem>
-              <MenuItem value="Firstmen"onClick={() => props.setCulture("Firstmen")}>
-                Firstmen
-              </MenuItem>
-              <MenuItem value="Crannogmen"onClick={() => props.setCulture("Crannogmen")}>
-                Crannogmen
-              </MenuItem>
-              <MenuItem value="Asshai"onClick={() => props.setCulture("Asshai")}>
-                Asshai
-              </MenuItem>
-              <MenuItem value="Sistermen"onClick={() => props.setCulture("Sistermen")}>
-                Sistermen
-              </MenuItem>
-              <MenuItem value="Ghiscari"onClick={() => props.setCulture("Ghiscari")}>
-                Ghiscari
-              </MenuItem>
+              {cultureOptions.map((cultureOptions) => (
+          <MenuItem key={cultureOptions} value={cultureOptions} onClick={() => props.setCulture(cultureOptions)}>
+            {cultureOptions}
+          </MenuItem>
+          ))}
             </MenuRadioGroup>  
           </SubMenu>
         </Menu>
