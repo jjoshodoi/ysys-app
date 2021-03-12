@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    // padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
     width: "118px",
@@ -138,9 +137,6 @@ export const HouseCard = (props) => {
       ? "N/A"
       : currentHouse.titles;
 
-  // const srcImg = getImageSrc({ name: "Baratheon Stannis" });
-  // console.log(srcImg);
-
   return (
     <div className="column2">
       <div className="left70Column">
@@ -171,11 +167,6 @@ export const HouseCard = (props) => {
       </div>
       
       <div className="right30Column">
-{/* <div className="househeading">
-          <p id="househeadingpara">
-            <b>Click</b>
-          </p>
-        </div> */}
         <Grid container spacing={3}>
           {props.ApiInfo.map((item) => (
             <Grid item md={12} lg={6}>

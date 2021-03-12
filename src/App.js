@@ -29,11 +29,12 @@ function App() {
   const [links, setLinks] = useState([]);
   const [alive, setAlive] = useState("");
   const [gender, setGender] = useState("")
+  const [culture, setCulture] = useState("")
 
 
   useEffect(() => {
     callAPI(radioSideBar, query);
-  }, [radioSideBar, selectSideBar, query, currentPage, alive, gender]);
+  }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
 
   const callAPI = async (radioSideBar, query) => {
     // const [data, links] = await getData(
@@ -43,7 +44,8 @@ function App() {
       selectSideBar,
       currentPage,
       alive,
-      gender
+      gender,
+      culture
     );
     const data = await response.json();
     setLinks(
@@ -108,6 +110,8 @@ function App() {
             setAlive={setAlive}
             gender = {gender}
             setGender={setGender}
+            culture={culture}
+            setCulture={setCulture}
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />

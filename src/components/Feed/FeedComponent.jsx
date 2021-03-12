@@ -25,6 +25,8 @@ export const FeedComponent = (props) => {
                 setAlive={props.setAlive}
                 gender={props.gender}
                 setGender={props.setGender}
+                culture={props.culture}
+                setCulture={props.setCulture}
               />
             );
           default:
